@@ -20,9 +20,9 @@
       "splits": {
         "swim_split": "00:06:35",
         "t1_cumulatief": "00:07:45",
-        "bike_cumulatief": "00:39:43",
-        "t2_cumulatief": "00:40:53",
-        "eindtijd": "00:59:30"
+        "bike_cumulatief": "00:39:42",
+        "t2_cumulatief": "00:40:52",
+        "eindtijd": "01:48:59"
       }
     },
     {
@@ -33,9 +33,9 @@
       "splits": {
         "swim_split": "00:06:33",
         "t1_cumulatief": "00:07:43",
-        "bike_cumulatief": "00:39:42",
-        "t2_cumulatief": "00:40:52",
-        "eindtijd": "00:59:30"
+        "bike_cumulatief": "00:39:41",
+        "t2_cumulatief": "00:40:51",
+        "eindtijd": "01:48:59"
       }
     },
     {
@@ -46,126 +46,9 @@
       "splits": {
         "swim_split": "00:06:35",
         "t1_cumulatief": "00:07:46",
-        "bike_cumulatief": "00:39:44",
-        "t2_cumulatief": "00:40:51",
-        "eindtijd": "00:59:29"
-      }
-    },
-    {
-      "rank": 4,
-      "bib": "2",
-      "naam": "Silke de Wolde",
-      "club": "TV Almere / TAA",
-      "splits": {
-        "swim_split": "00:06:27",
-        "t1_cumulatief": "00:07:56",
-        "bike_cumulatief": "00:40:45",
-        "t2_cumulatief": "00:41:55",
-        "eindtijd": "01:00:01"
-      }
-    },
-    {
-      "rank": 5,
-      "bib": "1",
-      "naam": "Romy Spoelder",
-      "club": "TV Almere / TAA",
-      "splits": {
-        "swim_split": "00:06:27",
-        "t1_cumulatief": "00:07:56",
-        "bike_cumulatief": "00:40:47",
-        "t2_cumulatief": "00:41:56",
-        "eindtijd": "01:00:01"
-      }
-    },
-    {
-      "rank": 6,
-      "bib": "3",
-      "naam": "Marleen van Roessel",
-      "club": "TV Almere / TAA",
-      "splits": {
-        "swim_split": "00:06:29",
-        "t1_cumulatief": "00:07:59",
-        "bike_cumulatief": "00:40:46",
-        "t2_cumulatief": "00:41:57",
-        "eindtijd": "01:00:01"
-      }
-    },
-    {
-      "rank": 7,
-      "bib": "12",
-      "naam": "Michelle Simons",
-      "club": "Hellas - Utrecht",
-      "splits": {
-        "swim_split": "00:06:53",
-        "t1_cumulatief": "00:08:06",
-        "bike_cumulatief": "00:40:27",
-        "t2_cumulatief": "00:41:43",
-        "eindtijd": "00:59:33"
-      }
-    },
-    {
-      "rank": 8,
-      "bib": "10",
-      "naam": "Jony Heerink",
-      "club": "Hellas - Utrecht",
-      "splits": {
-        "swim_split": "00:06:52",
-        "t1_cumulatief": "00:08:06",
-        "bike_cumulatief": "00:40:23",
-        "t2_cumulatief": "00:41:34",
-        "eindtijd": "00:59:33"
-      }
-    },
-    {
-      "rank": 9,
-      "bib": "9",
-      "naam": "Femke Scheepers",
-      "club": "Hellas - Utrecht",
-      "splits": {
-        "swim_split": "00:06:52",
-        "t1_cumulatief": "00:08:11",
-        "bike_cumulatief": "00:40:23",
-        "t2_cumulatief": "00:41:28",
-        "eindtijd": "00:59:34"
-      }
-    },
-    {
-      "rank": 10,
-      "bib": "23",
-      "naam": "Jasmin Siersema",
-      "club": "Triathlon Team Twente - Enschede",
-      "splits": {
-        "swim_split": "00:07:27",
-        "t1_cumulatief": "00:08:38",
-        "bike_cumulatief": "00:41:21",
-        "t2_cumulatief": "00:42:36",
-        "eindtijd": "01:00:54"
-      }
-    },
-    {
-      "rank": 11,
-      "bib": "21",
-      "naam": "Nynke Luijten",
-      "club": "Triathlon Team Twente - Enschede",
-      "splits": {
-        "swim_split": "00:07:21",
-        "t1_cumulatief": "00:08:41",
-        "bike_cumulatief": "00:41:24",
-        "t2_cumulatief": "00:42:41",
-        "eindtijd": "01:00:55"
-      }
-    },
-    {
-      "rank": 12,
-      "bib": "24",
-      "naam": "Lisa Bielevelt",
-      "club": "Triathlon Team Twente - Enschede",
-      "splits": {
-        "swim_split": "00:07:23",
-        "t1_cumulatief": "00:08:41",
-        "bike_cumulatief": "00:41:23",
-        "t2_cumulatief": "00:42:39",
-        "eindtijd": "01:00:55"
+        "bike_cumulatief": "00:39:43",
+        "t2_cumulatief": "00:40:50",
+        "eindtijd": "01:48:59"
       }
     },
     {
@@ -178,7 +61,163 @@
         "t1_cumulatief": "00:07:48",
         "bike_cumulatief": "00:44:02",
         "t2_cumulatief": "00:45:11",
-        "eindtijd": "01:03:29"
+        "eindtijd": "01:52:59"
+      }
+    },
+    {
+      "rank": 4,
+      "bib": "2",
+      "naam": "Silke de Wolde",
+      "club": "TV Almere / TAA",
+      "splits": {
+        "swim_split": "00:06:27",
+        "t1_cumulatief": "00:07:56",
+        "bike_cumulatief": "00:40:44",
+        "t2_cumulatief": "00:41:54",
+        "eindtijd": "01:49:19"
+      }
+    },
+    {
+      "rank": 5,
+      "bib": "1",
+      "naam": "Romy Spoelder",
+      "club": "TV Almere / TAA",
+      "splits": {
+        "swim_split": "00:06:27",
+        "t1_cumulatief": "00:07:56",
+        "bike_cumulatief": "00:40:46",
+        "t2_cumulatief": "00:41:55",
+        "eindtijd": "01:49:19"
+      }
+    },
+    {
+      "rank": 6,
+      "bib": "3",
+      "naam": "Marleen van Roessel",
+      "club": "TV Almere / TAA",
+      "splits": {
+        "swim_split": "00:06:29",
+        "t1_cumulatief": "00:07:59",
+        "bike_cumulatief": "00:40:45",
+        "t2_cumulatief": "00:41:56",
+        "eindtijd": "01:49:19"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "4",
+      "naam": "Daniëlle Spoelder",
+      "club": "TV Almere / TAA",
+      "splits": {
+        "swim_split": "00:07:21",
+        "t1_cumulatief": "00:08:54",
+        "bike_cumulatief": "00:45:57",
+        "t2_cumulatief": "00:47:22",
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": 7,
+      "bib": "12",
+      "naam": "Michelle Simons",
+      "club": "Hellas - Utrecht",
+      "splits": {
+        "swim_split": "00:06:53",
+        "t1_cumulatief": "00:08:06",
+        "bike_cumulatief": "00:40:26",
+        "t2_cumulatief": "00:41:42",
+        "eindtijd": "01:50:03"
+      }
+    },
+    {
+      "rank": 8,
+      "bib": "10",
+      "naam": "Jony Heerink",
+      "club": "Hellas - Utrecht",
+      "splits": {
+        "swim_split": "00:06:52",
+        "t1_cumulatief": "00:08:06",
+        "bike_cumulatief": "00:40:23",
+        "t2_cumulatief": "00:41:34",
+        "eindtijd": "01:50:03"
+      }
+    },
+    {
+      "rank": 9,
+      "bib": "9",
+      "naam": "Femke Scheepers",
+      "club": "Hellas - Utrecht",
+      "splits": {
+        "swim_split": "00:06:52",
+        "t1_cumulatief": "00:08:11",
+        "bike_cumulatief": "00:40:22",
+        "t2_cumulatief": "00:41:27",
+        "eindtijd": "01:50:03"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "11",
+      "naam": "Marit van den Berg",
+      "club": "Hellas - Utrecht",
+      "splits": {
+        "swim_split": "00:06:54",
+        "t1_cumulatief": "00:08:09",
+        "bike_cumulatief": "00:40:25",
+        "t2_cumulatief": "00:41:34",
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": 10,
+      "bib": "23",
+      "naam": "Jasmin Siersema",
+      "club": "Triathlon Team Twente - Enschede",
+      "splits": {
+        "swim_split": "00:07:27",
+        "t1_cumulatief": "00:08:38",
+        "bike_cumulatief": "00:41:20",
+        "t2_cumulatief": "00:42:35",
+        "eindtijd": "01:52:55"
+      }
+    },
+    {
+      "rank": 11,
+      "bib": "21",
+      "naam": "Nynke Luijten",
+      "club": "Triathlon Team Twente - Enschede",
+      "splits": {
+        "swim_split": "00:07:21",
+        "t1_cumulatief": "00:08:41",
+        "bike_cumulatief": "00:41:23",
+        "t2_cumulatief": "00:42:40",
+        "eindtijd": "01:52:56"
+      }
+    },
+    {
+      "rank": 12,
+      "bib": "24",
+      "naam": "Lisa Bielevelt",
+      "club": "Triathlon Team Twente - Enschede",
+      "splits": {
+        "swim_split": "00:07:23",
+        "t1_cumulatief": "00:08:41",
+        "bike_cumulatief": "00:41:23",
+        "t2_cumulatief": "00:42:39",
+        "eindtijd": "01:52:56"
+      }
+    },
+    {
+      "rank": 24,
+      "bib": "22",
+      "naam": "Liz Wabeke",
+      "club": "Triathlon Team Twente - Enschede",
+      "splits": {
+        "swim_split": "00:07:24",
+        "t1_cumulatief": "00:08:37",
+        "bike_cumulatief": "00:41:29",
+        "t2_cumulatief": "00:42:58",
+        "eindtijd": "01:56:14"
       }
     },
     {
@@ -189,9 +228,9 @@
       "splits": {
         "swim_split": "00:08:19",
         "t1_cumulatief": "00:09:29",
-        "bike_cumulatief": "00:42:38",
-        "t2_cumulatief": "00:43:51",
-        "eindtijd": "01:02:10"
+        "bike_cumulatief": "00:42:37",
+        "t2_cumulatief": "00:43:50",
+        "eindtijd": "01:53:48"
       }
     },
     {
@@ -204,7 +243,7 @@
         "t1_cumulatief": "00:09:33",
         "bike_cumulatief": "00:42:36",
         "t2_cumulatief": "00:43:47",
-        "eindtijd": "01:02:08"
+        "eindtijd": "01:53:48"
       }
     },
     {
@@ -215,9 +254,22 @@
       "splits": {
         "swim_split": "00:08:18",
         "t1_cumulatief": "00:09:27",
-        "bike_cumulatief": "00:42:38",
-        "t2_cumulatief": "00:43:50",
-        "eindtijd": "01:02:09"
+        "bike_cumulatief": "00:42:37",
+        "t2_cumulatief": "00:43:49",
+        "eindtijd": "01:53:48"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "43",
+      "naam": "Lynn Dybiona",
+      "club": "AV Triathlon - Amersfoort",
+      "splits": {
+        "swim_split": "00:08:13",
+        "t1_cumulatief": "00:09:32",
+        "bike_cumulatief": "00:47:14",
+        "t2_cumulatief": null,
+        "eindtijd": null
       }
     },
     {
@@ -230,7 +282,7 @@
         "t1_cumulatief": "00:08:24",
         "bike_cumulatief": "00:42:41",
         "t2_cumulatief": "00:43:51",
-        "eindtijd": "01:02:45"
+        "eindtijd": "01:54:41"
       }
     },
     {
@@ -241,9 +293,9 @@
       "splits": {
         "swim_split": "00:06:47",
         "t1_cumulatief": "00:08:23",
-        "bike_cumulatief": "00:42:42",
-        "t2_cumulatief": "00:43:52",
-        "eindtijd": "01:02:46"
+        "bike_cumulatief": "00:42:41",
+        "t2_cumulatief": "00:43:51",
+        "eindtijd": "01:54:41"
       }
     },
     {
@@ -254,9 +306,22 @@
       "splits": {
         "swim_split": "00:06:53",
         "t1_cumulatief": "00:08:30",
-        "bike_cumulatief": "00:42:43",
-        "t2_cumulatief": "00:43:53",
-        "eindtijd": "01:02:47"
+        "bike_cumulatief": "00:42:42",
+        "t2_cumulatief": "00:43:52",
+        "eindtijd": "01:54:42"
+      }
+    },
+    {
+      "rank": 23,
+      "bib": "16",
+      "naam": "Kim van 't Verlaat",
+      "club": "TVS 90 - Spijkenisse",
+      "splits": {
+        "swim_split": "00:06:54",
+        "t1_cumulatief": "00:08:28",
+        "bike_cumulatief": "00:42:45",
+        "t2_cumulatief": "00:44:01",
+        "eindtijd": "01:55:16"
       }
     },
     {
@@ -269,7 +334,7 @@
         "t1_cumulatief": "00:09:19",
         "bike_cumulatief": "00:42:43",
         "t2_cumulatief": "00:43:55",
-        "eindtijd": "01:02:33"
+        "eindtijd": "01:55:08"
       }
     },
     {
@@ -280,9 +345,9 @@
       "splits": {
         "swim_split": "00:07:48",
         "t1_cumulatief": "00:09:15",
-        "bike_cumulatief": "00:42:50",
-        "t2_cumulatief": "00:43:58",
-        "eindtijd": "01:02:34"
+        "bike_cumulatief": "00:42:49",
+        "t2_cumulatief": "00:43:57",
+        "eindtijd": "01:55:08"
       }
     },
     {
@@ -293,35 +358,22 @@
       "splits": {
         "swim_split": "00:07:48",
         "t1_cumulatief": "00:09:26",
-        "bike_cumulatief": "00:42:44",
-        "t2_cumulatief": "00:43:55",
-        "eindtijd": "01:02:34"
+        "bike_cumulatief": "00:42:43",
+        "t2_cumulatief": "00:43:54",
+        "eindtijd": "01:55:08"
       }
     },
     {
-      "rank": 23,
-      "bib": "16",
-      "naam": "Kim van 't Verlaat",
-      "club": "TVS 90 - Spijkenisse",
+      "rank": 34,
+      "bib": "31",
+      "naam": "Esther Vinke",
+      "club": "Hellas 2 - Utrecht",
       "splits": {
-        "swim_split": "00:06:54",
-        "t1_cumulatief": "00:08:28",
-        "bike_cumulatief": "00:42:46",
-        "t2_cumulatief": "00:44:02",
-        "eindtijd": "01:03:22"
-      }
-    },
-    {
-      "rank": 24,
-      "bib": "22",
-      "naam": "Liz Wabeke",
-      "club": "Triathlon Team Twente - Enschede",
-      "splits": {
-        "swim_split": "00:07:24",
-        "t1_cumulatief": "00:08:37",
-        "bike_cumulatief": "00:41:30",
-        "t2_cumulatief": "00:42:59",
-        "eindtijd": "01:04:14"
+        "swim_split": "00:07:42",
+        "t1_cumulatief": "00:09:26",
+        "bike_cumulatief": "00:42:58",
+        "t2_cumulatief": "00:44:59",
+        "eindtijd": "01:58:19"
       }
     },
     {
@@ -332,9 +384,9 @@
       "splits": {
         "swim_split": "00:07:33",
         "t1_cumulatief": "00:09:04",
-        "bike_cumulatief": "00:42:50",
-        "t2_cumulatief": "00:44:12",
-        "eindtijd": "01:03:59"
+        "bike_cumulatief": "00:42:49",
+        "t2_cumulatief": "00:44:11",
+        "eindtijd": "01:56:49"
       }
     },
     {
@@ -345,9 +397,9 @@
       "splits": {
         "swim_split": "00:07:17",
         "t1_cumulatief": "00:08:53",
-        "bike_cumulatief": "00:42:50",
-        "t2_cumulatief": "00:44:13",
-        "eindtijd": "01:04:00"
+        "bike_cumulatief": "00:42:49",
+        "t2_cumulatief": "00:44:12",
+        "eindtijd": "01:56:50"
       }
     },
     {
@@ -360,7 +412,20 @@
         "t1_cumulatief": "00:08:49",
         "bike_cumulatief": "00:42:48",
         "t2_cumulatief": "00:44:11",
-        "eindtijd": "01:03:59"
+        "eindtijd": "01:56:50"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "19",
+      "naam": "Sophie van der Most",
+      "club": "De Dolfijn - Amsterdam",
+      "splits": {
+        "swim_split": "00:07:33",
+        "t1_cumulatief": "00:09:12",
+        "bike_cumulatief": "00:42:48",
+        "t2_cumulatief": "00:44:12",
+        "eindtijd": null
       }
     },
     {
@@ -371,9 +436,9 @@
       "splits": {
         "swim_split": "00:07:12",
         "t1_cumulatief": "00:08:47",
-        "bike_cumulatief": "00:41:49",
-        "t2_cumulatief": "00:43:09",
-        "eindtijd": "01:03:11"
+        "bike_cumulatief": "00:41:48",
+        "t2_cumulatief": "00:43:08",
+        "eindtijd": "01:56:57"
       }
     },
     {
@@ -384,9 +449,9 @@
       "splits": {
         "swim_split": "00:07:11",
         "t1_cumulatief": "00:08:40",
-        "bike_cumulatief": "00:41:58",
-        "t2_cumulatief": "00:43:10",
-        "eindtijd": "01:03:13"
+        "bike_cumulatief": "00:41:57",
+        "t2_cumulatief": "00:43:09",
+        "eindtijd": "01:56:57"
       }
     },
     {
@@ -397,9 +462,22 @@
       "splits": {
         "swim_split": "00:07:12",
         "t1_cumulatief": "00:08:39",
-        "bike_cumulatief": "00:41:56",
-        "t2_cumulatief": "00:43:04",
-        "eindtijd": "01:03:12"
+        "bike_cumulatief": "00:41:55",
+        "t2_cumulatief": "00:43:03",
+        "eindtijd": "01:56:57"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "28",
+      "naam": "Rosanne Diepeveen",
+      "club": "VZC - Veenendaal",
+      "splits": {
+        "swim_split": "00:07:10",
+        "t1_cumulatief": "00:08:45",
+        "bike_cumulatief": "00:43:08",
+        "t2_cumulatief": null,
+        "eindtijd": null
       }
     },
     {
@@ -410,9 +488,9 @@
       "splits": {
         "swim_split": "00:08:26",
         "t1_cumulatief": "00:09:54",
-        "bike_cumulatief": "00:43:19",
-        "t2_cumulatief": "00:44:40",
-        "eindtijd": "01:04:36"
+        "bike_cumulatief": "00:43:18",
+        "t2_cumulatief": "00:44:39",
+        "eindtijd": "01:58:09"
       }
     },
     {
@@ -423,9 +501,9 @@
       "splits": {
         "swim_split": "00:08:26",
         "t1_cumulatief": "00:09:52",
-        "bike_cumulatief": "00:43:20",
-        "t2_cumulatief": "00:44:34",
-        "eindtijd": "01:04:35"
+        "bike_cumulatief": "00:43:19",
+        "t2_cumulatief": "00:44:33",
+        "eindtijd": "01:58:09"
       }
     },
     {
@@ -438,20 +516,20 @@
         "t1_cumulatief": "00:09:49",
         "bike_cumulatief": "00:43:18",
         "t2_cumulatief": "00:44:40",
-        "eindtijd": "01:04:34"
+        "eindtijd": "01:58:09"
       }
     },
     {
-      "rank": 34,
-      "bib": "31",
-      "naam": "Esther Vinke",
-      "club": "Hellas 2 - Utrecht",
+      "rank": 42,
+      "bib": "39",
+      "naam": "Lotte Frissen",
+      "club": "Watersley / TC Maastricht",
       "splits": {
-        "swim_split": "00:07:42",
-        "t1_cumulatief": "00:09:26",
-        "bike_cumulatief": "00:42:59",
-        "t2_cumulatief": "00:45:00",
-        "eindtijd": "01:05:46"
+        "swim_split": "00:08:26",
+        "t1_cumulatief": "00:09:46",
+        "bike_cumulatief": "00:43:20",
+        "t2_cumulatief": "00:44:39",
+        "eindtijd": "01:59:57"
       }
     },
     {
@@ -464,7 +542,7 @@
         "t1_cumulatief": "00:08:41",
         "bike_cumulatief": "00:44:10",
         "t2_cumulatief": "00:45:25",
-        "eindtijd": "01:05:08"
+        "eindtijd": "01:58:45"
       }
     },
     {
@@ -475,9 +553,9 @@
       "splits": {
         "swim_split": "00:07:45",
         "t1_cumulatief": "00:09:20",
-        "bike_cumulatief": "00:44:13",
-        "t2_cumulatief": "00:45:26",
-        "eindtijd": "01:05:09"
+        "bike_cumulatief": "00:44:11",
+        "t2_cumulatief": "00:45:24",
+        "eindtijd": "01:58:45"
       }
     },
     {
@@ -488,9 +566,9 @@
       "splits": {
         "swim_split": "00:07:35",
         "t1_cumulatief": "00:09:07",
-        "bike_cumulatief": "00:44:12",
-        "t2_cumulatief": "00:45:22",
-        "eindtijd": "01:05:09"
+        "bike_cumulatief": "00:44:10",
+        "t2_cumulatief": "00:45:20",
+        "eindtijd": "01:58:45"
       }
     },
     {
@@ -503,7 +581,7 @@
         "t1_cumulatief": "00:08:39",
         "bike_cumulatief": "00:43:17",
         "t2_cumulatief": "00:44:27",
-        "eindtijd": "01:05:15"
+        "eindtijd": "01:58:52"
       }
     },
     {
@@ -514,9 +592,9 @@
       "splits": {
         "swim_split": "00:07:26",
         "t1_cumulatief": "00:08:36",
-        "bike_cumulatief": "00:43:19",
-        "t2_cumulatief": "00:44:28",
-        "eindtijd": "01:05:17"
+        "bike_cumulatief": "00:43:17",
+        "t2_cumulatief": "00:44:26",
+        "eindtijd": "01:58:52"
       }
     },
     {
@@ -527,9 +605,9 @@
       "splits": {
         "swim_split": "00:07:26",
         "t1_cumulatief": "00:08:41",
-        "bike_cumulatief": "00:43:16",
-        "t2_cumulatief": "00:44:28",
-        "eindtijd": "01:05:16"
+        "bike_cumulatief": "00:43:15",
+        "t2_cumulatief": "00:44:27",
+        "eindtijd": "01:58:52"
       }
     },
     {
@@ -540,22 +618,9 @@
       "splits": {
         "swim_split": "00:07:19",
         "t1_cumulatief": "00:08:39",
-        "bike_cumulatief": "00:43:19",
-        "t2_cumulatief": "00:44:38",
-        "eindtijd": "01:05:19"
-      }
-    },
-    {
-      "rank": 42,
-      "bib": "39",
-      "naam": "Lotte Frissen",
-      "club": "Watersley / TC Maastricht",
-      "splits": {
-        "swim_split": "00:08:26",
-        "t1_cumulatief": "00:09:46",
-        "bike_cumulatief": "00:43:21",
-        "t2_cumulatief": "00:44:40",
-        "eindtijd": "01:06:23"
+        "bike_cumulatief": "00:43:18",
+        "t2_cumulatief": "00:44:37",
+        "eindtijd": "01:58:54"
       }
     },
     {
@@ -568,7 +633,7 @@
         "t1_cumulatief": "00:10:01",
         "bike_cumulatief": "00:46:16",
         "t2_cumulatief": "00:47:54",
-        "eindtijd": "01:09:05"
+        "eindtijd": "02:08:24"
       }
     },
     {
@@ -579,9 +644,9 @@
       "splits": {
         "swim_split": "00:08:22",
         "t1_cumulatief": "00:10:01",
-        "bike_cumulatief": "00:46:09",
-        "t2_cumulatief": "00:47:55",
-        "eindtijd": "01:09:06"
+        "bike_cumulatief": "00:46:08",
+        "t2_cumulatief": "00:47:54",
+        "eindtijd": "02:08:24"
       }
     },
     {
@@ -592,9 +657,9 @@
       "splits": {
         "swim_split": "00:08:24",
         "t1_cumulatief": "00:10:07",
-        "bike_cumulatief": "00:46:15",
-        "t2_cumulatief": "00:47:55",
-        "eindtijd": "01:09:06"
+        "bike_cumulatief": "00:46:14",
+        "t2_cumulatief": "00:47:54",
+        "eindtijd": "02:08:24"
       }
     },
     {
@@ -605,74 +670,9 @@
       "splits": {
         "swim_split": "00:08:19",
         "t1_cumulatief": "00:09:50",
-        "bike_cumulatief": "00:46:14",
-        "t2_cumulatief": "00:47:50",
-        "eindtijd": "01:12:15"
-      }
-    },
-    {
-      "rank": "DNF",
-      "bib": "4",
-      "naam": "Daniëlle Spoelder",
-      "club": "TV Almere / TAA",
-      "splits": {
-        "swim_split": "00:07:21",
-        "t1_cumulatief": "00:08:54",
-        "bike_cumulatief": "00:45:58",
-        "t2_cumulatief": null,
-        "eindtijd": null
-      }
-    },
-    {
-      "rank": "DNF",
-      "bib": "11",
-      "naam": "Marit van den Berg",
-      "club": "Hellas - Utrecht",
-      "splits": {
-        "swim_split": "00:06:54",
-        "t1_cumulatief": "00:08:09",
-        "bike_cumulatief": "00:40:26",
-        "t2_cumulatief": null,
-        "eindtijd": null
-      }
-    },
-    {
-      "rank": "DNF",
-      "bib": "43",
-      "naam": "Lynn Dybiona",
-      "club": "AV Triathlon - Amersfoort",
-      "splits": {
-        "swim_split": "00:08:13",
-        "t1_cumulatief": "00:09:32",
-        "bike_cumulatief": "00:47:15",
-        "t2_cumulatief": null,
-        "eindtijd": null
-      }
-    },
-    {
-      "rank": "DNF",
-      "bib": "19",
-      "naam": "Sophie van der Most",
-      "club": "De Dolfijn - Amsterdam",
-      "splits": {
-        "swim_split": "00:07:33",
-        "t1_cumulatief": "00:09:12",
-        "bike_cumulatief": "00:42:48",
-        "t2_cumulatief": null,
-        "eindtijd": null
-      }
-    },
-    {
-      "rank": "DNF",
-      "bib": "28",
-      "naam": "Rosanne Diepeveen",
-      "club": "VZC - Veenendaal",
-      "splits": {
-        "swim_split": "00:07:10",
-        "t1_cumulatief": "00:08:45",
-        "bike_cumulatief": "00:43:09",
-        "t2_cumulatief": null,
-        "eindtijd": null
+        "bike_cumulatief": "00:46:13",
+        "t2_cumulatief": "00:47:49",
+        "eindtijd": "02:11:33"
       }
     }
   ]
