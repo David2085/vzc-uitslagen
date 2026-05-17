@@ -1,0 +1,1251 @@
+{
+  "wedstrijd": {
+    "naam": "3e Divisie Noord Mannen — Triathlon Arnhem",
+    "datum": "2026-04-26",
+    "locatie": "Arnhem",
+    "afstand": "1/8e (Sprint)",
+    "divisie": "3e divisie",
+    "poule": "Noord",
+    "geslacht": "mannen",
+    "vzc_teams": [
+      "VZC 4 - Veenendaal"
+    ]
+  },
+  "uitslagen": [
+    {
+      "rank": 1,
+      "bib": "1119",
+      "naam": "Kennet Botan",
+      "club": "Hellas 6 - Utrecht",
+      "splits": {
+        "swim_split": "00:07:50",
+        "t1_cumulatief": "00:09:33",
+        "bike_cumulatief": "00:40:38",
+        "t2_cumulatief": "00:41:52",
+        "eindtijd": "00:59:45"
+      }
+    },
+    {
+      "rank": 2,
+      "bib": "1118",
+      "naam": "Alain van Bielert",
+      "club": "Hellas 6 - Utrecht",
+      "splits": {
+        "swim_split": "00:07:51",
+        "t1_cumulatief": "00:09:41",
+        "bike_cumulatief": "00:40:38",
+        "t2_cumulatief": "00:42:01",
+        "eindtijd": "00:59:45"
+      }
+    },
+    {
+      "rank": 3,
+      "bib": "1120",
+      "naam": "Daan Schaart",
+      "club": "Hellas 6 - Utrecht",
+      "splits": {
+        "swim_split": "00:07:52",
+        "t1_cumulatief": "00:09:29",
+        "bike_cumulatief": "00:40:38",
+        "t2_cumulatief": "00:42:02",
+        "eindtijd": "00:59:45"
+      }
+    },
+    {
+      "rank": 7,
+      "bib": "1117",
+      "naam": "Anne Leskens",
+      "club": "Hellas 6 - Utrecht",
+      "splits": {
+        "swim_split": "00:07:51",
+        "t1_cumulatief": "00:09:46",
+        "bike_cumulatief": "00:40:40",
+        "t2_cumulatief": "00:42:02",
+        "eindtijd": "01:02:27"
+      }
+    },
+    {
+      "rank": 4,
+      "bib": "1173",
+      "naam": "Tommie Verouden",
+      "club": "Triathlon Team Twente 4 - Enschede",
+      "splits": {
+        "swim_split": "00:07:49",
+        "t1_cumulatief": "00:10:00",
+        "bike_cumulatief": "00:41:45",
+        "t2_cumulatief": "00:43:16",
+        "eindtijd": "01:01:22"
+      }
+    },
+    {
+      "rank": 5,
+      "bib": "1174",
+      "naam": "Jorn de Jong",
+      "club": "Triathlon Team Twente 4 - Enschede",
+      "splits": {
+        "swim_split": "00:07:43",
+        "t1_cumulatief": "00:09:50",
+        "bike_cumulatief": "00:42:07",
+        "t2_cumulatief": "00:43:16",
+        "eindtijd": "01:01:22"
+      }
+    },
+    {
+      "rank": 6,
+      "bib": "1175",
+      "naam": "Remko Siers",
+      "club": "Triathlon Team Twente 4 - Enschede",
+      "splits": {
+        "swim_split": "00:07:49",
+        "t1_cumulatief": "00:09:56",
+        "bike_cumulatief": "00:41:44",
+        "t2_cumulatief": "00:43:20",
+        "eindtijd": "01:01:23"
+      }
+    },
+    {
+      "rank": 41,
+      "bib": "1176",
+      "naam": "Theo Miltenburg",
+      "club": "Triathlon Team Twente 4 - Enschede",
+      "splits": {
+        "swim_split": "00:07:39",
+        "t1_cumulatief": "00:09:33",
+        "bike_cumulatief": "00:44:53",
+        "t2_cumulatief": "00:47:07",
+        "eindtijd": "01:07:52"
+      }
+    },
+    {
+      "rank": 8,
+      "bib": "1105",
+      "naam": "Fons Brauers",
+      "club": "Amsterdamse Sport Unie 11",
+      "splits": {
+        "swim_split": "00:09:07",
+        "t1_cumulatief": "00:11:11",
+        "bike_cumulatief": "00:41:42",
+        "t2_cumulatief": "00:43:22",
+        "eindtijd": "01:02:42"
+      }
+    },
+    {
+      "rank": 9,
+      "bib": "1107",
+      "naam": "Gjalt Hoekstra",
+      "club": "Amsterdamse Sport Unie 11",
+      "splits": {
+        "swim_split": "00:09:08",
+        "t1_cumulatief": "00:11:12",
+        "bike_cumulatief": "00:41:46",
+        "t2_cumulatief": "00:43:25",
+        "eindtijd": "01:02:42"
+      }
+    },
+    {
+      "rank": 10,
+      "bib": "1108",
+      "naam": "Jannes van der Geest",
+      "club": "Amsterdamse Sport Unie 11",
+      "splits": {
+        "swim_split": "00:09:06",
+        "t1_cumulatief": "00:11:05",
+        "bike_cumulatief": "00:41:42",
+        "t2_cumulatief": "00:43:21",
+        "eindtijd": "01:02:42"
+      }
+    },
+    {
+      "rank": 51,
+      "bib": "1106",
+      "naam": "Menno Vroegindeweij",
+      "club": "Amsterdamse Sport Unie 11",
+      "splits": {
+        "swim_split": "00:09:08",
+        "t1_cumulatief": "00:11:03",
+        "bike_cumulatief": "00:43:07",
+        "t2_cumulatief": "00:45:09",
+        "eindtijd": "01:08:32"
+      }
+    },
+    {
+      "rank": 11,
+      "bib": "1149",
+      "naam": "Joep Bosdijk",
+      "club": "AV Triathlon 3 - Amersfoort",
+      "splits": {
+        "swim_split": "00:09:21",
+        "t1_cumulatief": "00:10:49",
+        "bike_cumulatief": "00:42:41",
+        "t2_cumulatief": "00:44:12",
+        "eindtijd": "01:04:05"
+      }
+    },
+    {
+      "rank": 12,
+      "bib": "1151",
+      "naam": "Luuc Rutgers",
+      "club": "AV Triathlon 3 - Amersfoort",
+      "splits": {
+        "swim_split": "00:09:16",
+        "t1_cumulatief": "00:10:31",
+        "bike_cumulatief": "00:42:55",
+        "t2_cumulatief": "00:44:22",
+        "eindtijd": "01:04:05"
+      }
+    },
+    {
+      "rank": 13,
+      "bib": "1150",
+      "naam": "Melvin Haan",
+      "club": "AV Triathlon 3 - Amersfoort",
+      "splits": {
+        "swim_split": "00:09:21",
+        "t1_cumulatief": "00:10:36",
+        "bike_cumulatief": "00:42:39",
+        "t2_cumulatief": "00:44:10",
+        "eindtijd": "01:04:05"
+      }
+    },
+    {
+      "rank": 27,
+      "bib": "1152",
+      "naam": "Holger Wagenaar",
+      "club": "AV Triathlon 3 - Amersfoort",
+      "splits": {
+        "swim_split": "00:09:20",
+        "t1_cumulatief": "00:10:59",
+        "bike_cumulatief": "00:42:36",
+        "t2_cumulatief": "00:44:10",
+        "eindtijd": "01:05:52"
+      }
+    },
+    {
+      "rank": 14,
+      "bib": "1132",
+      "naam": "Gerrit Heijkoop",
+      "club": "Utrechtse Heuvelrug Triathlon Team 2 - Doorn",
+      "splits": {
+        "swim_split": "00:07:29",
+        "t1_cumulatief": "00:08:54",
+        "bike_cumulatief": "00:42:16",
+        "t2_cumulatief": "00:43:31",
+        "eindtijd": "01:04:08"
+      }
+    },
+    {
+      "rank": 15,
+      "bib": "1130",
+      "naam": "Peter Deege",
+      "club": "Utrechtse Heuvelrug Triathlon Team 2 - Doorn",
+      "splits": {
+        "swim_split": "00:07:03",
+        "t1_cumulatief": "00:08:31",
+        "bike_cumulatief": "00:42:14",
+        "t2_cumulatief": "00:43:32",
+        "eindtijd": "01:04:11"
+      }
+    },
+    {
+      "rank": 16,
+      "bib": "1129",
+      "naam": "Vincent Beijk",
+      "club": "Utrechtse Heuvelrug Triathlon Team 2 - Doorn",
+      "splits": {
+        "swim_split": "00:07:16",
+        "t1_cumulatief": "00:09:07",
+        "bike_cumulatief": "00:42:12",
+        "t2_cumulatief": "00:43:28",
+        "eindtijd": "01:04:13"
+      }
+    },
+    {
+      "rank": 37,
+      "bib": "1131",
+      "naam": "Paul Kreupeling",
+      "club": "Utrechtse Heuvelrug Triathlon Team 2 - Doorn",
+      "splits": {
+        "swim_split": "00:07:06",
+        "t1_cumulatief": "00:08:59",
+        "bike_cumulatief": "00:44:30",
+        "t2_cumulatief": "00:46:24",
+        "eindtijd": "01:07:17"
+      }
+    },
+    {
+      "rank": 17,
+      "bib": "1144",
+      "naam": "Bram Schols",
+      "club": "Triteam Groningen 6",
+      "splits": {
+        "swim_split": "00:08:48",
+        "t1_cumulatief": "00:10:47",
+        "bike_cumulatief": "00:43:33",
+        "t2_cumulatief": "00:45:01",
+        "eindtijd": "01:04:29"
+      }
+    },
+    {
+      "rank": 18,
+      "bib": "1142",
+      "naam": "Dirk Hofstede",
+      "club": "Triteam Groningen 6",
+      "splits": {
+        "swim_split": "00:08:46",
+        "t1_cumulatief": "00:10:51",
+        "bike_cumulatief": "00:43:32",
+        "t2_cumulatief": "00:44:57",
+        "eindtijd": "01:04:30"
+      }
+    },
+    {
+      "rank": 19,
+      "bib": "1141",
+      "naam": "Thom Doornbosch",
+      "club": "Triteam Groningen 6",
+      "splits": {
+        "swim_split": "00:08:50",
+        "t1_cumulatief": "00:10:32",
+        "bike_cumulatief": "00:43:33",
+        "t2_cumulatief": "00:45:01",
+        "eindtijd": "01:04:30"
+      }
+    },
+    {
+      "rank": 78,
+      "bib": "1143",
+      "naam": "Arjen Adriaanse",
+      "club": "Triteam Groningen 6",
+      "splits": {
+        "swim_split": "00:08:52",
+        "t1_cumulatief": "00:10:35",
+        "bike_cumulatief": "00:48:10",
+        "t2_cumulatief": "00:49:45",
+        "eindtijd": "01:13:13"
+      }
+    },
+    {
+      "rank": 20,
+      "bib": "1137",
+      "naam": "Martin Fous",
+      "club": "De Dolfijn 6 - Amsterdam",
+      "splits": {
+        "swim_split": "00:07:41",
+        "t1_cumulatief": "00:09:37",
+        "bike_cumulatief": "00:43:20",
+        "t2_cumulatief": "00:45:03",
+        "eindtijd": "01:05:16"
+      }
+    },
+    {
+      "rank": 21,
+      "bib": "1139",
+      "naam": "Willem Flierman",
+      "club": "De Dolfijn 6 - Amsterdam",
+      "splits": {
+        "swim_split": "00:07:49",
+        "t1_cumulatief": "00:09:29",
+        "bike_cumulatief": "00:43:24",
+        "t2_cumulatief": "00:44:56",
+        "eindtijd": "01:05:17"
+      }
+    },
+    {
+      "rank": 22,
+      "bib": "1140",
+      "naam": "Bart Rijborz",
+      "club": "De Dolfijn 6 - Amsterdam",
+      "splits": {
+        "swim_split": "00:07:40",
+        "t1_cumulatief": "00:09:11",
+        "bike_cumulatief": "00:43:18",
+        "t2_cumulatief": "00:44:33",
+        "eindtijd": "01:05:18"
+      }
+    },
+    {
+      "rank": 33,
+      "bib": "1138",
+      "naam": "Hans Peter Ligthart",
+      "club": "De Dolfijn 6 - Amsterdam",
+      "splits": {
+        "swim_split": "00:07:44",
+        "t1_cumulatief": "00:09:33",
+        "bike_cumulatief": "00:43:21",
+        "t2_cumulatief": "00:44:45",
+        "eindtijd": "01:06:42"
+      }
+    },
+    {
+      "rank": 23,
+      "bib": "1112",
+      "naam": "Sander den Hartog",
+      "club": "Aquapoldro 3 - Apeldoorn",
+      "splits": {
+        "swim_split": "00:08:38",
+        "t1_cumulatief": "00:10:48",
+        "bike_cumulatief": "00:43:04",
+        "t2_cumulatief": "00:44:29",
+        "eindtijd": "01:05:20"
+      }
+    },
+    {
+      "rank": 24,
+      "bib": "1110",
+      "naam": "Andries Langendijk",
+      "club": "Aquapoldro 3 - Apeldoorn",
+      "splits": {
+        "swim_split": "00:08:34",
+        "t1_cumulatief": "00:10:19",
+        "bike_cumulatief": "00:43:06",
+        "t2_cumulatief": "00:44:31",
+        "eindtijd": "01:05:20"
+      }
+    },
+    {
+      "rank": 25,
+      "bib": "1111",
+      "naam": "Jeroen Lamfers",
+      "club": "Aquapoldro 3 - Apeldoorn",
+      "splits": {
+        "swim_split": "00:08:36",
+        "t1_cumulatief": "00:10:42",
+        "bike_cumulatief": "00:43:01",
+        "t2_cumulatief": "00:44:28",
+        "eindtijd": "01:05:20"
+      }
+    },
+    {
+      "rank": 52,
+      "bib": "1109",
+      "naam": "André Poorterman",
+      "club": "Aquapoldro 3 - Apeldoorn",
+      "splits": {
+        "swim_split": "00:08:36",
+        "t1_cumulatief": "00:10:59",
+        "bike_cumulatief": "00:45:12",
+        "t2_cumulatief": "00:47:04",
+        "eindtijd": "01:09:15"
+      }
+    },
+    {
+      "rank": 26,
+      "bib": "1198",
+      "naam": "Dennis Schipper",
+      "club": "Amsterdamse Sport Unie 11 2",
+      "splits": {
+        "swim_split": "00:08:18",
+        "t1_cumulatief": "00:10:15",
+        "bike_cumulatief": "00:43:43",
+        "t2_cumulatief": "00:45:09",
+        "eindtijd": "01:05:51"
+      }
+    },
+    {
+      "rank": 28,
+      "bib": "1197",
+      "naam": "Wim-Jan Dannijs",
+      "club": "Amsterdamse Sport Unie 11 2",
+      "splits": {
+        "swim_split": "00:08:21",
+        "t1_cumulatief": "00:10:18",
+        "bike_cumulatief": "00:43:52",
+        "t2_cumulatief": "00:45:12",
+        "eindtijd": "01:05:52"
+      }
+    },
+    {
+      "rank": 29,
+      "bib": "1199",
+      "naam": "Eric Storms",
+      "club": "Amsterdamse Sport Unie 11 2",
+      "splits": {
+        "swim_split": "00:08:26",
+        "t1_cumulatief": "00:10:07",
+        "bike_cumulatief": "00:43:51",
+        "t2_cumulatief": "00:45:13",
+        "eindtijd": "01:05:53"
+      }
+    },
+    {
+      "rank": 30,
+      "bib": "1184",
+      "naam": "Gerben Heimerink",
+      "club": "Woest Sport / TTvW Hof van Twente 3 - Goor",
+      "splits": {
+        "swim_split": "00:07:22",
+        "t1_cumulatief": "00:09:24",
+        "bike_cumulatief": "00:42:58",
+        "t2_cumulatief": "00:45:01",
+        "eindtijd": "01:06:06"
+      }
+    },
+    {
+      "rank": 31,
+      "bib": "1181",
+      "naam": "Erik Maartens",
+      "club": "Woest Sport / TTvW Hof van Twente 3 - Goor",
+      "splits": {
+        "swim_split": "00:07:25",
+        "t1_cumulatief": "00:09:17",
+        "bike_cumulatief": "00:42:57",
+        "t2_cumulatief": "00:45:01",
+        "eindtijd": "01:06:08"
+      }
+    },
+    {
+      "rank": 32,
+      "bib": "1182",
+      "naam": "Brian Morssinkhof",
+      "club": "Woest Sport / TTvW Hof van Twente 3 - Goor",
+      "splits": {
+        "swim_split": "00:07:19",
+        "t1_cumulatief": "00:09:16",
+        "bike_cumulatief": "00:42:57",
+        "t2_cumulatief": "00:44:59",
+        "eindtijd": "01:06:08"
+      }
+    },
+    {
+      "rank": 53,
+      "bib": "1183",
+      "naam": "Martijn Lievestro",
+      "club": "Woest Sport / TTvW Hof van Twente 3 - Goor",
+      "splits": {
+        "swim_split": "00:07:26",
+        "t1_cumulatief": "00:09:22",
+        "bike_cumulatief": "00:43:00",
+        "t2_cumulatief": "00:44:58",
+        "eindtijd": "01:09:35"
+      }
+    },
+    {
+      "rank": 34,
+      "bib": "1165",
+      "naam": "Bjorn Luchies",
+      "club": "Woest Sport / TTvW Hof van Twente 2 - Goor",
+      "splits": {
+        "swim_split": "00:07:54",
+        "t1_cumulatief": "00:10:22",
+        "bike_cumulatief": "00:44:13",
+        "t2_cumulatief": "00:45:55",
+        "eindtijd": "01:06:54"
+      }
+    },
+    {
+      "rank": 35,
+      "bib": "1166",
+      "naam": "Daan Boekelder",
+      "club": "Woest Sport / TTvW Hof van Twente 2 - Goor",
+      "splits": {
+        "swim_split": "00:08:08",
+        "t1_cumulatief": "00:10:25",
+        "bike_cumulatief": "00:44:18",
+        "t2_cumulatief": "00:45:57",
+        "eindtijd": "01:06:57"
+      }
+    },
+    {
+      "rank": 36,
+      "bib": "1168",
+      "naam": "Peter Beumer",
+      "club": "Woest Sport / TTvW Hof van Twente 2 - Goor",
+      "splits": {
+        "swim_split": "00:07:54",
+        "t1_cumulatief": "00:10:23",
+        "bike_cumulatief": "00:44:12",
+        "t2_cumulatief": "00:45:56",
+        "eindtijd": "01:07:00"
+      }
+    },
+    {
+      "rank": 88,
+      "bib": "1167",
+      "naam": "Evan Kettelarij",
+      "club": "Woest Sport / TTvW Hof van Twente 2 - Goor",
+      "splits": {
+        "swim_split": "00:08:10",
+        "t1_cumulatief": "00:10:26",
+        "bike_cumulatief": "00:49:36",
+        "t2_cumulatief": "00:53:15",
+        "eindtijd": "01:17:31"
+      }
+    },
+    {
+      "rank": 38,
+      "bib": "1124",
+      "naam": "Thomas van der Wal",
+      "club": "Triathlonteam de Boks 2 - Klazienaveen",
+      "splits": {
+        "swim_split": "00:09:14",
+        "t1_cumulatief": "00:11:23",
+        "bike_cumulatief": "00:45:35",
+        "t2_cumulatief": "00:47:10",
+        "eindtijd": "01:07:22"
+      }
+    },
+    {
+      "rank": 39,
+      "bib": "1123",
+      "naam": "Yntze Wardenburg",
+      "club": "Triathlonteam de Boks 2 - Klazienaveen",
+      "splits": {
+        "swim_split": "00:09:13",
+        "t1_cumulatief": "00:11:24",
+        "bike_cumulatief": "00:45:34",
+        "t2_cumulatief": "00:47:10",
+        "eindtijd": "01:07:22"
+      }
+    },
+    {
+      "rank": 40,
+      "bib": "1121",
+      "naam": "Geert Gielen",
+      "club": "Triathlonteam de Boks 2 - Klazienaveen",
+      "splits": {
+        "swim_split": "00:09:12",
+        "t1_cumulatief": "00:10:55",
+        "bike_cumulatief": "00:45:32",
+        "t2_cumulatief": "00:47:11",
+        "eindtijd": "01:07:22"
+      }
+    },
+    {
+      "rank": 75,
+      "bib": "1122",
+      "naam": "John Pals",
+      "club": "Triathlonteam de Boks 2 - Klazienaveen",
+      "splits": {
+        "swim_split": "00:09:16",
+        "t1_cumulatief": "00:11:28",
+        "bike_cumulatief": "00:45:28",
+        "t2_cumulatief": "00:47:29",
+        "eindtijd": "01:11:51"
+      }
+    },
+    {
+      "rank": 42,
+      "bib": "1193",
+      "naam": "Maarten Peek",
+      "club": "De Dolfijn 7 - Amsterdam",
+      "splits": {
+        "swim_split": "00:09:43",
+        "t1_cumulatief": "00:11:48",
+        "bike_cumulatief": "00:46:21",
+        "t2_cumulatief": "00:47:36",
+        "eindtijd": "01:07:56"
+      }
+    },
+    {
+      "rank": 43,
+      "bib": "1195",
+      "naam": "Sam Broersen",
+      "club": "De Dolfijn 7 - Amsterdam",
+      "splits": {
+        "swim_split": "00:09:43",
+        "t1_cumulatief": "00:11:51",
+        "bike_cumulatief": "00:46:24",
+        "t2_cumulatief": "00:47:57",
+        "eindtijd": "01:07:56"
+      }
+    },
+    {
+      "rank": 44,
+      "bib": "1196",
+      "naam": "Gerard Jager",
+      "club": "De Dolfijn 7 - Amsterdam",
+      "splits": {
+        "swim_split": "00:09:42",
+        "t1_cumulatief": "00:11:37",
+        "bike_cumulatief": "00:46:23",
+        "t2_cumulatief": "00:47:51",
+        "eindtijd": "01:07:57"
+      }
+    },
+    {
+      "rank": 77,
+      "bib": "1194",
+      "naam": "Jesper Marijnissen",
+      "club": "De Dolfijn 7 - Amsterdam",
+      "splits": {
+        "swim_split": "00:09:42",
+        "t1_cumulatief": "00:12:05",
+        "bike_cumulatief": "00:46:34",
+        "t2_cumulatief": "00:48:13",
+        "eindtijd": "01:13:08"
+      }
+    },
+    {
+      "rank": 45,
+      "bib": "1128",
+      "naam": "Paul Stöver",
+      "club": "Triathlon Team Twente 3 - Enschede",
+      "splits": {
+        "swim_split": "00:09:25",
+        "t1_cumulatief": "00:11:48",
+        "bike_cumulatief": "00:46:24",
+        "t2_cumulatief": "00:48:40",
+        "eindtijd": "01:08:01"
+      }
+    },
+    {
+      "rank": 47,
+      "bib": "1125",
+      "naam": "Robin Stuivenberg",
+      "club": "Triathlon Team Twente 3 - Enschede",
+      "splits": {
+        "swim_split": "00:09:26",
+        "t1_cumulatief": "00:11:50",
+        "bike_cumulatief": "00:46:25",
+        "t2_cumulatief": "00:48:24",
+        "eindtijd": "01:08:02"
+      }
+    },
+    {
+      "rank": 48,
+      "bib": "1126",
+      "naam": "Martijn Lesscher",
+      "club": "Triathlon Team Twente 3 - Enschede",
+      "splits": {
+        "swim_split": "00:09:26",
+        "t1_cumulatief": "00:11:33",
+        "bike_cumulatief": "00:46:27",
+        "t2_cumulatief": "00:48:24",
+        "eindtijd": "01:08:03"
+      }
+    },
+    {
+      "rank": 70,
+      "bib": "1127",
+      "naam": "Seth Ruiter",
+      "club": "Triathlon Team Twente 3 - Enschede",
+      "splits": {
+        "swim_split": "00:09:27",
+        "t1_cumulatief": "00:11:55",
+        "bike_cumulatief": "00:46:27",
+        "t2_cumulatief": "00:48:26",
+        "eindtijd": "01:11:39"
+      }
+    },
+    {
+      "rank": 46,
+      "bib": "1169",
+      "naam": "Matthijs van Cleef",
+      "club": "RZC 2 - Renkum",
+      "splits": {
+        "swim_split": "00:08:20",
+        "t1_cumulatief": "00:10:36",
+        "bike_cumulatief": "00:46:37",
+        "t2_cumulatief": "00:48:38",
+        "eindtijd": "01:08:02"
+      }
+    },
+    {
+      "rank": 49,
+      "bib": "1171",
+      "naam": "Mark Rietveld",
+      "club": "RZC 2 - Renkum",
+      "splits": {
+        "swim_split": "00:08:20",
+        "t1_cumulatief": "00:10:42",
+        "bike_cumulatief": "00:46:41",
+        "t2_cumulatief": "00:48:39",
+        "eindtijd": "01:08:03"
+      }
+    },
+    {
+      "rank": 50,
+      "bib": "1172",
+      "naam": "Sander Dillema",
+      "club": "RZC 2 - Renkum",
+      "splits": {
+        "swim_split": "00:08:27",
+        "t1_cumulatief": "00:10:59",
+        "bike_cumulatief": "00:46:39",
+        "t2_cumulatief": "00:48:52",
+        "eindtijd": "01:08:04"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "1170",
+      "naam": "Ton Wareman",
+      "club": "RZC 2 - Renkum",
+      "splits": {
+        "swim_split": "00:08:22",
+        "t1_cumulatief": "00:10:40",
+        "bike_cumulatief": null,
+        "t2_cumulatief": null,
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": 54,
+      "bib": "1192",
+      "naam": "Nils Romanesco",
+      "club": "Hellas 7 - Utrecht",
+      "splits": {
+        "swim_split": "00:09:59",
+        "t1_cumulatief": "00:13:00",
+        "bike_cumulatief": "00:47:05",
+        "t2_cumulatief": "00:49:15",
+        "eindtijd": "01:09:45"
+      }
+    },
+    {
+      "rank": 55,
+      "bib": "1190",
+      "naam": "Harryt Schimmel",
+      "club": "Hellas 7 - Utrecht",
+      "splits": {
+        "swim_split": "00:09:59",
+        "t1_cumulatief": "00:12:55",
+        "bike_cumulatief": "00:47:08",
+        "t2_cumulatief": "00:48:49",
+        "eindtijd": "01:09:45"
+      }
+    },
+    {
+      "rank": 56,
+      "bib": "1189",
+      "naam": "Jeroen Loopstra",
+      "club": "Hellas 7 - Utrecht",
+      "splits": {
+        "swim_split": "00:10:20",
+        "t1_cumulatief": "00:13:02",
+        "bike_cumulatief": "00:47:04",
+        "t2_cumulatief": "00:49:14",
+        "eindtijd": "01:09:45"
+      }
+    },
+    {
+      "rank": 76,
+      "bib": "1191",
+      "naam": "Martijn Pipers",
+      "club": "Hellas 7 - Utrecht",
+      "splits": {
+        "swim_split": "00:10:20",
+        "t1_cumulatief": "00:13:07",
+        "bike_cumulatief": "00:47:15",
+        "t2_cumulatief": "00:49:36",
+        "eindtijd": "01:12:35"
+      }
+    },
+    {
+      "rank": 57,
+      "bib": "1159",
+      "naam": "Menno Afink",
+      "club": "TV Almere 3",
+      "splits": {
+        "swim_split": "00:08:41",
+        "t1_cumulatief": "00:11:05",
+        "bike_cumulatief": "00:47:37",
+        "t2_cumulatief": "00:49:18",
+        "eindtijd": "01:09:48"
+      }
+    },
+    {
+      "rank": 58,
+      "bib": "1157",
+      "naam": "Thijs Rood",
+      "club": "TV Almere 3",
+      "splits": {
+        "swim_split": "00:08:48",
+        "t1_cumulatief": "00:11:12",
+        "bike_cumulatief": "00:47:31",
+        "t2_cumulatief": "00:49:24",
+        "eindtijd": "01:09:50"
+      }
+    },
+    {
+      "rank": 59,
+      "bib": "1160",
+      "naam": "Bogdan Tatomir",
+      "club": "TV Almere 3",
+      "splits": {
+        "swim_split": "00:08:50",
+        "t1_cumulatief": "00:11:59",
+        "bike_cumulatief": "00:47:33",
+        "t2_cumulatief": "00:49:27",
+        "eindtijd": "01:09:50"
+      }
+    },
+    {
+      "rank": 79,
+      "bib": "1158",
+      "naam": "Sergio Contrucci",
+      "club": "TV Almere 3",
+      "splits": {
+        "swim_split": "00:08:52",
+        "t1_cumulatief": "00:11:22",
+        "bike_cumulatief": "00:48:20",
+        "t2_cumulatief": "00:50:50",
+        "eindtijd": "01:13:16"
+      }
+    },
+    {
+      "rank": 60,
+      "bib": "1133",
+      "naam": "Harco Draaijer",
+      "club": "Triami 2 - Deventer",
+      "splits": {
+        "swim_split": "00:09:36",
+        "t1_cumulatief": "00:12:03",
+        "bike_cumulatief": "00:46:34",
+        "t2_cumulatief": "00:48:35",
+        "eindtijd": "01:09:54"
+      }
+    },
+    {
+      "rank": 61,
+      "bib": "1134",
+      "naam": "Niels van der Pijl",
+      "club": "Triami 2 - Deventer",
+      "splits": {
+        "swim_split": "00:09:43",
+        "t1_cumulatief": "00:12:11",
+        "bike_cumulatief": "00:46:37",
+        "t2_cumulatief": "00:48:37",
+        "eindtijd": "01:09:54"
+      }
+    },
+    {
+      "rank": 62,
+      "bib": "1135",
+      "naam": "Timo Treuren",
+      "club": "Triami 2 - Deventer",
+      "splits": {
+        "swim_split": "00:09:47",
+        "t1_cumulatief": "00:12:14",
+        "bike_cumulatief": "00:46:31",
+        "t2_cumulatief": "00:48:41",
+        "eindtijd": "01:09:54"
+      }
+    },
+    {
+      "rank": 83,
+      "bib": "1136",
+      "naam": "Ron Griep",
+      "club": "Triami 2 - Deventer",
+      "splits": {
+        "swim_split": "00:09:50",
+        "t1_cumulatief": "00:12:11",
+        "bike_cumulatief": "00:46:37",
+        "t2_cumulatief": "00:48:44",
+        "eindtijd": "01:14:27"
+      }
+    },
+    {
+      "rank": 63,
+      "bib": "1103",
+      "naam": "Nico Mijnheer",
+      "club": "Triade 2 - Zwolle",
+      "splits": {
+        "swim_split": "00:09:12",
+        "t1_cumulatief": "00:11:27",
+        "bike_cumulatief": "00:46:46",
+        "t2_cumulatief": "00:48:20",
+        "eindtijd": "01:10:52"
+      }
+    },
+    {
+      "rank": 64,
+      "bib": "1104",
+      "naam": "Jonno Hekman",
+      "club": "Triade 2 - Zwolle",
+      "splits": {
+        "swim_split": "00:09:11",
+        "t1_cumulatief": "00:11:30",
+        "bike_cumulatief": "00:46:43",
+        "t2_cumulatief": "00:48:28",
+        "eindtijd": "01:10:52"
+      }
+    },
+    {
+      "rank": 65,
+      "bib": "1102",
+      "naam": "Maik Rubingh",
+      "club": "Triade 2 - Zwolle",
+      "splits": {
+        "swim_split": "00:09:12",
+        "t1_cumulatief": "00:11:30",
+        "bike_cumulatief": "00:46:42",
+        "t2_cumulatief": "00:48:29",
+        "eindtijd": "01:10:52"
+      }
+    },
+    {
+      "rank": 89,
+      "bib": "1101",
+      "naam": "Leon Beuze",
+      "club": "Triade 2 - Zwolle",
+      "splits": {
+        "swim_split": "00:09:11",
+        "t1_cumulatief": "00:11:33",
+        "bike_cumulatief": "00:52:45",
+        "t2_cumulatief": "00:56:11",
+        "eindtijd": "01:21:40"
+      }
+    },
+    {
+      "rank": 66,
+      "bib": "1187",
+      "naam": "Dirk Versluis",
+      "club": "Utrechtse Heuvelrug Triathlon Team 3 - Doorn",
+      "splits": {
+        "swim_split": "00:08:51",
+        "t1_cumulatief": "00:11:29",
+        "bike_cumulatief": "00:46:03",
+        "t2_cumulatief": "00:48:04",
+        "eindtijd": "01:10:53"
+      }
+    },
+    {
+      "rank": 67,
+      "bib": "1188",
+      "naam": "Erwin van Hout",
+      "club": "Utrechtse Heuvelrug Triathlon Team 3 - Doorn",
+      "splits": {
+        "swim_split": "00:08:52",
+        "t1_cumulatief": "00:11:28",
+        "bike_cumulatief": "00:46:01",
+        "t2_cumulatief": "00:47:58",
+        "eindtijd": "01:10:54"
+      }
+    },
+    {
+      "rank": 68,
+      "bib": "1186",
+      "naam": "Rik Rosier",
+      "club": "Utrechtse Heuvelrug Triathlon Team 3 - Doorn",
+      "splits": {
+        "swim_split": "00:08:52",
+        "t1_cumulatief": "00:11:31",
+        "bike_cumulatief": "00:46:02",
+        "t2_cumulatief": "00:48:07",
+        "eindtijd": "01:10:54"
+      }
+    },
+    {
+      "rank": 69,
+      "bib": "1185",
+      "naam": "Egbert Smit",
+      "club": "Utrechtse Heuvelrug Triathlon Team 3 - Doorn",
+      "splits": {
+        "swim_split": "00:08:52",
+        "t1_cumulatief": "00:11:33",
+        "bike_cumulatief": "00:48:12",
+        "t2_cumulatief": "00:50:02",
+        "eindtijd": "01:11:02"
+      }
+    },
+    {
+      "rank": 71,
+      "bib": "1153",
+      "naam": "Roy Pelgrim",
+      "club": "VZC 4 - Veenendaal",
+      "splits": {
+        "swim_split": "00:08:48",
+        "t1_cumulatief": "00:11:29",
+        "bike_cumulatief": "00:47:14",
+        "t2_cumulatief": "00:49:39",
+        "eindtijd": "01:11:41"
+      }
+    },
+    {
+      "rank": 72,
+      "bib": "1154",
+      "naam": "David Duijts",
+      "club": "VZC 4 - Veenendaal",
+      "splits": {
+        "swim_split": "00:08:50",
+        "t1_cumulatief": "00:11:10",
+        "bike_cumulatief": "00:47:10",
+        "t2_cumulatief": "00:49:38",
+        "eindtijd": "01:11:41"
+      }
+    },
+    {
+      "rank": 73,
+      "bib": "1155",
+      "naam": "Marc de Leeuw",
+      "club": "VZC 4 - Veenendaal",
+      "splits": {
+        "swim_split": "00:08:51",
+        "t1_cumulatief": "00:11:07",
+        "bike_cumulatief": "00:47:13",
+        "t2_cumulatief": "00:49:11",
+        "eindtijd": "01:11:41"
+      }
+    },
+    {
+      "rank": 74,
+      "bib": "1156",
+      "naam": "Kevin Spruijt-Yu",
+      "club": "VZC 4 - Veenendaal",
+      "splits": {
+        "swim_split": "00:08:50",
+        "t1_cumulatief": "00:11:31",
+        "bike_cumulatief": "00:47:15",
+        "t2_cumulatief": "00:49:16",
+        "eindtijd": "01:11:41"
+      }
+    },
+    {
+      "rank": 80,
+      "bib": "1177",
+      "naam": "Erik Jan Rodenhuis",
+      "club": "AV Heerenveen",
+      "splits": {
+        "swim_split": "00:10:58",
+        "t1_cumulatief": "00:13:37",
+        "bike_cumulatief": "00:49:59",
+        "t2_cumulatief": "00:52:08",
+        "eindtijd": "01:14:00"
+      }
+    },
+    {
+      "rank": 81,
+      "bib": "1178",
+      "naam": "GeertJan Slot",
+      "club": "AV Heerenveen",
+      "splits": {
+        "swim_split": "00:11:00",
+        "t1_cumulatief": "00:13:41",
+        "bike_cumulatief": "00:50:03",
+        "t2_cumulatief": "00:52:09",
+        "eindtijd": "01:14:01"
+      }
+    },
+    {
+      "rank": 82,
+      "bib": "1180",
+      "naam": "Martin Jelgers",
+      "club": "AV Heerenveen",
+      "splits": {
+        "swim_split": "00:10:59",
+        "t1_cumulatief": "00:13:41",
+        "bike_cumulatief": "00:50:05",
+        "t2_cumulatief": "00:52:03",
+        "eindtijd": "01:14:10"
+      }
+    },
+    {
+      "rank": 84,
+      "bib": "1179",
+      "naam": "Steven van der Meijden",
+      "club": "AV Heerenveen",
+      "splits": {
+        "swim_split": "00:10:59",
+        "t1_cumulatief": "00:13:43",
+        "bike_cumulatief": "00:50:03",
+        "t2_cumulatief": "00:52:10",
+        "eindtijd": "01:14:58"
+      }
+    },
+    {
+      "rank": 85,
+      "bib": "1161",
+      "naam": "Saket Narendra",
+      "club": "ATAC 3 - Amsterdam",
+      "splits": {
+        "swim_split": "00:08:47",
+        "t1_cumulatief": "00:11:57",
+        "bike_cumulatief": "00:48:37",
+        "t2_cumulatief": "00:50:49",
+        "eindtijd": "01:16:21"
+      }
+    },
+    {
+      "rank": 86,
+      "bib": "1164",
+      "naam": "Philipp Braaken",
+      "club": "ATAC 3 - Amsterdam",
+      "splits": {
+        "swim_split": "00:08:47",
+        "t1_cumulatief": "00:10:41",
+        "bike_cumulatief": "00:48:34",
+        "t2_cumulatief": "00:50:22",
+        "eindtijd": "01:16:21"
+      }
+    },
+    {
+      "rank": 87,
+      "bib": "1162",
+      "naam": "Bas de Weerd",
+      "club": "ATAC 3 - Amsterdam",
+      "splits": {
+        "swim_split": "00:08:46",
+        "t1_cumulatief": "00:10:28",
+        "bike_cumulatief": "00:48:36",
+        "t2_cumulatief": "00:50:21",
+        "eindtijd": "01:16:22"
+      }
+    },
+    {
+      "rank": 90,
+      "bib": "1163",
+      "naam": "Martijn Hermans",
+      "club": "ATAC 3 - Amsterdam",
+      "splits": {
+        "swim_split": "00:08:46",
+        "t1_cumulatief": "00:11:53",
+        "bike_cumulatief": "00:48:40",
+        "t2_cumulatief": "00:53:23",
+        "eindtijd": "01:24:49"
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "1115",
+      "naam": "Martijn de Kam",
+      "club": "AFD Adviesgroep / In Zeer Goede Staat 2 - Haarlem (DSQ)",
+      "splits": {
+        "swim_split": "00:07:38",
+        "t1_cumulatief": "00:10:28",
+        "bike_cumulatief": "00:43:39",
+        "t2_cumulatief": "00:45:32",
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "1113",
+      "naam": "Vincent Bonninga",
+      "club": "AFD Adviesgroep / In Zeer Goede Staat 2 - Haarlem (DSQ)",
+      "splits": {
+        "swim_split": "00:07:42",
+        "t1_cumulatief": "00:10:28",
+        "bike_cumulatief": "00:43:38",
+        "t2_cumulatief": "00:45:20",
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "1116",
+      "naam": "Raymond Bos",
+      "club": "AFD Adviesgroep / In Zeer Goede Staat 2 - Haarlem (DSQ)",
+      "splits": {
+        "swim_split": "00:07:41",
+        "t1_cumulatief": "00:10:31",
+        "bike_cumulatief": "00:43:42",
+        "t2_cumulatief": "00:46:18",
+        "eindtijd": null
+      }
+    },
+    {
+      "rank": "DNF",
+      "bib": "1114",
+      "naam": "Maarten van Rijn",
+      "club": "AFD Adviesgroep / In Zeer Goede Staat 2 - Haarlem (DSQ)",
+      "splits": {
+        "swim_split": "00:07:42",
+        "t1_cumulatief": "00:10:30",
+        "bike_cumulatief": "00:43:52",
+        "t2_cumulatief": "00:45:33",
+        "eindtijd": null
+      }
+    }
+  ]
+}
