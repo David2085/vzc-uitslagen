@@ -880,7 +880,7 @@
         "t1_cumulatief": "00:08:30",
         "bike_cumulatief": "00:38:42",
         "t2_cumulatief": "00:40:22",
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -893,7 +893,7 @@
         "t1_cumulatief": "00:08:31",
         "bike_cumulatief": "00:36:04",
         "t2_cumulatief": "00:38:30",
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -906,7 +906,7 @@
         "t1_cumulatief": "00:08:59",
         "bike_cumulatief": "00:40:13",
         "t2_cumulatief": "00:41:28",
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -919,7 +919,7 @@
         "t1_cumulatief": "00:09:36",
         "bike_cumulatief": "00:37:50",
         "t2_cumulatief": "00:39:13",
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -932,7 +932,7 @@
         "t1_cumulatief": "00:09:26",
         "bike_cumulatief": "00:37:48",
         "t2_cumulatief": "00:39:49",
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -945,7 +945,7 @@
         "t1_cumulatief": "00:09:13",
         "bike_cumulatief": "00:16:56",
         "t2_cumulatief": null,
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -958,7 +958,7 @@
         "t1_cumulatief": "00:08:20",
         "bike_cumulatief": "00:34:45",
         "t2_cumulatief": null,
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     },
     {
@@ -971,7 +971,7 @@
         "t1_cumulatief": "00:08:16",
         "bike_cumulatief": "00:35:53",
         "t2_cumulatief": null,
-        "eindtijd": "DNF"
+        "eindtijd": null
       }
     }
   ]

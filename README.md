@@ -91,9 +91,37 @@ Het tijdverschil per segment plus de positie binnen het deelnemersveld maken in 
 
 ## Workflow voor nieuwe wedstrijden
 
-1. De aparte upload-pipeline (`/wedstrijd-upload`) parseert de Excel-bron en levert een JSON aan dat voldoet aan `docs/SCHEMA.md`.
-2. Het nieuwe JSON-bestand wordt in `data/wedstrijden/` gecommit en gepusht.
-3. Vercel ziet de push en bouwt automatisch een nieuwe versie van de site.
+Eén commando, drie stappen.
+
+1. Roep de `/wedstrijd-upload` skill aan met het pad naar het Excel-bestand. De skill:
+   * vraagt alleen de metadata die niet uit de bestandsnaam te halen is (locatie, afstand, eventueel wedstrijdnaam),
+   * roept het converter-script aan in `~/claude-floor/Projects/triatlon/sport-data/scripts/wedstrijd_excel_naar_json.py`,
+   * schrijft het resultaat rechtstreeks in `data/wedstrijden/` van deze repo (default output-pad),
+   * detecteert automatisch elke club met substring `VZC` als VZC-team.
+2. Controleer de samenvatting (aantal atleten, gevonden VZC-teams). Optioneel `npm run dev` om visueel te toetsen.
+3. Commit en push:
+   ```bash
+   git add data/wedstrijden/<slug>.json
+   git commit -m "Voeg <wedstrijdnaam> toe"
+   git push
+   ```
+   Vercel ziet de push en bouwt automatisch een nieuwe versie van de site.
+
+Het converter-script accepteert ook handmatige CLI-aanroepen:
+
+```bash
+python3 ~/claude-floor/Projects/triatlon/sport-data/scripts/wedstrijd_excel_naar_json.py \
+  "<excel-pad>" \
+  --naam "Schuiteman 1e Divisie Noord Mannen — Triathlon Arnhem" \
+  --datum 2026-04-26 \
+  --locatie Arnhem \
+  --afstand "1/8e (Sprint)" \
+  --divisie "1e divisie" \
+  --poule Noord \
+  --geslacht mannen
+```
+
+Gebruik `--dry-run` om eerst te zien waar het bestand zou landen zonder te schrijven, en `--vzc-teams "Naam A,Naam B"` om de auto-detectie te overrulen.
 
 ## Deployen op Vercel
 
