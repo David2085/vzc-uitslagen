@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vzc-blue: #0a5191;
+  --color-vzc-blue-dark: #073a6a;
+  --color-vzc-blue-50: #eaf2fb;
+  --color-vzc-yellow: #ffd200;
+  --color-vzc-yellow-soft: #fff3a8;
+  --color-vzc-red: #cf2e2e;
+  --color-vzc-cream: #fdfbf3;
+  --color-vzc-ink: #131826;
+  --color-vzc-ink-soft: #2c3142;
+  --color-vzc-muted: #6b7280;
+
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background-color: var(--color-vzc-cream);
+  color: var(--color-vzc-ink);
+}
+
+body {
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.vzc-card {
+  background-color: white;
+  border: 1px solid color-mix(in oklab, var(--color-vzc-blue) 12%, white);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(10, 81, 145, 0.05), 0 8px 24px -16px rgba(10, 81, 145, 0.18);
+}
+
+.vzc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background-color: color-mix(in oklab, var(--color-vzc-blue) 8%, white);
+  color: var(--color-vzc-blue-dark);
+}
+
+.vzc-pill-warn {
+  background-color: color-mix(in oklab, var(--color-vzc-red) 12%, white);
+  color: var(--color-vzc-red);
+}
+
+.vzc-pill-vzc {
+  background-color: var(--color-vzc-yellow);
+  color: var(--color-vzc-blue-dark);
+}
+
+table.uitslagen {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+table.uitslagen th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-vzc-muted);
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 18%, white);
+}
+
+table.uitslagen td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 8%, white);
+}
+
+table.uitslagen tr.vzc {
+  background-color: color-mix(in oklab, var(--color-vzc-yellow) 25%, white);
+}
+
+table.uitslagen tr:hover:not(.vzc) {
+  background-color: color-mix(in oklab, var(--color-vzc-blue) 4%, white);
+}
+
+table.uitslagen tr.vzc:hover {
+  background-color: color-mix(in oklab, var(--color-vzc-yellow) 50%, white);
+}
+
+table.uitslagen tr.dnf td {
+  color: var(--color-vzc-muted);
+  font-style: italic;
+}
+
+.vzc-segment-bar {
+  position: relative;
+  height: 32px;
+  background-color: color-mix(in oklab, var(--color-vzc-blue) 6%, white);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.vzc-segment-bar .fill-self {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background-color: var(--color-vzc-blue);
+  opacity: 0.85;
+}
+
+.vzc-segment-bar .fill-base {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-right: 2px dashed var(--color-vzc-red);
+}
