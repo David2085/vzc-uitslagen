@@ -5,3 +5,6 @@ out
 .DS_Store
 *.tsbuildinfo
 .vercel
+
+# Lokale archief-mappen met ruwe NTB-bronnen (Excel)
+ntb-teamcompetitie-*
