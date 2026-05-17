@@ -113,6 +113,35 @@ function bestandsNaarSlug(bestand: string): string {
   return bestand.replace(/\.json$/i, "");
 }
 
+function tijdslotFallback(w: Wedstrijd, slug: string): string {
+  const haystack = `${w.naam} ${slug}`.toLowerCase();
+  const isKwal = /kwalificatie/.test(haystack);
+  const isFinale = /finale/.test(haystack);
+
+  let uur = 10;
+  if (isKwal) uur = 8;
+  else if (isFinale) uur = 14;
+
+  const d = w.divisie.toLowerCase();
+  let divisieRang = 4;
+  if (d.includes("3e")) divisieRang = 0;
+  else if (d.includes("2e")) divisieRang = 1;
+  else if (d.includes("1e")) divisieRang = 2;
+  else if (d.includes("eredivisie")) divisieRang = 3;
+
+  const geslachtOffset = w.geslacht === "vrouwen" ? 0 : 5;
+  const minuten = divisieRang * 10 + geslachtOffset;
+
+  return `${String(uur).padStart(2, "0")}:${String(minuten).padStart(2, "0")}`;
+}
+
+export function wedstrijdSortKey(w: Wedstrijd, slug: string): string {
+  const tijd = w.starttijd && /^\d{2}:\d{2}$/.test(w.starttijd)
+    ? w.starttijd
+    : tijdslotFallback(w, slug);
+  return `${w.datum}T${tijd}`;
+}
+
 function leesBestand(bestandsnaam: string): WedstrijdBestand {
   const volledigPad = path.join(DATA_DIR, bestandsnaam);
   const ruw = fs.readFileSync(volledigPad, "utf-8");
@@ -271,7 +300,11 @@ export function alleWedstrijden(): WedstrijdVolledig[] {
     wedstrijd: r.data.wedstrijd,
     uitslagen: bouwAtletenVoorWedstrijd(r.slug, r.data),
   }));
-  _cache.sort((a, b) => a.wedstrijd.datum.localeCompare(b.wedstrijd.datum));
+  _cache.sort((a, b) =>
+    wedstrijdSortKey(a.wedstrijd, a.slug).localeCompare(
+      wedstrijdSortKey(b.wedstrijd, b.slug),
+    ),
+  );
   return _cache;
 }
 
@@ -348,7 +381,11 @@ export function alleAtleten(): AtleetProfiel[] {
     }
   }
   for (const p of map.values()) {
-    p.resultaten.sort((a, b) => a.wedstrijd.datum.localeCompare(b.wedstrijd.datum));
+    p.resultaten.sort((a, b) =>
+      wedstrijdSortKey(a.wedstrijd, a.wedstrijdSlug).localeCompare(
+        wedstrijdSortKey(b.wedstrijd, b.wedstrijdSlug),
+      ),
+    );
   }
   return Array.from(map.values()).sort((a, b) => a.naam.localeCompare(b.naam));
 }

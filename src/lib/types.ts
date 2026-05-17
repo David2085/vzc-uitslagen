@@ -3,6 +3,7 @@ export type Geslacht = "mannen" | "vrouwen";
 export type Wedstrijd = {
   naam: string;
   datum: string;
+  starttijd?: string;
   locatie: string;
   afstand: string;
   divisie: string;
