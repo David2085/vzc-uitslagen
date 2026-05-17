@@ -61,12 +61,11 @@ export default function Home() {
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <div className="text-base font-semibold text-[color:var(--color-vzc-ink)]">
-                      {t.naam}
+                      {t.divisie} · {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
                     </div>
                     <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
-                      {t.divisie}
-                      {t.poule ? ` · poule ${t.poule}` : ""} ·{" "}
-                      {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
+                      {t.naam}
+                      {t.poule ? ` · poule ${t.poule}` : ""}
                     </div>
                   </div>
                   <span className="vzc-pill-vzc vzc-pill">VZC</span>
