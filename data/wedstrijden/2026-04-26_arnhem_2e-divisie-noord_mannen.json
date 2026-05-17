@@ -20,9 +20,9 @@
       "splits": {
         "swim_split": "00:07:07",
         "t1_cumulatief": "00:08:40",
-        "bike_cumulatief": "00:38:47",
-        "t2_cumulatief": "00:39:59",
-        "eindtijd": "00:58:17"
+        "bike_cumulatief": "00:38:46",
+        "t2_cumulatief": "00:39:58",
+        "eindtijd": "00:58:14"
       }
     },
     {
@@ -33,9 +33,9 @@
       "splits": {
         "swim_split": "00:07:12",
         "t1_cumulatief": "00:08:39",
-        "bike_cumulatief": "00:38:45",
-        "t2_cumulatief": "00:40:04",
-        "eindtijd": "00:58:18"
+        "bike_cumulatief": "00:38:44",
+        "t2_cumulatief": "00:40:03",
+        "eindtijd": "00:58:16"
       }
     },
     {
@@ -46,9 +46,9 @@
       "splits": {
         "swim_split": "00:07:13",
         "t1_cumulatief": "00:08:43",
-        "bike_cumulatief": "00:38:46",
-        "t2_cumulatief": "00:40:06",
-        "eindtijd": "00:58:20"
+        "bike_cumulatief": "00:38:45",
+        "t2_cumulatief": "00:40:05",
+        "eindtijd": "00:58:17"
       }
     },
     {
@@ -59,9 +59,9 @@
       "splits": {
         "swim_split": "00:07:11",
         "t1_cumulatief": "00:08:44",
-        "bike_cumulatief": "00:38:47",
-        "t2_cumulatief": "00:40:07",
-        "eindtijd": "00:59:34"
+        "bike_cumulatief": "00:38:46",
+        "t2_cumulatief": "00:40:06",
+        "eindtijd": "00:59:32"
       }
     },
     {
@@ -72,9 +72,9 @@
       "splits": {
         "swim_split": "00:07:23",
         "t1_cumulatief": "00:08:44",
-        "bike_cumulatief": "00:39:37",
-        "t2_cumulatief": "00:41:00",
-        "eindtijd": "00:58:58"
+        "bike_cumulatief": "00:39:36",
+        "t2_cumulatief": "00:40:59",
+        "eindtijd": "00:58:56"
       }
     },
     {
@@ -85,9 +85,9 @@
       "splits": {
         "swim_split": "00:07:32",
         "t1_cumulatief": "00:08:50",
-        "bike_cumulatief": "00:39:39",
-        "t2_cumulatief": "00:40:59",
-        "eindtijd": "00:59:00"
+        "bike_cumulatief": "00:39:37",
+        "t2_cumulatief": "00:40:57",
+        "eindtijd": "00:58:56"
       }
     },
     {
@@ -100,7 +100,7 @@
         "t1_cumulatief": "00:08:51",
         "bike_cumulatief": "00:39:20",
         "t2_cumulatief": "00:40:59",
-        "eindtijd": "00:58:59"
+        "eindtijd": "00:58:57"
       }
     },
     {
@@ -120,52 +120,52 @@
       "rank": 8,
       "bib": "648",
       "naam": "Quinten Kroon",
-      "club": "Ter Steege / TT Holten",
+      "club": "Ter Steege / Triathlon Team Holten",
       "splits": {
         "swim_split": "00:07:25",
         "t1_cumulatief": "00:09:33",
-        "bike_cumulatief": "00:40:42",
-        "t2_cumulatief": "00:42:16",
-        "eindtijd": "00:59:57"
+        "bike_cumulatief": "00:40:41",
+        "t2_cumulatief": "00:42:15",
+        "eindtijd": "00:59:55"
       }
     },
     {
       "rank": 9,
       "bib": "646",
       "naam": "Sem ter Steege",
-      "club": "Ter Steege / TT Holten",
+      "club": "Ter Steege / Triathlon Team Holten",
       "splits": {
         "swim_split": "00:07:24",
         "t1_cumulatief": "00:09:40",
-        "bike_cumulatief": "00:40:46",
-        "t2_cumulatief": "00:42:12",
-        "eindtijd": "00:59:57"
+        "bike_cumulatief": "00:40:45",
+        "t2_cumulatief": "00:42:11",
+        "eindtijd": "00:59:55"
       }
     },
     {
       "rank": 10,
       "bib": "645",
       "naam": "Niels van Coeverden",
-      "club": "Ter Steege / TT Holten",
+      "club": "Ter Steege / Triathlon Team Holten",
       "splits": {
         "swim_split": "00:07:25",
         "t1_cumulatief": "00:09:38",
         "bike_cumulatief": "00:40:46",
         "t2_cumulatief": "00:42:11",
-        "eindtijd": "00:59:57"
+        "eindtijd": "00:59:55"
       }
     },
     {
       "rank": 24,
       "bib": "647",
       "naam": "Tomas Smale",
-      "club": "Ter Steege / TT Holten",
+      "club": "Ter Steege / Triathlon Team Holten",
       "splits": {
         "swim_split": "00:07:25",
         "t1_cumulatief": "00:09:34",
-        "bike_cumulatief": "00:40:43",
-        "t2_cumulatief": "00:42:16",
-        "eindtijd": "01:01:18"
+        "bike_cumulatief": "00:40:42",
+        "t2_cumulatief": "00:42:15",
+        "eindtijd": "01:01:15"
       }
     },
     {
@@ -176,9 +176,9 @@
       "splits": {
         "swim_split": "00:07:56",
         "t1_cumulatief": "00:09:26",
-        "bike_cumulatief": "00:40:47",
-        "t2_cumulatief": "00:41:58",
-        "eindtijd": "01:00:13"
+        "bike_cumulatief": "00:40:46",
+        "t2_cumulatief": "00:41:57",
+        "eindtijd": "01:00:11"
       }
     },
     {
@@ -189,9 +189,9 @@
       "splits": {
         "swim_split": "00:07:56",
         "t1_cumulatief": "00:09:46",
-        "bike_cumulatief": "00:40:51",
-        "t2_cumulatief": "00:42:02",
-        "eindtijd": "01:00:14"
+        "bike_cumulatief": "00:40:49",
+        "t2_cumulatief": "00:42:00",
+        "eindtijd": "01:00:12"
       }
     },
     {
@@ -202,9 +202,9 @@
       "splits": {
         "swim_split": "00:07:56",
         "t1_cumulatief": "00:09:47",
-        "bike_cumulatief": "00:41:02",
-        "t2_cumulatief": "00:42:08",
-        "eindtijd": "01:00:13"
+        "bike_cumulatief": "00:41:01",
+        "t2_cumulatief": "00:42:07",
+        "eindtijd": "01:00:12"
       }
     },
     {
@@ -215,9 +215,9 @@
       "splits": {
         "swim_split": "00:07:52",
         "t1_cumulatief": "00:09:39",
-        "bike_cumulatief": "00:40:48",
-        "t2_cumulatief": "00:41:58",
-        "eindtijd": "01:00:30"
+        "bike_cumulatief": "00:40:47",
+        "t2_cumulatief": "00:41:57",
+        "eindtijd": "01:00:28"
       }
     },
     {
@@ -228,9 +228,9 @@
       "splits": {
         "swim_split": "00:08:09",
         "t1_cumulatief": "00:09:31",
-        "bike_cumulatief": "00:41:14",
-        "t2_cumulatief": "00:42:26",
-        "eindtijd": "01:00:27"
+        "bike_cumulatief": "00:41:13",
+        "t2_cumulatief": "00:42:25",
+        "eindtijd": "01:00:26"
       }
     },
     {
@@ -243,7 +243,7 @@
         "t1_cumulatief": "00:09:28",
         "bike_cumulatief": "00:41:14",
         "t2_cumulatief": "00:42:25",
-        "eindtijd": "01:00:27"
+        "eindtijd": "01:00:26"
       }
     },
     {
@@ -254,9 +254,9 @@
       "splits": {
         "swim_split": "00:08:08",
         "t1_cumulatief": "00:09:27",
-        "bike_cumulatief": "00:41:13",
-        "t2_cumulatief": "00:42:25",
-        "eindtijd": "01:00:28"
+        "bike_cumulatief": "00:41:12",
+        "t2_cumulatief": "00:42:24",
+        "eindtijd": "01:00:26"
       }
     },
     {
@@ -267,9 +267,9 @@
       "splits": {
         "swim_split": "00:08:09",
         "t1_cumulatief": "00:09:30",
-        "bike_cumulatief": "00:41:20",
-        "t2_cumulatief": "00:42:55",
-        "eindtijd": "01:02:59"
+        "bike_cumulatief": "00:41:19",
+        "t2_cumulatief": "00:42:54",
+        "eindtijd": "01:02:57"
       }
     },
     {
@@ -280,9 +280,9 @@
       "splits": {
         "swim_split": "00:07:30",
         "t1_cumulatief": "00:08:47",
-        "bike_cumulatief": "00:40:52",
-        "t2_cumulatief": "00:42:45",
-        "eindtijd": "01:00:59"
+        "bike_cumulatief": "00:40:51",
+        "t2_cumulatief": "00:42:44",
+        "eindtijd": "01:00:57"
       }
     },
     {
@@ -293,9 +293,9 @@
       "splits": {
         "swim_split": "00:07:24",
         "t1_cumulatief": "00:09:20",
-        "bike_cumulatief": "00:40:54",
-        "t2_cumulatief": "00:42:46",
-        "eindtijd": "01:01:05"
+        "bike_cumulatief": "00:40:53",
+        "t2_cumulatief": "00:42:45",
+        "eindtijd": "01:01:02"
       }
     },
     {
@@ -306,9 +306,9 @@
       "splits": {
         "swim_split": "00:07:41",
         "t1_cumulatief": "00:09:02",
-        "bike_cumulatief": "00:40:55",
-        "t2_cumulatief": "00:42:30",
-        "eindtijd": "01:01:07"
+        "bike_cumulatief": "00:40:54",
+        "t2_cumulatief": "00:42:29",
+        "eindtijd": "01:01:05"
       }
     },
     {
@@ -319,9 +319,9 @@
       "splits": {
         "swim_split": "00:07:43",
         "t1_cumulatief": "00:09:06",
-        "bike_cumulatief": "00:40:52",
-        "t2_cumulatief": "00:42:23",
-        "eindtijd": "01:03:51"
+        "bike_cumulatief": "00:40:51",
+        "t2_cumulatief": "00:42:22",
+        "eindtijd": "01:03:49"
       }
     },
     {
@@ -334,7 +334,7 @@
         "t1_cumulatief": "00:09:47",
         "bike_cumulatief": "00:41:14",
         "t2_cumulatief": "00:42:40",
-        "eindtijd": "01:01:11"
+        "eindtijd": "01:01:10"
       }
     },
     {
@@ -345,9 +345,9 @@
       "splits": {
         "swim_split": "00:07:13",
         "t1_cumulatief": "00:09:45",
-        "bike_cumulatief": "00:41:14",
-        "t2_cumulatief": "00:42:40",
-        "eindtijd": "01:01:13"
+        "bike_cumulatief": "00:41:12",
+        "t2_cumulatief": "00:42:38",
+        "eindtijd": "01:01:10"
       }
     },
     {
@@ -358,9 +358,9 @@
       "splits": {
         "swim_split": "00:07:38",
         "t1_cumulatief": "00:09:49",
-        "bike_cumulatief": "00:41:13",
-        "t2_cumulatief": "00:42:38",
-        "eindtijd": "01:01:12"
+        "bike_cumulatief": "00:41:12",
+        "t2_cumulatief": "00:42:37",
+        "eindtijd": "01:01:10"
       }
     },
     {
@@ -371,9 +371,9 @@
       "splits": {
         "swim_split": "00:07:40",
         "t1_cumulatief": "00:09:54",
-        "bike_cumulatief": "00:45:37",
-        "t2_cumulatief": "00:47:34",
-        "eindtijd": "01:08:34"
+        "bike_cumulatief": "00:45:36",
+        "t2_cumulatief": "00:47:33",
+        "eindtijd": "01:08:31"
       }
     },
     {
@@ -384,9 +384,9 @@
       "splits": {
         "swim_split": "00:07:41",
         "t1_cumulatief": "00:09:24",
-        "bike_cumulatief": "00:41:14",
-        "t2_cumulatief": "00:42:38",
-        "eindtijd": "01:01:24"
+        "bike_cumulatief": "00:41:13",
+        "t2_cumulatief": "00:42:37",
+        "eindtijd": "01:01:21"
       }
     },
     {
@@ -397,9 +397,9 @@
       "splits": {
         "swim_split": "00:07:43",
         "t1_cumulatief": "00:09:20",
-        "bike_cumulatief": "00:41:10",
-        "t2_cumulatief": "00:42:40",
-        "eindtijd": "01:01:24"
+        "bike_cumulatief": "00:41:09",
+        "t2_cumulatief": "00:42:39",
+        "eindtijd": "01:01:22"
       }
     },
     {
@@ -412,7 +412,7 @@
         "t1_cumulatief": "00:09:34",
         "bike_cumulatief": "00:41:11",
         "t2_cumulatief": "00:42:39",
-        "eindtijd": "01:01:23"
+        "eindtijd": "01:01:22"
       }
     },
     {
@@ -423,9 +423,9 @@
       "splits": {
         "swim_split": "00:07:41",
         "t1_cumulatief": "00:09:20",
-        "bike_cumulatief": "00:41:09",
-        "t2_cumulatief": "00:42:39",
-        "eindtijd": "01:01:56"
+        "bike_cumulatief": "00:41:08",
+        "t2_cumulatief": "00:42:38",
+        "eindtijd": "01:01:53"
       }
     },
     {
@@ -436,9 +436,9 @@
       "splits": {
         "swim_split": "00:07:13",
         "t1_cumulatief": "00:08:40",
-        "bike_cumulatief": "00:40:25",
-        "t2_cumulatief": "00:41:49",
-        "eindtijd": "01:01:38"
+        "bike_cumulatief": "00:40:24",
+        "t2_cumulatief": "00:41:48",
+        "eindtijd": "01:01:35"
       }
     },
     {
@@ -451,7 +451,7 @@
         "t1_cumulatief": "00:08:29",
         "bike_cumulatief": "00:40:23",
         "t2_cumulatief": "00:41:33",
-        "eindtijd": "01:01:36"
+        "eindtijd": "01:01:35"
       }
     },
     {
@@ -477,7 +477,7 @@
         "t1_cumulatief": "00:08:47",
         "bike_cumulatief": "00:40:29",
         "t2_cumulatief": "00:41:53",
-        "eindtijd": "01:01:39"
+        "eindtijd": "01:01:38"
       }
     },
     {
@@ -490,7 +490,7 @@
         "t1_cumulatief": "00:09:37",
         "bike_cumulatief": "00:41:37",
         "t2_cumulatief": "00:43:09",
-        "eindtijd": "01:01:33"
+        "eindtijd": "01:01:32"
       }
     },
     {
@@ -501,9 +501,9 @@
       "splits": {
         "swim_split": "00:07:41",
         "t1_cumulatief": "00:09:47",
-        "bike_cumulatief": "00:41:46",
-        "t2_cumulatief": "00:43:21",
-        "eindtijd": "01:01:38"
+        "bike_cumulatief": "00:41:45",
+        "t2_cumulatief": "00:43:20",
+        "eindtijd": "01:01:36"
       }
     },
     {
@@ -514,9 +514,9 @@
       "splits": {
         "swim_split": "00:07:43",
         "t1_cumulatief": "00:09:22",
-        "bike_cumulatief": "00:41:37",
-        "t2_cumulatief": "00:43:09",
-        "eindtijd": "01:01:38"
+        "bike_cumulatief": "00:41:36",
+        "t2_cumulatief": "00:43:08",
+        "eindtijd": "01:01:36"
       }
     },
     {
@@ -528,7 +528,7 @@
         "swim_split": "00:07:45",
         "t1_cumulatief": "00:09:39",
         "bike_cumulatief": "00:41:38",
-        "t2_cumulatief": null,
+        "t2_cumulatief": "00:43:10",
         "eindtijd": null
       }
     },
@@ -542,7 +542,7 @@
         "t1_cumulatief": "00:10:03",
         "bike_cumulatief": "00:41:57",
         "t2_cumulatief": "00:43:27",
-        "eindtijd": "01:01:38"
+        "eindtijd": "01:01:37"
       }
     },
     {
@@ -553,9 +553,9 @@
       "splits": {
         "swim_split": "00:08:53",
         "t1_cumulatief": "00:10:42",
-        "bike_cumulatief": "00:41:50",
-        "t2_cumulatief": "00:43:22",
-        "eindtijd": "01:01:40"
+        "bike_cumulatief": "00:41:48",
+        "t2_cumulatief": "00:43:20",
+        "eindtijd": "01:01:37"
       }
     },
     {
@@ -568,7 +568,7 @@
         "t1_cumulatief": "00:10:19",
         "bike_cumulatief": "00:41:56",
         "t2_cumulatief": "00:43:23",
-        "eindtijd": "01:01:39"
+        "eindtijd": "01:01:38"
       }
     },
     {
@@ -579,9 +579,9 @@
       "splits": {
         "swim_split": "00:08:46",
         "t1_cumulatief": "00:10:40",
-        "bike_cumulatief": "00:41:51",
-        "t2_cumulatief": "00:43:23",
-        "eindtijd": "01:02:56"
+        "bike_cumulatief": "00:41:50",
+        "t2_cumulatief": "00:43:22",
+        "eindtijd": "01:02:54"
       }
     },
     {
@@ -592,9 +592,9 @@
       "splits": {
         "swim_split": "00:07:17",
         "t1_cumulatief": "00:08:45",
-        "bike_cumulatief": "00:41:49",
-        "t2_cumulatief": "00:43:07",
-        "eindtijd": "01:01:44"
+        "bike_cumulatief": "00:41:48",
+        "t2_cumulatief": "00:43:06",
+        "eindtijd": "01:01:41"
       }
     },
     {
@@ -605,9 +605,9 @@
       "splits": {
         "swim_split": "00:07:17",
         "t1_cumulatief": "00:08:48",
-        "bike_cumulatief": "00:41:47",
-        "t2_cumulatief": "00:43:12",
-        "eindtijd": "01:01:43"
+        "bike_cumulatief": "00:41:46",
+        "t2_cumulatief": "00:43:11",
+        "eindtijd": "01:01:42"
       }
     },
     {
@@ -618,9 +618,9 @@
       "splits": {
         "swim_split": "00:07:14",
         "t1_cumulatief": "00:08:44",
-        "bike_cumulatief": "00:41:47",
-        "t2_cumulatief": "00:42:45",
-        "eindtijd": "01:01:45"
+        "bike_cumulatief": "00:41:46",
+        "t2_cumulatief": "00:42:44",
+        "eindtijd": "01:01:42"
       }
     },
     {
@@ -631,9 +631,9 @@
       "splits": {
         "swim_split": "00:07:09",
         "t1_cumulatief": "00:08:46",
-        "bike_cumulatief": "00:41:48",
-        "t2_cumulatief": "00:43:23",
-        "eindtijd": "01:03:25"
+        "bike_cumulatief": "00:41:47",
+        "t2_cumulatief": "00:43:22",
+        "eindtijd": "01:03:23"
       }
     },
     {
@@ -644,9 +644,9 @@
       "splits": {
         "swim_split": "00:07:33",
         "t1_cumulatief": "00:08:54",
-        "bike_cumulatief": "00:42:18",
-        "t2_cumulatief": "00:43:42",
-        "eindtijd": "01:02:23"
+        "bike_cumulatief": "00:42:17",
+        "t2_cumulatief": "00:43:41",
+        "eindtijd": "01:02:21"
       }
     },
     {
@@ -657,9 +657,9 @@
       "splits": {
         "swim_split": "00:07:38",
         "t1_cumulatief": "00:09:07",
-        "bike_cumulatief": "00:42:18",
-        "t2_cumulatief": "00:43:40",
-        "eindtijd": "01:02:23"
+        "bike_cumulatief": "00:42:17",
+        "t2_cumulatief": "00:43:39",
+        "eindtijd": "01:02:21"
       }
     },
     {
@@ -672,7 +672,7 @@
         "t1_cumulatief": "00:09:15",
         "bike_cumulatief": "00:42:18",
         "t2_cumulatief": "00:43:40",
-        "eindtijd": "01:02:23"
+        "eindtijd": "01:02:21"
       }
     },
     {
@@ -683,9 +683,9 @@
       "splits": {
         "swim_split": "00:07:32",
         "t1_cumulatief": "00:09:04",
-        "bike_cumulatief": "00:42:19",
-        "t2_cumulatief": "00:43:41",
-        "eindtijd": "01:03:46"
+        "bike_cumulatief": "00:42:18",
+        "t2_cumulatief": "00:43:40",
+        "eindtijd": "01:03:45"
       }
     },
     {
@@ -696,9 +696,9 @@
       "splits": {
         "swim_split": "00:08:17",
         "t1_cumulatief": "00:09:52",
-        "bike_cumulatief": "00:42:06",
-        "t2_cumulatief": "00:43:27",
-        "eindtijd": "01:02:41"
+        "bike_cumulatief": "00:42:05",
+        "t2_cumulatief": "00:43:26",
+        "eindtijd": "01:02:39"
       }
     },
     {
@@ -709,9 +709,9 @@
       "splits": {
         "swim_split": "00:08:13",
         "t1_cumulatief": "00:09:49",
-        "bike_cumulatief": "00:42:02",
-        "t2_cumulatief": "00:43:34",
-        "eindtijd": "01:02:41"
+        "bike_cumulatief": "00:42:01",
+        "t2_cumulatief": "00:43:33",
+        "eindtijd": "01:02:40"
       }
     },
     {
@@ -722,9 +722,9 @@
       "splits": {
         "swim_split": "00:08:19",
         "t1_cumulatief": "00:10:18",
-        "bike_cumulatief": "00:42:04",
-        "t2_cumulatief": "00:43:26",
-        "eindtijd": "01:02:42"
+        "bike_cumulatief": "00:42:03",
+        "t2_cumulatief": "00:43:25",
+        "eindtijd": "01:02:40"
       }
     },
     {
@@ -735,9 +735,9 @@
       "splits": {
         "swim_split": "00:08:21",
         "t1_cumulatief": "00:10:07",
-        "bike_cumulatief": "00:42:03",
-        "t2_cumulatief": "00:43:29",
-        "eindtijd": "01:04:22"
+        "bike_cumulatief": "00:42:02",
+        "t2_cumulatief": "00:43:28",
+        "eindtijd": "01:04:20"
       }
     },
     {
@@ -748,9 +748,9 @@
       "splits": {
         "swim_split": "00:08:15",
         "t1_cumulatief": "00:09:47",
-        "bike_cumulatief": "00:41:58",
-        "t2_cumulatief": "00:43:33",
-        "eindtijd": "01:02:58"
+        "bike_cumulatief": "00:41:57",
+        "t2_cumulatief": "00:43:32",
+        "eindtijd": "01:02:56"
       }
     },
     {
@@ -761,9 +761,9 @@
       "splits": {
         "swim_split": "00:08:14",
         "t1_cumulatief": "00:10:05",
-        "bike_cumulatief": "00:42:01",
-        "t2_cumulatief": "00:43:36",
-        "eindtijd": "01:02:58"
+        "bike_cumulatief": "00:42:00",
+        "t2_cumulatief": "00:43:35",
+        "eindtijd": "01:02:56"
       }
     },
     {
@@ -774,9 +774,9 @@
       "splits": {
         "swim_split": "00:08:17",
         "t1_cumulatief": "00:09:49",
-        "bike_cumulatief": "00:41:57",
-        "t2_cumulatief": "00:43:34",
-        "eindtijd": "01:02:59"
+        "bike_cumulatief": "00:41:55",
+        "t2_cumulatief": "00:43:32",
+        "eindtijd": "01:02:56"
       }
     },
     {
@@ -787,9 +787,9 @@
       "splits": {
         "swim_split": "00:08:12",
         "t1_cumulatief": "00:09:36",
-        "bike_cumulatief": "00:43:48",
-        "t2_cumulatief": "00:45:25",
-        "eindtijd": "01:07:14"
+        "bike_cumulatief": "00:43:47",
+        "t2_cumulatief": "00:45:24",
+        "eindtijd": "01:07:12"
       }
     },
     {
@@ -800,9 +800,9 @@
       "splits": {
         "swim_split": "00:07:28",
         "t1_cumulatief": "00:09:05",
-        "bike_cumulatief": "00:42:11",
-        "t2_cumulatief": "00:43:46",
-        "eindtijd": "01:03:00"
+        "bike_cumulatief": "00:42:10",
+        "t2_cumulatief": "00:43:45",
+        "eindtijd": "01:02:58"
       }
     },
     {
@@ -813,9 +813,9 @@
       "splits": {
         "swim_split": "00:07:28",
         "t1_cumulatief": "00:09:04",
-        "bike_cumulatief": "00:42:11",
-        "t2_cumulatief": "00:43:44",
-        "eindtijd": "01:02:59"
+        "bike_cumulatief": "00:42:10",
+        "t2_cumulatief": "00:43:43",
+        "eindtijd": "01:02:58"
       }
     },
     {
@@ -826,9 +826,9 @@
       "splits": {
         "swim_split": "00:07:28",
         "t1_cumulatief": "00:09:01",
-        "bike_cumulatief": "00:42:18",
-        "t2_cumulatief": "00:43:47",
-        "eindtijd": "01:03:00"
+        "bike_cumulatief": "00:42:17",
+        "t2_cumulatief": "00:43:46",
+        "eindtijd": "01:02:58"
       }
     },
     {
@@ -839,61 +839,61 @@
       "splits": {
         "swim_split": "00:07:27",
         "t1_cumulatief": "00:09:01",
-        "bike_cumulatief": "00:44:30",
-        "t2_cumulatief": "00:46:16",
-        "eindtijd": "01:07:30"
+        "bike_cumulatief": "00:44:29",
+        "t2_cumulatief": "00:46:15",
+        "eindtijd": "01:07:29"
       }
     },
     {
       "rank": 56,
       "bib": "636",
       "naam": "Guido Lemmen",
-      "club": "PromZ / In Zeer Goede Staat",
+      "club": "PromZ / In Zeer Goede Staat - Haarlem",
       "splits": {
         "swim_split": "00:08:26",
         "t1_cumulatief": "00:10:43",
-        "bike_cumulatief": "00:43:09",
-        "t2_cumulatief": "00:45:25",
-        "eindtijd": "01:03:18"
+        "bike_cumulatief": "00:43:07",
+        "t2_cumulatief": "00:45:23",
+        "eindtijd": "01:03:15"
       }
     },
     {
       "rank": 60,
       "bib": "634",
       "naam": "Wietse Krab",
-      "club": "PromZ / In Zeer Goede Staat",
+      "club": "PromZ / In Zeer Goede Staat - Haarlem",
       "splits": {
         "swim_split": "00:08:24",
         "t1_cumulatief": "00:10:35",
-        "bike_cumulatief": "00:43:06",
-        "t2_cumulatief": "00:44:48",
-        "eindtijd": "01:03:52"
+        "bike_cumulatief": "00:43:05",
+        "t2_cumulatief": "00:44:47",
+        "eindtijd": "01:03:51"
       }
     },
     {
       "rank": 61,
       "bib": "635",
       "naam": "Oscar Goossens",
-      "club": "PromZ / In Zeer Goede Staat",
+      "club": "PromZ / In Zeer Goede Staat - Haarlem",
       "splits": {
         "swim_split": "00:08:25",
         "t1_cumulatief": "00:10:36",
-        "bike_cumulatief": "00:43:05",
-        "t2_cumulatief": "00:44:47",
-        "eindtijd": "01:03:53"
+        "bike_cumulatief": "00:43:04",
+        "t2_cumulatief": "00:44:46",
+        "eindtijd": "01:03:51"
       }
     },
     {
       "rank": 63,
       "bib": "633",
       "naam": "Maarten Caminada",
-      "club": "PromZ / In Zeer Goede Staat",
+      "club": "PromZ / In Zeer Goede Staat - Haarlem",
       "splits": {
         "swim_split": "00:08:30",
         "t1_cumulatief": "00:10:44",
-        "bike_cumulatief": "00:43:05",
-        "t2_cumulatief": "00:44:50",
-        "eindtijd": "01:04:23"
+        "bike_cumulatief": "00:43:04",
+        "t2_cumulatief": "00:44:49",
+        "eindtijd": "01:04:21"
       }
     },
     {
@@ -904,9 +904,9 @@
       "splits": {
         "swim_split": "00:08:57",
         "t1_cumulatief": "00:11:44",
-        "bike_cumulatief": "00:46:03",
-        "t2_cumulatief": "00:48:29",
-        "eindtijd": "01:08:36"
+        "bike_cumulatief": "00:46:01",
+        "t2_cumulatief": "00:48:27",
+        "eindtijd": "01:08:33"
       }
     },
     {
@@ -917,9 +917,9 @@
       "splits": {
         "swim_split": "00:09:10",
         "t1_cumulatief": "00:11:05",
-        "bike_cumulatief": "00:45:51",
-        "t2_cumulatief": "00:47:50",
-        "eindtijd": "01:08:38"
+        "bike_cumulatief": "00:45:50",
+        "t2_cumulatief": "00:47:49",
+        "eindtijd": "01:08:36"
       }
     },
     {
@@ -930,9 +930,9 @@
       "splits": {
         "swim_split": "00:09:10",
         "t1_cumulatief": "00:10:47",
-        "bike_cumulatief": "00:46:06",
-        "t2_cumulatief": "00:47:50",
-        "eindtijd": "01:08:38"
+        "bike_cumulatief": "00:46:05",
+        "t2_cumulatief": "00:47:49",
+        "eindtijd": "01:08:36"
       }
     },
     {
@@ -941,11 +941,11 @@
       "naam": "David BIRAN",
       "club": "ATAC 2 - Amsterdam",
       "splits": {
-        "swim_split": null,
-        "t1_cumulatief": null,
-        "bike_cumulatief": null,
-        "t2_cumulatief": null,
-        "eindtijd": null
+        "swim_split": "00:09:09",
+        "t1_cumulatief": "00:11:23",
+        "bike_cumulatief": "00:45:54",
+        "t2_cumulatief": "00:47:51",
+        "eindtijd": "01:08:56"
       }
     }
   ]
