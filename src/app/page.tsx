@@ -89,7 +89,7 @@ export default function Home() {
                 <Link
                   key={w.slug}
                   href={`/wedstrijd/${w.slug}`}
-                  className="flex flex-wrap items-center gap-4 px-5 py-4 transition hover:bg-[color:var(--color-vzc-blue-50)]"
+                  className="group flex flex-wrap items-center gap-4 px-5 py-4 transition hover:bg-[color:var(--color-vzc-blue-50)]"
                 >
                   <div className="flex w-20 shrink-0 flex-col items-center rounded-md bg-[color:var(--color-vzc-blue)] py-2 text-white">
                     <span className="text-[10px] uppercase tracking-widest opacity-80">
@@ -124,6 +124,10 @@ export default function Home() {
                     {vzcAantal > 0 ? (
                       <span className="vzc-pill-vzc vzc-pill">{vzcAantal} VZC</span>
                     ) : null}
+                    <span className="hidden text-sm font-medium text-[color:var(--color-vzc-blue-dark)] sm:inline-flex sm:items-center sm:gap-1 group-hover:underline">
+                      Bekijk uitslag
+                      <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+                    </span>
                   </div>
                 </Link>
               );

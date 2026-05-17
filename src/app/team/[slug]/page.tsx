@@ -60,9 +60,12 @@ export default async function TeamPagina({
                   {wedstrijd.wedstrijd.datum} · {wedstrijd.wedstrijd.locatie}
                 </div>
               </div>
-              <span className="vzc-pill">
-                {eigen.length} VZC-atleten in deze wedstrijd
-              </span>
+              <Link
+                href={`/wedstrijd/${wedstrijd.slug}`}
+                className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-vzc-blue)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+              >
+                Volledige uitslag <span aria-hidden>→</span>
+              </Link>
             </div>
 
             <div className="vzc-card overflow-x-auto">
