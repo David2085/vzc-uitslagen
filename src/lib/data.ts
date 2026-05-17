@@ -301,8 +301,8 @@ export function alleWedstrijden(): WedstrijdVolledig[] {
     uitslagen: bouwAtletenVoorWedstrijd(r.slug, r.data),
   }));
   _cache.sort((a, b) =>
-    wedstrijdSortKey(a.wedstrijd, a.slug).localeCompare(
-      wedstrijdSortKey(b.wedstrijd, b.slug),
+    wedstrijdSortKey(b.wedstrijd, b.slug).localeCompare(
+      wedstrijdSortKey(a.wedstrijd, a.slug),
     ),
   );
   return _cache;
@@ -382,8 +382,8 @@ export function alleAtleten(): AtleetProfiel[] {
   }
   for (const p of map.values()) {
     p.resultaten.sort((a, b) =>
-      wedstrijdSortKey(a.wedstrijd, a.wedstrijdSlug).localeCompare(
-        wedstrijdSortKey(b.wedstrijd, b.wedstrijdSlug),
+      wedstrijdSortKey(b.wedstrijd, b.wedstrijdSlug).localeCompare(
+        wedstrijdSortKey(a.wedstrijd, a.wedstrijdSlug),
       ),
     );
   }

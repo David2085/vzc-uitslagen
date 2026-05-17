@@ -21,6 +21,26 @@ export default function Home() {
           verloren op zwemmen, fietsen of lopen. Inclusief T1 en T2. Voor iedereen die meedoet,
           aanmoedigt of plant.
         </p>
+
+        <div className="mt-5 max-w-2xl rounded-xl border border-[color:var(--color-vzc-blue)]/15 bg-[color:var(--color-vzc-blue-50)] px-5 py-4 text-sm text-[color:var(--color-vzc-ink-soft)]">
+          <div className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">
+            Hoe werkt deze site?
+          </div>
+          <ul className="space-y-1.5 leading-relaxed">
+            <li>
+              <span className="font-medium text-[color:var(--color-vzc-ink)]">Klik op een wedstrijd</span>{" "}
+              voor de volledige uitslag met een kleur-heatmap per segment — groen is snel, rood is langzaam.
+            </li>
+            <li>
+              <span className="font-medium text-[color:var(--color-vzc-ink)]">Klik op een atletennaam</span>{" "}
+              voor het race-verloop, segmenttijden en vergelijking met de mediaan, de top-3 of de winnaar.
+            </li>
+            <li>
+              <span className="font-medium text-[color:var(--color-vzc-ink)]">VZC-rijen zijn geel gemarkeerd</span>,
+              zodat je teamgenoten meteen ziet staan. De nieuwste wedstrijd staat bovenaan.
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section>
