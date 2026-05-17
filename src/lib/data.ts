@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type {
   AtleetUitslag,
+  CheckpointSleutel,
   CumulatieveTijden,
   SegmentSleutel,
   SegmentTijden,
@@ -178,31 +179,84 @@ function rankPerSegmentVoor(
   };
 }
 
-function bouwAtletenVoorWedstrijd(slug: string, data: WedstrijdBestand): AtleetUitslag[] {
-  const tussen: Omit<AtleetUitslag, "rankPerSegment">[] = data.uitslagen.map((u) => {
-    const { splits, cumulatief } = berekenSegmenten(u);
-    return {
-      wedstrijdSlug: slug,
-      wedstrijd: data.wedstrijd,
-      rank: u.rank,
-      bib: u.bib,
-      naam: u.naam,
-      club: u.club,
-      isVzc: isVzcUitslag(u.club, data.wedstrijd.vzc_teams),
-      atleetSlug: atleetSlug(u.naam, u.club),
-      splits,
-      cumulatief,
+function cumulatiefRankVoor(
+  uitslagen: AtleetUitslag[],
+): (atleet: AtleetUitslag) => Record<CheckpointSleutel, number | null> {
+  const punten: CheckpointSleutel[] = ["na_zwem", "na_t1", "na_fiets", "na_t2", "eindtijd"];
+  const gesorteerd: Record<CheckpointSleutel, { sleutel: string; tijd: number }[]> = {
+    na_zwem: [],
+    na_t1: [],
+    na_fiets: [],
+    na_t2: [],
+    eindtijd: [],
+  };
+  for (const u of uitslagen) {
+    for (const punt of punten) {
+      const tijd = u.cumulatief[punt];
+      if (tijd !== null && tijd > 0) {
+        gesorteerd[punt].push({ sleutel: u.atleetSlug + "::" + u.wedstrijdSlug, tijd });
+      }
+    }
+  }
+  for (const punt of punten) {
+    gesorteerd[punt].sort((a, b) => a.tijd - b.tijd);
+  }
+  return (atleet) => {
+    const sleutel = atleet.atleetSlug + "::" + atleet.wedstrijdSlug;
+    const out: Record<CheckpointSleutel, number | null> = {
+      na_zwem: null,
+      na_t1: null,
+      na_fiets: null,
+      na_t2: null,
+      eindtijd: null,
     };
-  });
+    for (const punt of punten) {
+      const idx = gesorteerd[punt].findIndex((x) => x.sleutel === sleutel);
+      out[punt] = idx === -1 ? null : idx + 1;
+    }
+    return out;
+  };
+}
+
+function bouwAtletenVoorWedstrijd(slug: string, data: WedstrijdBestand): AtleetUitslag[] {
+  const tussen: Omit<AtleetUitslag, "rankPerSegment" | "cumulatiefRank">[] = data.uitslagen.map(
+    (u) => {
+      const { splits, cumulatief } = berekenSegmenten(u);
+      return {
+        wedstrijdSlug: slug,
+        wedstrijd: data.wedstrijd,
+        rank: u.rank,
+        bib: u.bib,
+        naam: u.naam,
+        club: u.club,
+        isVzc: isVzcUitslag(u.club, data.wedstrijd.vzc_teams),
+        atleetSlug: atleetSlug(u.naam, u.club),
+        splits,
+        cumulatief,
+      };
+    },
+  );
   const placeholder = tussen.map((t) => ({
     ...t,
     rankPerSegment: { zwem: null, t1: null, fiets: null, t2: null, loop: null } as Record<
       SegmentSleutel,
       number | null
     >,
+    cumulatiefRank: {
+      na_zwem: null,
+      na_t1: null,
+      na_fiets: null,
+      na_t2: null,
+      eindtijd: null,
+    } as Record<CheckpointSleutel, number | null>,
   }));
   const bepaal = rankPerSegmentVoor(placeholder);
-  return placeholder.map((a) => ({ ...a, rankPerSegment: bepaal(a) }));
+  const bepaalCum = cumulatiefRankVoor(placeholder);
+  return placeholder.map((a) => ({
+    ...a,
+    rankPerSegment: bepaal(a),
+    cumulatiefRank: bepaalCum(a),
+  }));
 }
 
 let _cache: WedstrijdVolledig[] | null = null;

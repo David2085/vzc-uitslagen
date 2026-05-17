@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SegmentAnalyse from "@/components/SegmentAnalyse";
+import RaceVerloopChart from "@/components/RaceVerloopChart";
 import {
   alleAtleten,
   atleetBijSlug,
@@ -88,6 +89,23 @@ export default async function AtleetPagina({
                 </div>
               </div>
             </header>
+
+            {!isDnf ? (
+              <section>
+                <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">
+                  Positie door de race
+                </h2>
+                <div className="rounded-lg border border-[color:var(--color-vzc-blue)]/10 bg-white p-4">
+                  <RaceVerloopChart
+                    atleet={race}
+                    totaalStarters={wedstrijd.uitslagen.length}
+                  />
+                  <p className="mt-2 text-xs text-[color:var(--color-vzc-muted)]">
+                    Klassement op elk meetpunt — hoger in de grafiek is een betere positie.
+                  </p>
+                </div>
+              </section>
+            ) : null}
 
             <section>
               <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">

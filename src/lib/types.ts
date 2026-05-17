@@ -51,6 +51,8 @@ export type CumulatieveTijden = {
   eindtijd: number | null;
 };
 
+export type CheckpointSleutel = "na_zwem" | "na_t1" | "na_fiets" | "na_t2" | "eindtijd";
+
 export type AtleetUitslag = {
   wedstrijdSlug: string;
   wedstrijd: Wedstrijd;
@@ -63,6 +65,7 @@ export type AtleetUitslag = {
   splits: SegmentTijden;
   cumulatief: CumulatieveTijden;
   rankPerSegment: Record<SegmentSleutel, number | null>;
+  cumulatiefRank: Record<CheckpointSleutel, number | null>;
 };
 
 export type WedstrijdVolledig = {
