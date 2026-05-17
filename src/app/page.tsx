@@ -16,12 +16,6 @@ export default function Home() {
         <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-[color:var(--color-vzc-ink)] sm:text-4xl">
           Uitslagen van alle VZC-teams op één plek
         </h1>
-        <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[color:var(--color-vzc-ink-soft)]">
-          Zoek jezelf op, bekijk je race-verloop en zie in één blik waar je tijd hebt gewonnen of
-          verloren op zwemmen, fietsen of lopen. Inclusief T1 en T2. Voor iedereen die meedoet,
-          aanmoedigt of plant.
-        </p>
-
         <div className="mt-5 max-w-2xl rounded-xl border border-[color:var(--color-vzc-blue)]/15 bg-[color:var(--color-vzc-blue-50)] px-5 py-4 text-sm text-[color:var(--color-vzc-ink-soft)]">
           <div className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">
             Hoe werkt deze site?

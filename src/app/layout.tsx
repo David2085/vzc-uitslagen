@@ -52,21 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
         <main className="mx-auto max-w-6xl px-5 py-8">{children}</main>
-        <footer className="mt-16 border-t border-[color:var(--color-vzc-blue)]/10 bg-white">
-          <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-[color:var(--color-vzc-muted)]">
-            VZC Triathlon — Veenendaal. Uitslagen ter informatie voor leden. Officiële uitslagen
-            staan op{" "}
-            <a
-              className="underline decoration-dotted underline-offset-2"
-              href="https://www.triathlonbond.nl/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              triathlonbond.nl
-            </a>
-            .
-          </div>
-        </footer>
       </body>
     </html>
   );
