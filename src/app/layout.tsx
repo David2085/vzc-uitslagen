@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 
@@ -15,13 +16,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="border-b border-[color:var(--color-vzc-blue)]/15 bg-white">
           <div className="mx-auto flex max-w-6xl items-center gap-5 px-5 py-4">
             <Link href="/" className="flex items-center gap-3">
-              <span
-                aria-hidden
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[color:var(--color-vzc-yellow)] text-[color:var(--color-vzc-blue-dark)] font-extrabold tracking-tight"
-                style={{ boxShadow: "inset 0 0 0 2px var(--color-vzc-red)" }}
-              >
-                VZC
-              </span>
+              <Image
+                src="/logo-vzc.png"
+                alt="VZC Veenendaal"
+                width={44}
+                height={44}
+                priority
+                className="h-11 w-11 rounded-md"
+              />
               <span className="leading-tight">
                 <span className="block text-sm font-semibold text-[color:var(--color-vzc-blue-dark)]">
                   VZC Triathlon
