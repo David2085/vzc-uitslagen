@@ -9,6 +9,9 @@ import {
   SEGMENT_LABELS,
 } from "@/lib/data";
 import type { SegmentSleutel } from "@/lib/types";
+import VzcSpotlight from "@/components/VzcSpotlight";
+import GapToWinner from "@/components/GapToWinner";
+import PositieVerloopChart from "@/components/PositieVerloopChart";
 
 export function generateStaticParams() {
   return alleWedstrijden().map((w) => ({ slug: w.slug }));
@@ -49,6 +52,17 @@ export default async function WedstrijdPagina({
   ).length;
 
   const teamuitslag = teamuitslagVoorWedstrijd(wedstrijd);
+  const heeftVzc = wedstrijd.uitslagen.some((u) => u.isVzc);
+  const heeftTeamuitslag = Boolean(teamuitslag && wedstrijd.wedstrijd.teamformat);
+  const heeftFinishers =
+    wedstrijd.uitslagen.filter((u) => u.rank !== "DNF" && u.splits.totaal !== null).length >= 2;
+
+  const navLinks: { id: string; label: string }[] = [];
+  if (heeftTeamuitslag) navLinks.push({ id: "team", label: "Team" });
+  if (heeftVzc) navLinks.push({ id: "vzc", label: "VZC" });
+  if (heeftFinishers) navLinks.push({ id: "gap", label: "Tijdverschil" });
+  if (heeftFinishers) navLinks.push({ id: "verloop", label: "Positie-verloop" });
+  navLinks.push({ id: "tabel", label: "Volledige uitslag" });
 
   return (
     <div className="space-y-8">
@@ -76,8 +90,33 @@ export default async function WedstrijdPagina({
         </div>
       </div>
 
+      {navLinks.length > 1 ? (
+        <nav
+          aria-label="Snel naar sectie"
+          className="vzc-card flex flex-wrap items-center gap-2 px-4 py-3 text-sm"
+        >
+          <span className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-vzc-muted)]">
+            Op deze pagina
+          </span>
+          <span className="text-[color:var(--color-vzc-muted)]">·</span>
+          {navLinks.map((link, idx) => (
+            <span key={link.id} className="flex items-center gap-2">
+              <a
+                href={`#${link.id}`}
+                className="rounded-full px-3 py-1 font-medium text-[color:var(--color-vzc-blue-dark)] hover:bg-[color:var(--color-vzc-blue-50)]"
+              >
+                {link.label}
+              </a>
+              {idx < navLinks.length - 1 ? (
+                <span className="text-[color:var(--color-vzc-muted)]">·</span>
+              ) : null}
+            </span>
+          ))}
+        </nav>
+      ) : null}
+
       {teamuitslag && wedstrijd.wedstrijd.teamformat ? (
-        <section className="space-y-3">
+        <section id="team" className="vzc-anchor space-y-3">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
@@ -142,7 +181,19 @@ export default async function WedstrijdPagina({
         </section>
       ) : null}
 
-      <div className="flex flex-wrap items-center gap-3 text-xs text-[color:var(--color-vzc-muted)]">
+      <div id="vzc" className="vzc-anchor">
+        <VzcSpotlight wedstrijd={wedstrijd} />
+      </div>
+
+      <div id="gap" className="vzc-anchor">
+        <GapToWinner wedstrijd={wedstrijd} />
+      </div>
+
+      <div id="verloop" className="vzc-anchor">
+        <PositieVerloopChart wedstrijd={wedstrijd} />
+      </div>
+
+      <div id="tabel" className="vzc-anchor flex flex-wrap items-center gap-3 text-xs text-[color:var(--color-vzc-muted)]">
         <span className="font-medium uppercase tracking-wider">Snelheid per segment</span>
         <span className="flex items-center gap-1">
           <span className="inline-block h-3 w-6 rounded" style={{ background: heatmapKleur(0) }} />
