@@ -9,7 +9,11 @@
     "geslacht": "mannen",
     "vzc_teams": [
       "VZC 2"
-    ]
+    ],
+    "teamformat": {
+      "type": "som_top_n",
+      "n": 3
+    }
   },
   "uitslagen": [
     {

@@ -4,6 +4,7 @@ import {
   alleVzcTeams,
   formatSeconden,
   teamBijSlug,
+  teamSeizoensStand,
   wedstrijdBijSlug,
 } from "@/lib/data";
 
@@ -24,6 +25,8 @@ export default async function TeamPagina({
     .map((s) => wedstrijdBijSlug(s))
     .filter((w): w is NonNullable<typeof w> => w !== null);
 
+  const seizoen = teamSeizoensStand(team);
+
   return (
     <div className="space-y-10">
       <div>
@@ -43,6 +46,56 @@ export default async function TeamPagina({
           {team.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
         </p>
       </div>
+
+      {seizoen.perWedstrijd.length > 0 ? (
+        <section className="vzc-card p-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="text-base font-semibold text-[color:var(--color-vzc-blue-dark)]">
+              Seizoensstand 2026
+            </h2>
+            <div className="text-right">
+              <div className="text-2xl font-bold tabular-nums text-[color:var(--color-vzc-ink)]">
+                {seizoen.totaalPunten}
+              </div>
+              <div className="text-[11px] uppercase tracking-wider text-[color:var(--color-vzc-muted)]">
+                punten · {seizoen.perWedstrijd.length}{" "}
+                {seizoen.perWedstrijd.length === 1 ? "wedstrijd" : "wedstrijden"}
+              </div>
+            </div>
+          </div>
+          <ul className="mt-4 divide-y divide-[color:var(--color-vzc-blue)]/10">
+            {seizoen.perWedstrijd.map((r) => (
+              <li
+                key={r.wedstrijdSlug}
+                className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-[color:var(--color-vzc-muted)] tabular-nums">
+                    {r.datum}
+                  </span>
+                  <Link
+                    href={`/wedstrijd/${r.wedstrijdSlug}`}
+                    className="font-medium text-[color:var(--color-vzc-ink)] hover:text-[color:var(--color-vzc-blue)] hover:underline"
+                  >
+                    {r.wedstrijdNaam}
+                  </Link>
+                </div>
+                <div className="flex items-center gap-4 tabular-nums">
+                  <span className="text-sm font-semibold text-[color:var(--color-vzc-ink-soft)]">
+                    #{r.rank}
+                  </span>
+                  <span className="text-xs text-[color:var(--color-vzc-muted)]">
+                    {formatSeconden(r.teamtijd)}
+                  </span>
+                  <span className="text-sm font-semibold text-[color:var(--color-vzc-blue-dark)]">
+                    {r.punten} pnt
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {races.map((wedstrijd) => {
         const eigen = wedstrijd.uitslagen.filter((u) => u.isVzc);

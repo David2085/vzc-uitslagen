@@ -9,7 +9,11 @@
     "geslacht": "vrouwen",
     "vzc_teams": [
       "VZC - Veenendaal"
-    ]
+    ],
+    "teamformat": {
+      "type": "ttt_nde_man",
+      "n": 3
+    }
   },
   "uitslagen": [
     {

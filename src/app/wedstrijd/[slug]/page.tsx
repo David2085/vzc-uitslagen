@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import {
   alleWedstrijden,
   formatSeconden,
+  teamformatLabel,
+  teamuitslagVoorWedstrijd,
   wedstrijdBijSlug,
   SEGMENT_LABELS,
 } from "@/lib/data";
@@ -46,6 +48,8 @@ export default async function WedstrijdPagina({
     (u) => u.rank !== "DNF" && u.splits.totaal !== null,
   ).length;
 
+  const teamuitslag = teamuitslagVoorWedstrijd(wedstrijd);
+
   return (
     <div className="space-y-8">
       <div>
@@ -71,6 +75,72 @@ export default async function WedstrijdPagina({
           ))}
         </div>
       </div>
+
+      {teamuitslag && wedstrijd.wedstrijd.teamformat ? (
+        <section className="space-y-3">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
+                Teamuitslag
+              </h2>
+              <p className="text-xs text-[color:var(--color-vzc-muted)]">
+                {teamformatLabel(wedstrijd.wedstrijd.teamformat)}
+              </p>
+            </div>
+            <span className="text-xs text-[color:var(--color-vzc-muted)]">
+              {teamuitslag.resultaten.length}{" "}
+              {teamuitslag.resultaten.length === 1 ? "team geklasseerd" : "teams geklasseerd"}
+            </span>
+          </div>
+          <div className="vzc-card overflow-x-auto">
+            <table className="uitslagen min-w-[640px]">
+              <thead>
+                <tr>
+                  <th className="w-12">#</th>
+                  <th>Team</th>
+                  <th className="text-right">Teamtijd</th>
+                  <th className="text-right">Tellend</th>
+                  <th className="text-right">Punten</th>
+                </tr>
+              </thead>
+              <tbody>
+                {teamuitslag.resultaten.map((t) => (
+                  <tr key={t.club} className={t.isVzc ? "vzc" : ""}>
+                    <td className="text-sm font-semibold text-[color:var(--color-vzc-ink-soft)]">
+                      {t.rank}
+                    </td>
+                    <td className="font-medium text-[color:var(--color-vzc-ink)]">
+                      {t.club}
+                      {t.isVzc ? (
+                        <span className="vzc-pill-vzc vzc-pill ml-2 align-middle">VZC</span>
+                      ) : null}
+                    </td>
+                    <td className="text-right font-semibold tabular-nums">
+                      {formatSeconden(t.teamtijd)}
+                    </td>
+                    <td className="text-right text-xs text-[color:var(--color-vzc-muted)]">
+                      {t.tellendeAtleten.length} van {t.finishersInTeam}
+                    </td>
+                    <td className="text-right font-semibold tabular-nums text-[color:var(--color-vzc-blue-dark)]">
+                      {t.punten}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {teamuitslag.ongeldig.length > 0 ? (
+            <p className="text-xs text-[color:var(--color-vzc-muted)]">
+              Niet geklasseerd ({teamuitslag.ongeldig.length}): te weinig finishers voor een geldige
+              teamtijd —{" "}
+              {teamuitslag.ongeldig
+                .map((o) => `${o.club} (${o.finishers})`)
+                .join(", ")}
+              .
+            </p>
+          ) : null}
+        </section>
+      ) : null}
 
       <div className="flex flex-wrap items-center gap-3 text-xs text-[color:var(--color-vzc-muted)]">
         <span className="font-medium uppercase tracking-wider">Snelheid per segment</span>

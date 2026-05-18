@@ -25,6 +25,16 @@ Voorbeeld: `2026-04-26_arnhem_2e-divisie_mannen.json`.
 | `poule` | string \| null | nee | Regionale poule als die er is, bijvoorbeeld "Noord". `null` voor de Eredivisie. |
 | `geslacht` | `"mannen"` \| `"vrouwen"` | ja | Wedstrijdcategorie. |
 | `vzc_teams` | string[] | ja | Lijst clubnamen die in deze uitslag als VZC-team gelden, bijvoorbeeld `["VZC 3"]` of `["VZC Veenendaal"]`. Hiermee weet de site welke namen op de teamcompetitie-rekening van VZC vallen.
+| `teamformat` | object \| afwezig | nee | Bepaalt hoe de teamtijd per ploeg wordt afgeleid uit de individuele uitslagen. Zonder dit veld toont de website geen teamuitslag-blok. Zie tabel hieronder. |
+| `puntenschema` | string | nee | Key naar een puntenschema in `src/lib/data.ts` (`PUNTEN_SCHEMAS`). Default `"ntb_standaard"`. Bepaalt hoeveel competitiepunten een teamrank krijgt. |
+
+### Veld `teamformat`
+
+| Veld | Type | Verplicht | Toelichting |
+| ---- | ---- | --------- | ----------- |
+| `type` | `"ttt_nde_man"` \| `"som_top_n"` | ja | `ttt_nde_man`: teamtijd is de eindtijd van de N-de finisher van de ploeg (gebruikelijk bij Eredivisie-finales / TTT). `som_top_n`: teamtijd is de som van de N snelste eindtijden van de ploeg. |
+| `n` | number | ja | Bij `ttt_nde_man`: welke positie binnen het team telt (bv. 4 = vierde finisher). Bij `som_top_n`: hoeveel snelste tijden gesommeerd worden (bv. 3 = som top-3). |
+| `min_finishers` | number | nee | Minimum aantal finishers voor een geldige teamtijd. Default = `n`. Ploegen met minder finishers krijgen geen rank en geen punten en worden onder de tabel vermeld. |
 
 ## Veld `uitslagen[]`
 
@@ -72,7 +82,8 @@ Bij `null` of bij DNF blijft het betreffende segment leeg in de presentatie.
     "divisie": "2e divisie",
     "poule": "Noord",
     "geslacht": "mannen",
-    "vzc_teams": ["VZC 3"]
+    "vzc_teams": ["VZC 3"],
+    "teamformat": { "type": "som_top_n", "n": 3 }
   },
   "uitslagen": [
     {
