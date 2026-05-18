@@ -80,6 +80,26 @@ export default function Home() {
       </section>
 
       <section>
+        <Link
+          href="/klassement"
+          className="vzc-card flex flex-wrap items-center justify-between gap-3 px-5 py-4 transition hover:bg-[color:var(--color-vzc-blue-50)]"
+        >
+          <div>
+            <div className="text-base font-semibold text-[color:var(--color-vzc-ink)]">
+              Seizoensklassement 2026
+            </div>
+            <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
+              Stand van alle teams per divisie en poule — met per wedstrijd de behaalde positie en
+              punten.
+            </div>
+          </div>
+          <span className="text-sm font-medium text-[color:var(--color-vzc-blue-dark)]">
+            Bekijk klassement →
+          </span>
+        </Link>
+      </section>
+
+      <section>
         <div className="mb-4 flex items-end justify-between">
           <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
             Wedstrijden 2026

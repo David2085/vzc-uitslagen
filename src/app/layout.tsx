@@ -37,6 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/" className="hover:text-[color:var(--color-vzc-blue)]">
                 Overzicht
               </Link>
+              <Link href="/klassement" className="hover:text-[color:var(--color-vzc-blue)]">
+                Klassement
+              </Link>
               <Link href="/atleten" className="hover:text-[color:var(--color-vzc-blue)]">
                 Atleten
               </Link>

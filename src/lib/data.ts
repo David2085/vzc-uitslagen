@@ -4,8 +4,15 @@ import type {
   AtleetUitslag,
   CheckpointSleutel,
   CumulatieveTijden,
+  DivisieKlassement,
+  Geslacht,
   SegmentSleutel,
   SegmentTijden,
+  SeizoensTeamRij,
+  TeamResultaat,
+  TeamSeizoensRace,
+  TeamSeizoensStand,
+  Teamformat,
   Uitslag,
   Wedstrijd,
   WedstrijdBestand,
@@ -444,4 +451,228 @@ export function baselineTijd(
     return vzcInWedstrijd[0].tijd;
   }
   return null;
+}
+
+export const PUNTEN_SCHEMAS: Record<string, number[]> = {
+  ntb_standaard: [25, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+};
+
+const DEFAULT_PUNTENSCHEMA = "ntb_standaard";
+
+export function puntenVoorRank(rank: number, schemaKey?: string): number {
+  const schema = PUNTEN_SCHEMAS[schemaKey ?? DEFAULT_PUNTENSCHEMA] ?? PUNTEN_SCHEMAS[DEFAULT_PUNTENSCHEMA];
+  return schema[rank - 1] ?? 0;
+}
+
+export function teamformatLabel(format: Teamformat): string {
+  if (format.type === "ttt_nde_man") {
+    return `Tijd van de ${format.n}e finisher per ploeg (TTT)`;
+  }
+  return `Som van de ${format.n} snelste finishers per ploeg`;
+}
+
+export function teamuitslagVoorWedstrijd(
+  w: WedstrijdVolledig,
+): { resultaten: TeamResultaat[]; ongeldig: { club: string; finishers: number }[] } | null {
+  const format = w.wedstrijd.teamformat;
+  if (!format) return null;
+
+  const minFinishers = format.min_finishers ?? format.n;
+  const perClub = new Map<string, AtleetUitslag[]>();
+
+  for (const u of w.uitslagen) {
+    if (u.splits.totaal === null || u.splits.totaal <= 0) continue;
+    if (u.rank === "DNF") continue;
+    const lijst = perClub.get(u.club) ?? [];
+    lijst.push(u);
+    perClub.set(u.club, lijst);
+  }
+
+  const ongeldig: { club: string; finishers: number }[] = [];
+  const ruwe: { club: string; teamtijd: number; tellendeAtleten: AtleetUitslag[]; finishersInTeam: number }[] = [];
+
+  for (const [club, atleten] of perClub.entries()) {
+    const opTijd = [...atleten].sort(
+      (a, b) => (a.splits.totaal as number) - (b.splits.totaal as number),
+    );
+    if (opTijd.length < minFinishers) {
+      ongeldig.push({ club, finishers: opTijd.length });
+      continue;
+    }
+    if (format.type === "ttt_nde_man") {
+      const nde = opTijd[format.n - 1];
+      if (!nde || nde.splits.totaal === null) {
+        ongeldig.push({ club, finishers: opTijd.length });
+        continue;
+      }
+      ruwe.push({
+        club,
+        teamtijd: nde.splits.totaal,
+        tellendeAtleten: opTijd.slice(0, format.n),
+        finishersInTeam: opTijd.length,
+      });
+    } else {
+      const top = opTijd.slice(0, format.n);
+      const som = top.reduce((s, a) => s + (a.splits.totaal as number), 0);
+      ruwe.push({
+        club,
+        teamtijd: som,
+        tellendeAtleten: top,
+        finishersInTeam: opTijd.length,
+      });
+    }
+  }
+
+  ruwe.sort((a, b) => a.teamtijd - b.teamtijd);
+  const schema = w.wedstrijd.puntenschema ?? DEFAULT_PUNTENSCHEMA;
+  const resultaten: TeamResultaat[] = ruwe.map((r, i) => ({
+    rank: i + 1,
+    club: r.club,
+    isVzc: isVzcUitslag(r.club, w.wedstrijd.vzc_teams),
+    teamtijd: r.teamtijd,
+    tellendeAtleten: r.tellendeAtleten,
+    finishersInTeam: r.finishersInTeam,
+    punten: puntenVoorRank(i + 1, schema),
+  }));
+
+  ongeldig.sort((a, b) => a.club.localeCompare(b.club));
+  return { resultaten, ongeldig };
+}
+
+export type PouleSleutel = {
+  divisie: string;
+  poule: string | null;
+  geslacht: Geslacht;
+};
+
+export function vzcPoules(): PouleSleutel[] {
+  const map = new Map<string, PouleSleutel>();
+  for (const team of alleVzcTeams()) {
+    const sleutel = `${team.divisie}::${team.poule ?? ""}::${team.geslacht}`;
+    if (!map.has(sleutel)) {
+      map.set(sleutel, {
+        divisie: team.divisie,
+        poule: team.poule,
+        geslacht: team.geslacht,
+      });
+    }
+  }
+  return Array.from(map.values()).sort((a, b) => {
+    if (a.divisie !== b.divisie) return a.divisie.localeCompare(b.divisie);
+    if (a.geslacht !== b.geslacht) return a.geslacht.localeCompare(b.geslacht);
+    return (a.poule ?? "").localeCompare(b.poule ?? "");
+  });
+}
+
+export function pouleSlug(p: PouleSleutel): string {
+  return slugify(`${p.divisie}-${p.poule ?? "landelijk"}-${p.geslacht}`);
+}
+
+export function teltVoorKlassement(slug: string): boolean {
+  return !/kwalificatie/i.test(slug);
+}
+
+export function divisieKlassement(p: PouleSleutel): DivisieKlassement {
+  const wedstrijdenInPoule = alleWedstrijden().filter(
+    (w) =>
+      w.wedstrijd.divisie === p.divisie &&
+      (w.wedstrijd.poule ?? null) === (p.poule ?? null) &&
+      w.wedstrijd.geslacht === p.geslacht &&
+      teltVoorKlassement(w.slug),
+  );
+
+  const oplopend = [...wedstrijdenInPoule].sort((a, b) =>
+    wedstrijdSortKey(a.wedstrijd, a.slug).localeCompare(
+      wedstrijdSortKey(b.wedstrijd, b.slug),
+    ),
+  );
+
+  const vzcSet = new Set<string>();
+  for (const w of oplopend) {
+    for (const t of w.wedstrijd.vzc_teams) vzcSet.add(t);
+  }
+
+  const perClub = new Map<
+    string,
+    { totaalPunten: number; aantal: number; resultaten: Record<string, { rank: number; punten: number } | null> }
+  >();
+
+  for (const w of oplopend) {
+    const uitslag = teamuitslagVoorWedstrijd(w);
+    if (!uitslag) continue;
+    for (const r of uitslag.resultaten) {
+      const huidige = perClub.get(r.club) ?? {
+        totaalPunten: 0,
+        aantal: 0,
+        resultaten: {} as Record<string, { rank: number; punten: number } | null>,
+      };
+      huidige.totaalPunten += r.punten;
+      huidige.aantal += 1;
+      huidige.resultaten[w.slug] = { rank: r.rank, punten: r.punten };
+      perClub.set(r.club, huidige);
+    }
+  }
+
+  const teams: SeizoensTeamRij[] = Array.from(perClub.entries())
+    .map(([club, agg]) => {
+      const perWedstrijd: Record<string, { rank: number; punten: number } | null> = {};
+      for (const w of oplopend) {
+        perWedstrijd[w.slug] = agg.resultaten[w.slug] ?? null;
+      }
+      return {
+        club,
+        isVzc: isVzcUitslag(club, Array.from(vzcSet)),
+        totaalPunten: agg.totaalPunten,
+        aantalWedstrijden: agg.aantal,
+        perWedstrijd,
+      };
+    })
+    .sort((a, b) => {
+      if (b.totaalPunten !== a.totaalPunten) return b.totaalPunten - a.totaalPunten;
+      return a.club.localeCompare(b.club);
+    });
+
+  return {
+    divisie: p.divisie,
+    poule: p.poule,
+    geslacht: p.geslacht,
+    vzcTeams: Array.from(vzcSet),
+    wedstrijden: oplopend.map((w) => ({
+      slug: w.slug,
+      naam: w.wedstrijd.naam,
+      datum: w.wedstrijd.datum,
+      locatie: w.wedstrijd.locatie,
+    })),
+    teams,
+  };
+}
+
+export function teamSeizoensStand(team: VzcTeam): TeamSeizoensStand {
+  const races: TeamSeizoensRace[] = [];
+  for (const w of alleWedstrijden()) {
+    if (w.wedstrijd.divisie !== team.divisie) continue;
+    if ((w.wedstrijd.poule ?? null) !== (team.poule ?? null)) continue;
+    if (w.wedstrijd.geslacht !== team.geslacht) continue;
+    if (!teltVoorKlassement(w.slug)) continue;
+    const teamuitslag = teamuitslagVoorWedstrijd(w);
+    if (!teamuitslag) continue;
+    const eigen = teamuitslag.resultaten.find(
+      (r) => r.club.toLowerCase() === team.naam.toLowerCase(),
+    );
+    if (!eigen) continue;
+    races.push({
+      wedstrijdSlug: w.slug,
+      wedstrijdNaam: w.wedstrijd.naam,
+      datum: w.wedstrijd.datum,
+      rank: eigen.rank,
+      punten: eigen.punten,
+      teamtijd: eigen.teamtijd,
+    });
+  }
+  races.sort((a, b) => a.datum.localeCompare(b.datum));
+  return {
+    teamSlug: team.slug,
+    totaalPunten: races.reduce((s, r) => s + r.punten, 0),
+    perWedstrijd: races,
+  };
 }

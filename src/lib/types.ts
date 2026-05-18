@@ -1,5 +1,13 @@
 export type Geslacht = "mannen" | "vrouwen";
 
+export type TeamformatType = "ttt_nde_man" | "som_top_n";
+
+export type Teamformat = {
+  type: TeamformatType;
+  n: number;
+  min_finishers?: number;
+};
+
 export type Wedstrijd = {
   naam: string;
   datum: string;
@@ -10,6 +18,8 @@ export type Wedstrijd = {
   poule: string | null;
   geslacht: Geslacht;
   vzc_teams: string[];
+  teamformat?: Teamformat;
+  puntenschema?: string;
 };
 
 export type Splits = {
@@ -73,4 +83,46 @@ export type WedstrijdVolledig = {
   slug: string;
   wedstrijd: Wedstrijd;
   uitslagen: AtleetUitslag[];
+};
+
+export type TeamResultaat = {
+  rank: number;
+  club: string;
+  isVzc: boolean;
+  teamtijd: number;
+  tellendeAtleten: AtleetUitslag[];
+  finishersInTeam: number;
+  punten: number;
+};
+
+export type TeamSeizoensRace = {
+  wedstrijdSlug: string;
+  wedstrijdNaam: string;
+  datum: string;
+  rank: number;
+  punten: number;
+  teamtijd: number;
+};
+
+export type TeamSeizoensStand = {
+  teamSlug: string;
+  totaalPunten: number;
+  perWedstrijd: TeamSeizoensRace[];
+};
+
+export type SeizoensTeamRij = {
+  club: string;
+  isVzc: boolean;
+  totaalPunten: number;
+  aantalWedstrijden: number;
+  perWedstrijd: Record<string, { rank: number; punten: number } | null>;
+};
+
+export type DivisieKlassement = {
+  divisie: string;
+  poule: string | null;
+  geslacht: Geslacht;
+  vzcTeams: string[];
+  wedstrijden: { slug: string; naam: string; datum: string; locatie: string }[];
+  teams: SeizoensTeamRij[];
 };
