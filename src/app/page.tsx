@@ -51,26 +51,35 @@ export default function Home() {
             Nog geen wedstrijduitslagen geüpload voor 2026.
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {teams.map((t) => (
               <Link
                 key={t.slug}
                 href={`/team/${t.slug}`}
-                className="vzc-card group flex flex-col gap-3 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+                className="vzc-card group flex flex-col gap-2 p-3 transition hover:-translate-y-0.5 hover:shadow-md sm:gap-3 sm:p-5"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-base font-semibold text-[color:var(--color-vzc-ink)]">
-                      {t.divisie} · {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
+                <div className="flex items-start justify-between gap-2 sm:gap-3">
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold leading-tight text-[color:var(--color-vzc-ink)] sm:text-base">
+                      <span className="sm:hidden">
+                        {korteDivisie(t.divisie)} · {t.geslacht === "mannen" ? "M" : "V"}
+                      </span>
+                      <span className="hidden sm:inline">
+                        {t.divisie} · {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
+                      </span>
                     </div>
-                    <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
+                    <div className="mt-1 hidden text-xs text-[color:var(--color-vzc-muted)] sm:block">
+                      {t.naam}
+                      {t.poule ? ` · poule ${t.poule}` : ""}
+                    </div>
+                    <div className="mt-0.5 truncate text-[11px] text-[color:var(--color-vzc-muted)] sm:hidden">
                       {t.naam}
                       {t.poule ? ` · poule ${t.poule}` : ""}
                     </div>
                   </div>
-                  <span className="vzc-pill-vzc vzc-pill">VZC</span>
+                  <span className="vzc-pill-vzc vzc-pill shrink-0 px-2 text-[10px] sm:px-2.5 sm:text-xs">VZC</span>
                 </div>
-                <div className="mt-auto text-xs font-medium text-[color:var(--color-vzc-blue-dark)] group-hover:underline">
+                <div className="mt-auto text-[11px] font-medium text-[color:var(--color-vzc-blue-dark)] group-hover:underline sm:text-xs">
                   {t.wedstrijdSlugs.length} wedstrijd{t.wedstrijdSlugs.length === 1 ? "" : "en"} →
                 </div>
               </Link>
@@ -190,4 +199,14 @@ function nlMaand(datum: string): string {
   const maanden = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
   const m = Number(datum.slice(5, 7));
   return maanden[m - 1] ?? "";
+}
+
+function korteDivisie(divisie: string): string {
+  return divisie
+    .replace(/eredivisie/i, "Ere")
+    .replace(/divisie/i, "div.")
+    .replace(/\s+noord/i, " N")
+    .replace(/\s+zuid/i, " Z")
+    .replace(/\s+oost/i, " O")
+    .replace(/\s+west/i, " W");
 }

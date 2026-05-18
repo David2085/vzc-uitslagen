@@ -131,8 +131,13 @@ export default async function WedstrijdPagina({
               {teamuitslag.resultaten.length === 1 ? "team geklasseerd" : "teams geklasseerd"}
             </span>
           </div>
+          <div className="scroll-hint">
+            <span aria-hidden>←</span>
+            Veeg horizontaal voor de volledige tabel
+            <span aria-hidden>→</span>
+          </div>
           <div className="vzc-card overflow-x-auto">
-            <table className="uitslagen min-w-[640px]">
+            <table className="uitslagen min-w-[560px] sm:min-w-[640px]">
               <thead>
                 <tr>
                   <th className="w-12">#</th>
@@ -209,8 +214,13 @@ export default async function WedstrijdPagina({
         </span>
       </div>
 
+      <div className="scroll-hint">
+        <span aria-hidden>←</span>
+        Veeg horizontaal om alle segmenttijden te zien
+        <span aria-hidden>→</span>
+      </div>
       <div className="vzc-card overflow-x-auto">
-        <table className="uitslagen heatmap min-w-[1100px]">
+        <table className="uitslagen heatmap min-w-[980px] sm:min-w-[1100px]">
           <thead>
             <tr>
               <th className="w-10">#</th>

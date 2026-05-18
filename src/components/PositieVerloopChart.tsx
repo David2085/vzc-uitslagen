@@ -188,7 +188,7 @@ export default function PositieVerloopChart({
         </div>
       </div>
 
-      <details className="vzc-card" open>
+      <details className="vzc-card">
         <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium text-[color:var(--color-vzc-blue-dark)]">
           Filter atleten
           <span className="ml-2 text-xs font-normal text-[color:var(--color-vzc-muted)]">
@@ -295,10 +295,15 @@ export default function PositieVerloopChart({
         </div>
       </details>
 
-      <div className="vzc-card relative p-4">
+      <div className="scroll-hint">
+        <span aria-hidden>←</span>
+        Veeg horizontaal voor de volledige grafiek
+        <span aria-hidden>→</span>
+      </div>
+      <div className="vzc-card relative overflow-x-auto p-3 sm:p-4">
         <svg
           viewBox={`0 0 ${width} ${height}`}
-          className="h-auto w-full"
+          className="h-[320px] w-auto sm:h-auto sm:w-full"
           role="img"
           aria-label="Positie-verloop per atleet door de race"
         >

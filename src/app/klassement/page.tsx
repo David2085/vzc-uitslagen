@@ -86,8 +86,14 @@ export default function KlassementPagina() {
                   Nog geen wedstrijden gereden in deze poule.
                 </div>
               ) : (
-                <div className="vzc-card overflow-x-auto">
-                  <table className="uitslagen min-w-[720px]">
+                <>
+                  <div className="scroll-hint">
+                    <span aria-hidden>←</span>
+                    Veeg horizontaal om alle wedstrijden te zien
+                    <span aria-hidden>→</span>
+                  </div>
+                  <div className="vzc-card overflow-x-auto">
+                    <table className="uitslagen min-w-[640px] sm:min-w-[720px]">
                     <thead>
                       <tr>
                         <th className="w-12">#</th>
@@ -152,8 +158,9 @@ export default function KlassementPagina() {
                         </tr>
                       ))}
                     </tbody>
-                  </table>
-                </div>
+                    </table>
+                  </div>
+                </>
               )}
             </section>
           );

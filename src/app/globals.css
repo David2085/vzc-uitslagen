@@ -86,13 +86,37 @@ table.uitslagen th {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-vzc-muted);
-  padding: 0.55rem 0.75rem;
+  padding: 0.5rem 0.5rem;
   border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 18%, white);
 }
 
 table.uitslagen td {
-  padding: 0.55rem 0.75rem;
+  padding: 0.5rem 0.5rem;
   border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 8%, white);
+}
+
+@media (min-width: 640px) {
+  table.uitslagen th,
+  table.uitslagen td {
+    padding: 0.55rem 0.75rem;
+  }
+}
+
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-vzc-muted);
+  margin-bottom: 0.4rem;
+}
+
+@media (min-width: 640px) {
+  .scroll-hint {
+    display: none;
+  }
 }
 
 table.uitslagen tr.vzc {
