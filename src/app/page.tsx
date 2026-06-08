@@ -1,212 +1,372 @@
 import Link from "next/link";
-import { alleVzcTeams, alleWedstrijden, alleAtleten } from "@/lib/data";
+import Reveal from "@/components/ui/Reveal";
+import {
+  alleVzcTeams,
+  alleWedstrijden,
+  alleAtleten,
+  officieelKlassement,
+  officielePouleVoorTeam,
+  officieelTeamInPoule,
+} from "@/lib/data";
+
+// Nog te rijden wedstrijden komen uit de officiële tussenstand (race-kolommen
+// zonder uitslag). Geen runtime-datum nodig: een geüploade wedstrijd is per
+// definitie gereden, de rest is toekomst — volledig deterministisch.
+type ToekomstRace = { datum: string; locatie: string; label: string };
+
+function toekomstigeRaces(): ToekomstRace[] {
+  const k = officieelKlassement();
+  if (!k) return [];
+  const map = new Map<string, ToekomstRace>();
+  for (const p of k.poules) {
+    for (const r of p.races) {
+      if (r.gereden) continue;
+      const m = r.label.match(/^\s*(\d{1,2})\/(\d{1,2})\s+(.+?)(?:\s*\(.*\))?$/);
+      if (!m) continue;
+      const dag = m[1].padStart(2, "0");
+      const maand = m[2].padStart(2, "0");
+      const locatie = m[3].trim();
+      const datum = `2026-${maand}-${dag}`;
+      const sleutel = `${datum}|${locatie.toLowerCase()}`;
+      if (!map.has(sleutel)) map.set(sleutel, { datum, locatie, label: r.label });
+    }
+  }
+  return Array.from(map.values()).sort((a, b) => a.datum.localeCompare(b.datum));
+}
 
 export default function Home() {
   const teams = alleVzcTeams();
-  const wedstrijden = alleWedstrijden();
+  const wedstrijden = alleWedstrijden(); // nieuwste eerst; allemaal gereden
   const aantalVzcAtleten = alleAtleten().filter((a) => a.isVzc).length;
 
+  const aantalGereden = wedstrijden.length;
+  const toekomst = toekomstigeRaces();
+  const totaalGepland = aantalGereden + toekomst.length;
+
+  const eerstvolgende = toekomst[0] ?? null;
+  const laatste = wedstrijden[0] ?? null;
+
+  // Gecombineerde tijdlijn (gereden + nog te rijden), chronologisch.
+  type TijdlijnItem = {
+    type: "gereden" | "toekomst";
+    datum: string;
+    slug: string | null;
+    locatie: string;
+    naam: string;
+    vzcAantal: number;
+  };
+  const tijdlijn: TijdlijnItem[] = [
+    ...wedstrijden.map((w) => ({
+      type: "gereden" as const,
+      datum: w.wedstrijd.datum,
+      slug: w.slug,
+      locatie: w.wedstrijd.locatie,
+      naam: w.wedstrijd.naam,
+      vzcAantal: w.uitslagen.filter((u) => u.isVzc).length,
+    })),
+    ...toekomst.map((t) => ({
+      type: "toekomst" as const,
+      datum: t.datum,
+      slug: null,
+      locatie: t.locatie,
+      naam: t.label,
+      vzcAantal: 0,
+    })),
+  ].sort((a, b) => a.datum.localeCompare(b.datum));
+
   return (
-    <div className="space-y-12">
-      <section>
-        <div className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-vzc-red)]" />
-          Seizoen 2026 — NTB teamcompetitie
-        </div>
-        <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-[color:var(--color-vzc-ink)] sm:text-4xl">
-          Uitslagen van alle VZC-teams op één plek
-        </h1>
-        <div className="mt-5 max-w-2xl rounded-xl border border-[color:var(--color-vzc-blue)]/15 bg-[color:var(--color-vzc-blue-50)] px-5 py-4 text-sm text-[color:var(--color-vzc-ink-soft)]">
-          <div className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-vzc-blue-dark)]">
-            Hoe werkt deze site?
+    <div className="space-y-16">
+      {/* (1) Asymmetrische masthead — links uitgelijnd, geen gradient */}
+      <Reveal as="section">
+        <div className="max-w-3xl">
+          <div className="eyebrow flex items-center gap-2">
+            <span
+              aria-hidden
+              className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-vzc-red)]"
+            />
+            Seizoen 2026 · NTB teamcompetitie
           </div>
-          <ul className="space-y-1.5 leading-relaxed">
-            <li>
-              <span className="font-medium text-[color:var(--color-vzc-ink)]">Klik op een wedstrijd</span>{" "}
-              voor de volledige uitslag met een kleur-heatmap per segment — groen is snel, rood is langzaam.
-            </li>
-            <li>
-              <span className="font-medium text-[color:var(--color-vzc-ink)]">Klik op een atletennaam</span>{" "}
-              voor het race-verloop, segmenttijden en vergelijking met de mediaan, de top-3 of de winnaar.
-            </li>
-            <li>
-              <span className="font-medium text-[color:var(--color-vzc-ink)]">VZC-rijen zijn geel gemarkeerd</span>,
-              zodat je teamgenoten meteen ziet staan. De nieuwste wedstrijd staat bovenaan.
-            </li>
-          </ul>
+          <h1 className="font-display mt-4 text-4xl leading-[1.05] text-[color:var(--color-vzc-blue-dark)] sm:text-5xl">
+            Het uitslagenblad van alle VZC-teams
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-vzc-ink-soft)]">
+            Per wedstrijd de volledige uitslag met een heatmap per segment —{" "}
+            <span className="font-medium text-[color:var(--color-vzc-ink)]">
+              groen is snel, rood is langzaam
+            </span>
+            . Elke atleet heeft een eigen pagina met race-verloop en vergelijking met de
+            mediaan, de top-3 of de winnaar. VZC-rijen staan met een gele spine gemarkeerd,
+            zodat je je teamgenoten meteen ziet staan.
+          </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section>
-        <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
-            VZC-teams in de competitie
+      {/* (2) KPI-band — ONgelijke readouts met haarlijn-scheiders */}
+      <Reveal as="section">
+        <div className="border-t border-[color:var(--color-vzc-line)] pt-6">
+          <dl className="grid grid-cols-2 gap-y-8 sm:flex sm:flex-wrap sm:items-end sm:gap-0">
+            <div className="sm:pr-10">
+              <dt className="eyebrow">Teams</dt>
+              <dd className="num mt-1 text-4xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                {teams.length}
+              </dd>
+            </div>
+
+            <div className="sm:border-l sm:border-[color:var(--color-vzc-line)] sm:px-10">
+              <dt className="eyebrow">VZC-atleten</dt>
+              <dd className="num mt-1 text-4xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                {aantalVzcAtleten}
+              </dd>
+            </div>
+
+            <div className="sm:border-l sm:border-[color:var(--color-vzc-line)] sm:px-10">
+              <dt className="eyebrow">Wedstrijden gereden</dt>
+              <dd className="mt-1 flex items-baseline gap-1.5">
+                <span className="num text-4xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                  {aantalGereden}
+                </span>
+                <span className="num text-sm text-[color:var(--color-vzc-muted)]">
+                  / {totaalGepland}
+                </span>
+              </dd>
+            </div>
+
+            {/* Brede, ongelijke readout */}
+            <div className="col-span-2 mt-2 sm:mt-0 sm:flex-1 sm:border-l sm:border-[color:var(--color-vzc-line)] sm:pl-10">
+              <dt className="eyebrow">
+                {eerstvolgende ? "Eerstvolgende race" : "Laatste race"}
+              </dt>
+              {eerstvolgende ? (
+                <dd className="mt-1">
+                  <span className="inline-flex items-baseline gap-2.5">
+                    <span className="num text-2xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                      {dagMaand(eerstvolgende.datum)}
+                    </span>
+                    <span className="font-display text-xl leading-none text-[color:var(--color-vzc-ink)]">
+                      {eerstvolgende.locatie}
+                    </span>
+                  </span>
+                  <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
+                    Op de planning
+                  </div>
+                </dd>
+              ) : laatste ? (
+                <dd className="mt-1">
+                  <Link
+                    href={`/wedstrijd/${laatste.slug}`}
+                    className="group inline-flex items-baseline gap-2.5"
+                  >
+                    <span className="num text-2xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                      {dagMaand(laatste.wedstrijd.datum)}
+                    </span>
+                    <span className="font-display text-xl leading-none text-[color:var(--color-vzc-ink)] group-hover:underline">
+                      {laatste.wedstrijd.locatie}
+                    </span>
+                  </Link>
+                  <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
+                    {laatste.wedstrijd.naam}
+                  </div>
+                </dd>
+              ) : (
+                <dd className="num mt-1 text-2xl text-[color:var(--color-vzc-ink-faint)]">—</dd>
+              )}
+            </div>
+          </dl>
+        </div>
+      </Reveal>
+
+      {/* (3) "De ploegen" — geruled INDEX-lijst (haarlijnen, géén kaartgrid) */}
+      <Reveal as="section">
+        <div className="mb-5 flex items-end justify-between gap-4">
+          <h2 className="font-display text-2xl text-[color:var(--color-vzc-blue-dark)]">
+            De teams
           </h2>
-          <span className="text-xs text-[color:var(--color-vzc-muted)]">
-            {teams.length} {teams.length === 1 ? "team" : "teams"} · {aantalVzcAtleten} VZC-atleten
+          <span className="num text-xs text-[color:var(--color-vzc-muted)]">
+            {teams.length} · {aantalVzcAtleten} atleten
           </span>
         </div>
+
         {teams.length === 0 ? (
-          <div className="vzc-card p-6 text-sm text-[color:var(--color-vzc-muted)]">
+          <p className="border-t border-[color:var(--color-vzc-line)] pt-5 text-sm text-[color:var(--color-vzc-muted)]">
             Nog geen wedstrijduitslagen geüpload voor 2026.
-          </div>
+          </p>
         ) : (
-          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-            {teams.map((t) => (
-              <Link
-                key={t.slug}
-                href={`/team/${t.slug}`}
-                className="vzc-card group flex flex-col gap-2 p-3 transition hover:-translate-y-0.5 hover:shadow-md sm:gap-3 sm:p-5"
-              >
-                <div className="flex items-start justify-between gap-2 sm:gap-3">
-                  <div className="min-w-0">
-                    <div className="text-sm font-semibold leading-tight text-[color:var(--color-vzc-ink)] sm:text-base">
-                      <span className="sm:hidden">
-                        {korteDivisie(t.divisie)} · {t.geslacht === "mannen" ? "M" : "V"}
-                      </span>
-                      <span className="hidden sm:inline">
-                        {t.divisie} · {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
-                      </span>
-                    </div>
-                    <div className="mt-1 hidden text-xs text-[color:var(--color-vzc-muted)] sm:block">
-                      {t.naam}
-                      {t.poule ? ` · poule ${t.poule}` : ""}
-                    </div>
-                    <div className="mt-0.5 truncate text-[11px] text-[color:var(--color-vzc-muted)] sm:hidden">
-                      {t.naam}
-                      {t.poule ? ` · poule ${t.poule}` : ""}
-                    </div>
-                  </div>
-                  <span className="vzc-pill-vzc vzc-pill shrink-0 px-2 text-[10px] sm:px-2.5 sm:text-xs">VZC</span>
-                </div>
-                <div className="mt-auto text-[11px] font-medium text-[color:var(--color-vzc-blue-dark)] group-hover:underline sm:text-xs">
-                  {t.wedstrijdSlugs.length} wedstrijd{t.wedstrijdSlugs.length === 1 ? "" : "en"} →
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section>
-        <Link
-          href="/klassement"
-          className="vzc-card flex flex-wrap items-center justify-between gap-3 px-5 py-4 transition hover:bg-[color:var(--color-vzc-blue-50)]"
-        >
-          <div>
-            <div className="text-base font-semibold text-[color:var(--color-vzc-ink)]">
-              Seizoensklassement 2026
-            </div>
-            <div className="mt-1 text-xs text-[color:var(--color-vzc-muted)]">
-              Stand van alle teams per divisie en poule — met per wedstrijd de behaalde positie en
-              punten.
-            </div>
-          </div>
-          <span className="text-sm font-medium text-[color:var(--color-vzc-blue-dark)]">
-            Bekijk klassement →
-          </span>
-        </Link>
-      </section>
-
-      <section>
-        <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
-            Wedstrijden 2026
-          </h2>
-          <span className="text-xs text-[color:var(--color-vzc-muted)]">
-            {wedstrijden.length}{" "}
-            {wedstrijden.length === 1 ? "wedstrijd" : "wedstrijden"} geregistreerd
-          </span>
-        </div>
-        {wedstrijden.length === 0 ? (
-          <div className="vzc-card p-6 text-sm text-[color:var(--color-vzc-muted)]">
-            Nog geen wedstrijden in de repo. Voeg een JSON-bestand toe in{" "}
-            <code>data/wedstrijden/</code>.
-          </div>
-        ) : (
-          <div className="vzc-card divide-y divide-[color:var(--color-vzc-blue)]/10">
-            {wedstrijden.map((w) => {
-              const vzcAantal = w.uitslagen.filter((u) => u.isVzc).length;
+          <ul className="divide-y divide-[color:var(--color-vzc-line)] border-t border-b border-[color:var(--color-vzc-line)]">
+            {teams.map((t) => {
+              const poule = officielePouleVoorTeam(t);
+              const inPoule = poule ? officieelTeamInPoule(poule, t) : null;
               return (
-                <Link
-                  key={w.slug}
-                  href={`/wedstrijd/${w.slug}`}
-                  className="group flex flex-wrap items-center gap-4 px-5 py-4 transition hover:bg-[color:var(--color-vzc-blue-50)]"
-                >
-                  <div className="flex w-20 shrink-0 flex-col items-center rounded-md bg-[color:var(--color-vzc-blue)] py-2 text-white">
-                    <span className="text-[10px] uppercase tracking-widest opacity-80">
-                      {nlMaand(w.wedstrijd.datum)}
-                    </span>
-                    <span className="text-xl font-bold leading-none">
-                      {Number(w.wedstrijd.datum.slice(8, 10))}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-base font-semibold text-[color:var(--color-vzc-ink)]">
-                      {w.wedstrijd.naam}
+                <li key={t.slug}>
+                  <Link
+                    href={`/team/${t.slug}`}
+                    className="group flex items-center gap-4 py-4 pl-4 pr-1 transition hover:bg-[color:var(--color-vzc-blue-50)]"
+                    style={{ boxShadow: "inset 3px 0 0 0 var(--color-vzc-yellow)" }}
+                  >
+                    <div className="min-w-0 flex-1">
+                      <div className="eyebrow text-[color:var(--color-vzc-blue)]">
+                        {t.divisie}
+                        {t.poule ? ` · poule ${t.poule}` : ""} ·{" "}
+                        {t.geslacht === "mannen" ? "Mannen" : "Vrouwen"}
+                      </div>
+                      <div className="mt-1 truncate text-base font-semibold text-[color:var(--color-vzc-ink)] group-hover:underline">
+                        {t.naam}
+                      </div>
                     </div>
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-[color:var(--color-vzc-muted)]">
-                      <span>{w.wedstrijd.locatie}</span>
-                      <span>·</span>
-                      <span>{w.wedstrijd.afstand}</span>
-                      <span>·</span>
-                      <span>{w.wedstrijd.divisie}</span>
-                      {w.wedstrijd.poule ? (
-                        <>
-                          <span>·</span>
-                          <span>poule {w.wedstrijd.poule}</span>
-                        </>
-                      ) : null}
-                      <span>·</span>
-                      <span>{w.wedstrijd.geslacht === "mannen" ? "Mannen" : "Vrouwen"}</span>
+
+                    <div className="shrink-0 text-right">
+                      <div className="eyebrow">Stand</div>
+                      {inPoule ? (
+                        <div className="num text-2xl leading-none text-[color:var(--color-vzc-blue-dark)]">
+                          {inPoule.positie}
+                          <span className="text-sm text-[color:var(--color-vzc-muted)]">
+                            /{poule!.teams.length}
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="num text-2xl leading-none text-[color:var(--color-vzc-ink-faint)]">
+                          —
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="vzc-pill">{w.uitslagen.length} starters</span>
-                    {vzcAantal > 0 ? (
-                      <span className="vzc-pill-vzc vzc-pill">{vzcAantal} VZC</span>
-                    ) : null}
-                    <span className="hidden text-sm font-medium text-[color:var(--color-vzc-blue-dark)] sm:inline-flex sm:items-center sm:gap-1 group-hover:underline">
-                      Bekijk uitslag
-                      <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+                    <span
+                      aria-hidden
+                      className="shrink-0 text-[color:var(--color-vzc-blue)] transition group-hover:translate-x-0.5"
+                    >
+                      →
                     </span>
-                  </div>
-                </Link>
+                  </Link>
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
-      </section>
+      </Reveal>
 
-      <section className="rounded-xl bg-[color:var(--color-vzc-blue)] px-6 py-7 text-white">
-        <h2 className="text-lg font-semibold">Zoek jezelf op</h2>
-        <p className="mt-1 max-w-xl text-sm text-white/85">
-          Elke gestarte atleet heeft een eigen pagina met race-verloop en segmentanalyse. Vergelijk
-          jezelf met de mediaan van je poule, de top-3 of de winnaar.
-        </p>
-        <Link
-          href="/atleten"
-          className="mt-4 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-vzc-yellow)] px-5 py-2 text-sm font-semibold text-[color:var(--color-vzc-blue-dark)] hover:brightness-95"
-        >
-          Naar atleten-lijst →
-        </Link>
-      </section>
+      {/* (4) Race-tijdlijn / agenda */}
+      <Reveal as="section">
+        <div className="mb-5 flex items-end justify-between gap-4">
+          <h2 className="font-display text-2xl text-[color:var(--color-vzc-blue-dark)]">
+            Wedstrijdagenda 2026
+          </h2>
+          <span className="num text-xs text-[color:var(--color-vzc-muted)]">
+            {aantalGereden}/{totaalGepland} gereden
+          </span>
+        </div>
+
+        {tijdlijn.length === 0 ? (
+          <p className="border-t border-[color:var(--color-vzc-line)] pt-5 text-sm text-[color:var(--color-vzc-muted)]">
+            Nog geen wedstrijden in de repo. Voeg een JSON-bestand toe in{" "}
+            <code className="num">data/wedstrijden/</code>.
+          </p>
+        ) : (
+          <ol className="relative ml-[7px] border-l border-[color:var(--color-vzc-line)]">
+            {tijdlijn.map((w, i) => {
+              const gereden = w.type === "gereden";
+              return (
+                <li key={`${w.datum}-${w.slug ?? i}`} className="relative pl-7">
+                  <span
+                    aria-hidden
+                    className="absolute -left-[7px] top-5 h-3.5 w-3.5 rounded-full border-2 border-[color:var(--color-vzc-blue)]"
+                    style={{
+                      backgroundColor: gereden
+                        ? "var(--color-vzc-blue)"
+                        : "var(--color-vzc-cream)",
+                    }}
+                  />
+                  {gereden && w.slug ? (
+                    <Link
+                      href={`/wedstrijd/${w.slug}`}
+                      className="group flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-[color:var(--color-vzc-line)] py-4"
+                    >
+                      <span className="num w-24 shrink-0 text-sm text-[color:var(--color-vzc-blue-dark)]">
+                        {dagMaand(w.datum)}
+                      </span>
+                      <span className="font-display text-lg text-[color:var(--color-vzc-ink)] group-hover:underline">
+                        {w.locatie}
+                      </span>
+                      <span className="text-sm text-[color:var(--color-vzc-muted)]">
+                        {w.naam}
+                      </span>
+                      <span className="ml-auto flex items-center gap-2">
+                        {w.vzcAantal > 0 ? (
+                          <span className="vzc-pill-vzc vzc-pill num">{w.vzcAantal} VZC</span>
+                        ) : null}
+                        <span
+                          aria-hidden
+                          className="text-[color:var(--color-vzc-blue)] transition group-hover:translate-x-0.5"
+                        >
+                          →
+                        </span>
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-[color:var(--color-vzc-line)] py-4">
+                      <span className="num w-24 shrink-0 text-sm text-[color:var(--color-vzc-ink-faint)]">
+                        {dagMaand(w.datum)}
+                      </span>
+                      <span className="font-display text-lg text-[color:var(--color-vzc-ink-faint)]">
+                        {w.locatie}
+                      </span>
+                      <span className="vzc-tag ml-auto">Op de planning</span>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        )}
+      </Reveal>
+
+      {/* Sluit-rij: haarlijn-band met blauwe tekstlinks (geel = identiteit-only) */}
+      <Reveal as="section">
+        <div className="flex flex-col gap-4 border-t border-[color:var(--color-vzc-line)] pt-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-xl">
+            <h2 className="font-display text-xl text-[color:var(--color-vzc-blue-dark)]">
+              Zoek jezelf op
+            </h2>
+            <p className="mt-1 text-sm leading-relaxed text-[color:var(--color-vzc-ink-soft)]">
+              Elke gestarte atleet heeft een eigen pagina met race-verloop en segmentanalyse.
+              Vergelijk je tijden met de mediaan van je poule, de top-3 of de winnaar.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link
+              href="/atleten"
+              className="text-sm font-medium text-[color:var(--color-vzc-blue)] hover:underline"
+            >
+              Naar de atletenlijst →
+            </Link>
+            <Link
+              href="/klassement"
+              className="text-sm font-medium text-[color:var(--color-vzc-blue)] hover:underline"
+            >
+              Bekijk het seizoensklassement →
+            </Link>
+          </div>
+        </div>
+      </Reveal>
     </div>
   );
 }
 
-function nlMaand(datum: string): string {
-  const maanden = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
-  const m = Number(datum.slice(5, 7));
-  return maanden[m - 1] ?? "";
-}
+const NL_MAANDEN = [
+  "jan",
+  "feb",
+  "mrt",
+  "apr",
+  "mei",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "okt",
+  "nov",
+  "dec",
+];
 
-function korteDivisie(divisie: string): string {
-  return divisie
-    .replace(/eredivisie/i, "Ere")
-    .replace(/divisie/i, "div.")
-    .replace(/\s+noord/i, " N")
-    .replace(/\s+zuid/i, " Z")
-    .replace(/\s+oost/i, " O")
-    .replace(/\s+west/i, " W");
+function dagMaand(datum: string): string {
+  const dag = Number(datum.slice(8, 10));
+  const m = Number(datum.slice(5, 7));
+  const maand = NL_MAANDEN[m - 1] ?? "";
+  return `${dag} ${maand}`;
 }

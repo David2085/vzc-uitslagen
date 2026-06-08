@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* VZC huisstijl */
   --color-vzc-blue: #0a5191;
   --color-vzc-blue-dark: #073a6a;
   --color-vzc-blue-50: #eaf2fb;
@@ -12,8 +13,19 @@
   --color-vzc-ink-soft: #2c3142;
   --color-vzc-muted: #6b7280;
 
-  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /* Protocol — institutionele neutrals */
+  --color-vzc-line: #e7e2d3;        /* warme haarlijn op crème */
+  --color-vzc-paper: #ffffff;
+  --color-vzc-ink-faint: #9aa0ab;
+
+  /* Delta-semantiek (geen off-brand groen) */
+  --color-pos: #073a6a;             /* winst = blauw-dark */
+  --color-neg: #cf2e2e;             /* verlies = rood */
+
+  /* Lettertypes — oude website-look: één sans, geen serif/mono */
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
@@ -22,14 +34,14 @@ html {
   scroll-behavior: smooth;
 }
 
-[id]:target,
-.vzc-anchor {
-  scroll-margin-top: 1rem;
-}
-
 body {
   font-family: var(--font-body);
   font-feature-settings: "ss01", "cv11";
+}
+
+[id]:target,
+.vzc-anchor {
+  scroll-margin-top: 5rem;
 }
 
 @layer base {
@@ -37,17 +49,55 @@ body {
     color: inherit;
     text-decoration: none;
   }
+  /* Zichtbare toetsenbord-focus overal (a11y) */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-vzc-blue);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
+/* --- Typografie-helpers -------------------------------------------------- */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Mono + tabular voor álle data (tijden, posities, deltas, totalen) */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
 
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-vzc-muted);
+}
+
+.hairline {
+  border: 0;
+  border-top: 1px solid var(--color-vzc-line);
+}
+
+/* --- Kaarten & pills ----------------------------------------------------- */
+
 .vzc-card {
-  background-color: white;
-  border: 1px solid color-mix(in oklab, var(--color-vzc-blue) 12%, white);
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(10, 81, 145, 0.05), 0 8px 24px -16px rgba(10, 81, 145, 0.18);
+  background-color: var(--color-vzc-paper);
+  border: 1px solid var(--color-vzc-line);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(10, 81, 145, 0.04);
 }
 
 .vzc-pill {
@@ -63,6 +113,21 @@ body {
   color: var(--color-vzc-blue-dark);
 }
 
+/* Outlined tag (institutioneel, niet gevuld) */
+.vzc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-vzc-line);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-vzc-muted);
+}
+
 .vzc-pill-warn {
   background-color: color-mix(in oklab, var(--color-vzc-red) 12%, white);
   color: var(--color-vzc-red);
@@ -73,6 +138,8 @@ body {
   color: var(--color-vzc-blue-dark);
 }
 
+/* --- Tabellen (uitslagenblad) ------------------------------------------- */
+
 table.uitslagen {
   width: 100%;
   border-collapse: collapse;
@@ -82,17 +149,18 @@ table.uitslagen {
 table.uitslagen th {
   text-align: left;
   font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-vzc-muted);
   padding: 0.5rem 0.5rem;
-  border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 18%, white);
+  border-bottom: 2px solid var(--color-vzc-blue);
+  white-space: nowrap;
 }
 
 table.uitslagen td {
   padding: 0.5rem 0.5rem;
-  border-bottom: 1px solid color-mix(in oklab, var(--color-vzc-blue) 8%, white);
+  border-bottom: 1px solid var(--color-vzc-line);
 }
 
 @media (min-width: 640px) {
@@ -101,6 +169,101 @@ table.uitslagen td {
     padding: 0.55rem 0.75rem;
   }
 }
+
+/* VZC-rij: subtiele wash + gele spine (identiteit, niet schreeuwerig) */
+table.uitslagen tr.vzc {
+  background-color: var(--color-vzc-blue-50);
+  box-shadow: inset 3px 0 0 0 var(--color-vzc-yellow);
+}
+
+table.uitslagen tr:hover:not(.vzc) {
+  background-color: color-mix(in oklab, var(--color-vzc-blue) 4%, white);
+}
+
+table.uitslagen tr.vzc:hover {
+  background-color: color-mix(in oklab, var(--color-vzc-blue-50) 70%, var(--color-vzc-yellow-soft));
+}
+
+table.uitslagen tr.dnf td {
+  color: var(--color-vzc-muted);
+  font-style: italic;
+}
+
+/* Leider = holle gele ring (geen fill), zodat VZC ondubbelzinnig blijft */
+.leader-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.3rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-vzc-yellow);
+  font-weight: 700;
+}
+
+/* Sticky eerste kolom voor brede tabellen — vaste achtergrond zodat er bij
+   horizontaal scrollen niets doorheen schemert. */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background-color: var(--color-vzc-paper);
+  z-index: 1;
+}
+table.uitslagen tr.vzc .sticky-col {
+  background-color: var(--color-vzc-blue-50);
+}
+
+/* "Nog te rijden": diagonale hatch zodat de toekomst zichtbaar leeg is */
+.hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    var(--color-vzc-line) 4px,
+    var(--color-vzc-line) 5px
+  );
+}
+
+/* --- Heatmap-legenda ----------------------------------------------------- */
+
+.heat-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.heat-legend .swatch {
+  width: 14px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* --- Segmented control (baseline-toggle, tabs) -------------------------- */
+
+.segmented {
+  position: relative;
+  display: inline-flex;
+  gap: 0.15rem;
+  padding: 0.2rem;
+  border-radius: 9999px;
+  background-color: color-mix(in oklab, var(--color-vzc-blue) 7%, white);
+}
+.segmented button {
+  position: relative;
+  z-index: 1;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-vzc-blue-dark);
+  transition: color 0.2s;
+}
+.segmented button[data-active="true"] {
+  background-color: var(--color-vzc-blue);
+  color: white;
+}
+
+/* --- Scroll-hint (mobiel) ----------------------------------------------- */
 
 .scroll-hint {
   display: flex;
@@ -112,29 +275,13 @@ table.uitslagen td {
   color: var(--color-vzc-muted);
   margin-bottom: 0.4rem;
 }
-
 @media (min-width: 640px) {
   .scroll-hint {
     display: none;
   }
 }
 
-table.uitslagen tr.vzc {
-  background-color: color-mix(in oklab, var(--color-vzc-yellow) 25%, white);
-}
-
-table.uitslagen tr:hover:not(.vzc) {
-  background-color: color-mix(in oklab, var(--color-vzc-blue) 4%, white);
-}
-
-table.uitslagen tr.vzc:hover {
-  background-color: color-mix(in oklab, var(--color-vzc-yellow) 50%, white);
-}
-
-table.uitslagen tr.dnf td {
-  color: var(--color-vzc-muted);
-  font-style: italic;
-}
+/* --- Segmentbalken (SegmentAnalyse) ------------------------------------- */
 
 .vzc-segment-bar {
   position: relative;
@@ -143,19 +290,19 @@ table.uitslagen tr.dnf td {
   border-radius: 6px;
   overflow: hidden;
 }
-
 .vzc-segment-bar .fill-self {
   position: absolute;
   inset: 0 auto 0 0;
   background-color: var(--color-vzc-blue);
   opacity: 0.85;
 }
-
 .vzc-segment-bar .fill-base {
   position: absolute;
   inset: 0 auto 0 0;
   border-right: 2px dashed var(--color-vzc-red);
 }
+
+/* --- Spotlight / gap-rijen ---------------------------------------------- */
 
 .spotlight-row {
   display: grid;
@@ -164,11 +311,9 @@ table.uitslagen tr.dnf td {
   align-items: center;
   padding: 0.65rem 0.85rem;
 }
-
 .spotlight-row.dnf {
   opacity: 0.7;
 }
-
 .spotlight-bars {
   display: grid;
   grid-template-columns: 56px 1fr 36px;
@@ -176,7 +321,6 @@ table.uitslagen tr.dnf td {
   row-gap: 0.35rem;
   align-items: center;
 }
-
 .spotlight-bar-track {
   position: relative;
   height: 10px;
@@ -184,14 +328,12 @@ table.uitslagen tr.dnf td {
   border-radius: 999px;
   overflow: hidden;
 }
-
 .spotlight-bar-track > .fill {
   position: absolute;
   inset: 0 auto 0 0;
   background-color: var(--color-vzc-blue);
   border-radius: 999px;
 }
-
 .spotlight-bar-track.muted > .fill {
   background-color: color-mix(in oklab, var(--color-vzc-muted) 50%, white);
 }
@@ -204,23 +346,13 @@ table.uitslagen tr.dnf td {
   padding: 0.25rem 0.85rem;
   font-size: 0.84rem;
 }
-
 .gap-row + .gap-row {
-  border-top: 1px solid color-mix(in oklab, var(--color-vzc-blue) 6%, white);
+  border-top: 1px solid var(--color-vzc-line);
 }
-
 .gap-row.vzc {
-  background-color: color-mix(in oklab, var(--color-vzc-yellow) 25%, white);
+  background-color: var(--color-vzc-blue-50);
+  box-shadow: inset 3px 0 0 0 var(--color-vzc-yellow);
 }
-
-.gap-row.vzc:hover {
-  background-color: color-mix(in oklab, var(--color-vzc-yellow) 45%, white);
-}
-
-.gap-row:not(.vzc):hover {
-  background-color: color-mix(in oklab, var(--color-vzc-blue) 4%, white);
-}
-
 .gap-bar {
   position: relative;
   height: 8px;
@@ -228,14 +360,56 @@ table.uitslagen tr.dnf td {
   border-radius: 999px;
   overflow: hidden;
 }
-
 .gap-bar > .fill {
   position: absolute;
   inset: 0 auto 0 0;
   background-color: var(--color-vzc-blue);
   border-radius: 999px;
 }
-
 .gap-row.vzc .gap-bar > .fill {
   background-color: var(--color-vzc-blue-dark);
+}
+
+/* --- Motion: reveal + SVG-draw (CSS, geen framer-motion) ---------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.draw-line {
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: var(--len, 1000);
+}
+.draw-line.is-in {
+  animation: draw 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .draw-line,
+  .draw-line.is-in {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
 }

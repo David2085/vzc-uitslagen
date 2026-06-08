@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatSeconden, formatVerschil } from "@/lib/data";
+import Reveal from "@/components/ui/Reveal";
 import type { WedstrijdVolledig, AtleetUitslag, SegmentSleutel } from "@/lib/types";
 
 type SpotlightSegment = {
@@ -46,20 +47,22 @@ export default function VzcSpotlight({ wedstrijd }: { wedstrijd: WedstrijdVolled
   });
 
   return (
-    <section className="space-y-3">
+    <Reveal as="section" className="space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
+          <span className="eyebrow">VZC-spotlight</span>
+          <h2 className="font-display mt-1 text-2xl text-[color:var(--color-vzc-blue-dark)]">
             VZC in deze wedstrijd
           </h2>
-          <p className="text-xs text-[color:var(--color-vzc-muted)]">
-            {vzc.length} {vzc.length === 1 ? "atleet" : "atleten"} aan de start. Balken tonen
-            de positie binnen het deelnemersveld; vol = leider in dat segment.
+          <p className="mt-1.5 max-w-xl text-xs text-[color:var(--color-vzc-muted)]">
+            <span className="num">{vzc.length}</span> {vzc.length === 1 ? "atleet" : "atleten"} aan
+            de start. De balken tonen de positie binnen het deelnemersveld; vol = leider in dat
+            segment.
           </p>
         </div>
-        <span className="vzc-pill-vzc vzc-pill">VZC-spotlight</span>
+        <span className="vzc-pill-vzc vzc-pill">VZC</span>
       </div>
-      <div className="vzc-card divide-y divide-[color:var(--color-vzc-blue)]/10">
+      <div className="vzc-card divide-y divide-[color:var(--color-vzc-line)]">
         {sortedVzc.map((atleet) => (
           <VzcRij
             key={atleet.atleetSlug}
@@ -70,7 +73,7 @@ export default function VzcSpotlight({ wedstrijd }: { wedstrijd: WedstrijdVolled
           />
         ))}
       </div>
-    </section>
+    </Reveal>
   );
 }
 
@@ -92,14 +95,21 @@ function VzcRij({
     winnaarTijd !== null && eindTijd !== null && eindTijd > winnaarTijd
       ? eindTijd - winnaarTijd
       : null;
+  const leider = totaalRank === 1;
 
   return (
     <div className={"spotlight-row" + (isDnf ? " dnf" : "")}>
       <div className="min-w-0">
         <div className="flex items-baseline gap-2">
-          <span className="text-base font-semibold tabular-nums text-[color:var(--color-vzc-ink)]">
-            {isDnf ? "DNF" : `#${atleet.rank}`}
-          </span>
+          {leider ? (
+            <span className="leader-ring num text-sm font-bold text-[color:var(--color-vzc-blue-dark)]">
+              1
+            </span>
+          ) : (
+            <span className="num text-base font-semibold text-[color:var(--color-vzc-blue-dark)]">
+              {isDnf ? "DNF" : `#${atleet.rank}`}
+            </span>
+          )}
           <Link
             href={`/atleet/${atleet.atleetSlug}`}
             className="truncate font-medium text-[color:var(--color-vzc-ink)] hover:text-[color:var(--color-vzc-blue)] hover:underline"
@@ -109,7 +119,12 @@ function VzcRij({
         </div>
         <div className="mt-0.5 truncate text-xs text-[color:var(--color-vzc-muted)]">
           {atleet.club}
-          {atleet.bib ? ` · #${atleet.bib}` : ""}
+          {atleet.bib ? (
+            <>
+              {" · "}
+              <span className="num">#{atleet.bib}</span>
+            </>
+          ) : null}
         </div>
       </div>
 
@@ -142,17 +157,19 @@ function VzcRij({
           </div>
         ) : (
           <>
-            <div className="text-base font-semibold tabular-nums text-[color:var(--color-vzc-ink)]">
+            <div className="num text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
               {formatSeconden(eindTijd)}
             </div>
-            <div className="mt-0.5 text-xs tabular-nums text-[color:var(--color-vzc-muted)]">
-              {totaalRank !== null && aantalFinishers > 0
-                ? `${totaalRank}e van ${aantalFinishers}`
-                : ""}
+            <div className="mt-0.5 text-xs text-[color:var(--color-vzc-muted)]">
+              {totaalRank !== null && aantalFinishers > 0 ? (
+                <span className="num">
+                  {totaalRank}e van {aantalFinishers}
+                </span>
+              ) : null}
               {gap !== null ? (
                 <>
-                  {" "}
-                  · <span>{formatVerschil(gap)}</span>
+                  {" · "}
+                  <span className="num text-[color:var(--color-neg)]">{formatVerschil(gap)}</span>
                 </>
               ) : null}
             </div>
@@ -175,21 +192,20 @@ function SegmentRegel({
   pct: number;
 }) {
   const heeftData = rang !== null && totaal > 0;
+  const isLeider = rang === 1;
   return (
     <>
-      <span className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-vzc-muted)]">
-        {label}
-      </span>
-      <span
-        className={"spotlight-bar-track" + (heeftData ? "" : " muted")}
-        aria-hidden
-      >
+      <span className="eyebrow !text-[0.66rem]">{label}</span>
+      <span className={"spotlight-bar-track" + (heeftData ? "" : " muted")} aria-hidden>
         <span
           className="fill"
-          style={{ width: heeftData ? `${Math.max(4, pct)}%` : "0%" }}
+          style={{
+            width: heeftData ? `${Math.max(4, pct)}%` : "0%",
+            backgroundColor: isLeider ? "var(--color-vzc-blue-dark)" : undefined,
+          }}
         />
       </span>
-      <span className="text-right text-xs tabular-nums text-[color:var(--color-vzc-ink-soft)]">
+      <span className="num text-right text-xs text-[color:var(--color-vzc-ink-soft)]">
         {heeftData ? `#${rang}` : "—"}
       </span>
     </>

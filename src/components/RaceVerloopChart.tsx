@@ -47,6 +47,7 @@ export default function RaceVerloopChart({
   const polyline = ptsMet.map((p) => `${p.x},${p.y}`).join(" ");
 
   const yTicks = bepaalYTicks(yMin, yMax);
+  const mono = "var(--font-mono)";
 
   return (
     <svg
@@ -62,8 +63,7 @@ export default function RaceVerloopChart({
             y1={yFor(pos)}
             x2={width - padR}
             y2={yFor(pos)}
-            stroke="var(--color-vzc-blue)"
-            strokeOpacity={0.1}
+            stroke="var(--color-vzc-line)"
             strokeWidth={1}
           />
           <text
@@ -73,6 +73,8 @@ export default function RaceVerloopChart({
             dominantBaseline="middle"
             fill="var(--color-vzc-muted)"
             fontSize={11}
+            fontFamily={mono}
+            style={{ fontVariantNumeric: "tabular-nums" }}
           >
             #{pos}
           </text>
@@ -86,8 +88,8 @@ export default function RaceVerloopChart({
             y1={padT}
             x2={xFor(i)}
             y2={padT + innerH}
-            stroke="var(--color-vzc-blue)"
-            strokeOpacity={0.06}
+            stroke="var(--color-vzc-line)"
+            strokeOpacity={0.6}
             strokeWidth={1}
           />
           <text
@@ -96,6 +98,7 @@ export default function RaceVerloopChart({
             textAnchor="middle"
             fill="var(--color-vzc-muted)"
             fontSize={11}
+            letterSpacing="0.04em"
           >
             {p.label}
           </text>
@@ -113,29 +116,33 @@ export default function RaceVerloopChart({
         />
       ) : null}
 
-      {ptsMet.map((p) => (
-        <g key={p.i}>
-          <circle
-            cx={p.x}
-            cy={p.y}
-            r={5}
-            fill="white"
-            stroke="var(--color-vzc-blue)"
-            strokeWidth={2}
-          />
-          <text
-            x={p.x}
-            y={p.y - 14}
-            textAnchor="middle"
-            fill="var(--color-vzc-ink)"
-            fontSize={12}
-            fontWeight={600}
-            style={{ fontVariantNumeric: "tabular-nums" }}
-          >
-            #{p.positie}
-          </text>
-        </g>
-      ))}
+      {ptsMet.map((p) => {
+        const isFinish = p.i === punten.length - 1;
+        return (
+          <g key={p.i}>
+            <circle
+              cx={p.x}
+              cy={p.y}
+              r={isFinish ? 6 : 5}
+              fill={isFinish ? "var(--color-vzc-blue-dark)" : "var(--color-vzc-paper)"}
+              stroke="var(--color-vzc-blue)"
+              strokeWidth={2}
+            />
+            <text
+              x={p.x}
+              y={p.y - 14}
+              textAnchor="middle"
+              fill="var(--color-vzc-ink)"
+              fontSize={12}
+              fontWeight={600}
+              fontFamily={mono}
+              style={{ fontVariantNumeric: "tabular-nums" }}
+            >
+              #{p.positie}
+            </text>
+          </g>
+        );
+      })}
 
       <text
         x={padL - 44}
@@ -143,7 +150,9 @@ export default function RaceVerloopChart({
         textAnchor="middle"
         transform={`rotate(-90 ${padL - 44} ${padT + innerH / 2})`}
         fill="var(--color-vzc-muted)"
-        fontSize={11}
+        fontSize={10}
+        letterSpacing="0.12em"
+        style={{ textTransform: "uppercase" }}
       >
         positie
       </text>

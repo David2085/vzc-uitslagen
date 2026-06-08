@@ -1,12 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import type {
+  Afstanden,
   AtleetUitslag,
   CheckpointSleutel,
   CumulatieveTijden,
   DivisieKlassement,
   Geslacht,
+  OfficieelKlassement,
+  OfficielePoule,
+  OfficieelTeam,
+  OfficieelTeamRaceResultaat,
   SegmentSleutel,
+  SegmentTrend,
+  SegmentTrendPunt,
+  TempoInfo,
   SegmentTijden,
   SeizoensTeamRij,
   TeamResultaat,
@@ -453,22 +461,17 @@ export function baselineTijd(
   return null;
 }
 
-export const PUNTEN_SCHEMAS: Record<string, number[]> = {
-  ntb_standaard: [25, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-};
-
-const DEFAULT_PUNTENSCHEMA = "ntb_standaard";
-
-export function puntenVoorRank(rank: number, schemaKey?: string): number {
-  const schema = PUNTEN_SCHEMAS[schemaKey ?? DEFAULT_PUNTENSCHEMA] ?? PUNTEN_SCHEMAS[DEFAULT_PUNTENSCHEMA];
-  return schema[rank - 1] ?? 0;
-}
-
 export function teamformatLabel(format: Teamformat): string {
   if (format.type === "ttt_nde_man") {
     return `Tijd van de ${format.n}e finisher per ploeg (TTT)`;
   }
-  return `Som van de ${format.n} snelste finishers per ploeg`;
+  return `Som van de beste ${format.n} klasseringen per ploeg (slechtste valt weg)`;
+}
+
+// Individuele klassering van een atleet; DNF/DNS = laatste plaats
+// (NTB art. 8.3/8.4: laatste plaats op basis van aantal gestarte deelnemers).
+function klasseringVan(u: AtleetUitslag, aantalStarters: number): number {
+  return typeof u.rank === "number" ? u.rank : aantalStarters;
 }
 
 export function teamuitslagVoorWedstrijd(
@@ -477,62 +480,101 @@ export function teamuitslagVoorWedstrijd(
   const format = w.wedstrijd.teamformat;
   if (!format) return null;
 
-  const minFinishers = format.min_finishers ?? format.n;
-  const perClub = new Map<string, AtleetUitslag[]>();
+  const isTtt = format.type === "ttt_nde_man";
+  const aantalStarters = w.uitslagen.length;
 
+  const perClub = new Map<string, AtleetUitslag[]>();
   for (const u of w.uitslagen) {
-    if (u.splits.totaal === null || u.splits.totaal <= 0) continue;
-    if (u.rank === "DNF") continue;
     const lijst = perClub.get(u.club) ?? [];
     lijst.push(u);
     perClub.set(u.club, lijst);
   }
 
   const ongeldig: { club: string; finishers: number }[] = [];
-  const ruwe: { club: string; teamtijd: number; tellendeAtleten: AtleetUitslag[]; finishersInTeam: number }[] = [];
+  const ruwe: {
+    club: string;
+    sorteer: number;
+    tiebreak: number;
+    klasseringSom: number | null;
+    teamtijd: number | null;
+    tellendeAtleten: AtleetUitslag[];
+    finishersInTeam: number;
+  }[] = [];
 
   for (const [club, atleten] of perClub.entries()) {
-    const opTijd = [...atleten].sort(
-      (a, b) => (a.splits.totaal as number) - (b.splits.totaal as number),
-    );
-    if (opTijd.length < minFinishers) {
-      ongeldig.push({ club, finishers: opTijd.length });
-      continue;
-    }
-    if (format.type === "ttt_nde_man") {
-      const nde = opTijd[format.n - 1];
-      if (!nde || nde.splits.totaal === null) {
-        ongeldig.push({ club, finishers: opTijd.length });
+    if (isTtt) {
+      // Team-wedstrijd (NTB art. 9.2a): klassering volgt de race-uitslag.
+      // Teamtijd = tijd van de n-de finisher.
+      const finishers = atleten
+        .filter((a) => a.rank !== "DNF" && a.splits.totaal !== null)
+        .sort((a, b) => (a.splits.totaal as number) - (b.splits.totaal as number));
+      const minFinishers = format.min_finishers ?? format.n;
+      if (finishers.length < minFinishers) {
+        ongeldig.push({ club, finishers: finishers.length });
         continue;
       }
+      const teamtijd = finishers[format.n - 1].splits.totaal as number;
       ruwe.push({
         club,
-        teamtijd: nde.splits.totaal,
-        tellendeAtleten: opTijd.slice(0, format.n),
-        finishersInTeam: opTijd.length,
+        sorteer: teamtijd,
+        tiebreak: 0,
+        klasseringSom: null,
+        teamtijd,
+        tellendeAtleten: finishers.slice(0, format.n),
+        finishersInTeam: finishers.length,
       });
     } else {
-      const top = opTijd.slice(0, format.n);
-      const som = top.reduce((s, a) => s + (a.splits.totaal as number), 0);
+      // Individuele wedstrijd (NTB art. 9.1): de beste n klasseringen van het
+      // team tellen. Een DNF/DNS telt als laatste plaats, en ontbrekende
+      // teamleden (team kleiner dan n) worden aangevuld met een laatste plaats.
+      // Bij een volledig (vierkoppig) team valt de slechtste klassering zo
+      // vanzelf weg.
+      if (atleten.length < 2) {
+        ongeldig.push({ club, finishers: atleten.length });
+        continue;
+      }
+      const n = format.n;
+      const opKlassering = [...atleten].sort(
+        (a, b) =>
+          klasseringVan(a, aantalStarters) - klasseringVan(b, aantalStarters),
+      );
+      const placings = opKlassering.map((a) => klasseringVan(a, aantalStarters));
+      const tellendePlacings = Array.from(
+        { length: n },
+        (_, i) => placings[i] ?? aantalStarters,
+      );
+      const klasseringSom = tellendePlacings.reduce((s, p) => s + p, 0);
+      const tellend = opKlassering.slice(0, Math.min(n, opKlassering.length));
+      const teamtijd =
+        tellend.length === n && tellend.every((a) => a.splits.totaal !== null)
+          ? tellend.reduce((s, a) => s + (a.splits.totaal as number), 0)
+          : null;
       ruwe.push({
         club,
-        teamtijd: som,
-        tellendeAtleten: top,
-        finishersInTeam: opTijd.length,
+        sorteer: klasseringSom,
+        // Gelijke som: hoogste (laagste getal) weggelaten klassering wint (art. 9.1d).
+        tiebreak: placings[n] ?? aantalStarters,
+        klasseringSom,
+        teamtijd,
+        tellendeAtleten: tellend,
+        finishersInTeam: atleten.length,
       });
     }
   }
 
-  ruwe.sort((a, b) => a.teamtijd - b.teamtijd);
-  const schema = w.wedstrijd.puntenschema ?? DEFAULT_PUNTENSCHEMA;
+  // Laagste som (resp. teamtijd) eerst. Bij gelijke som wint het team met de
+  // hoogste — dus laagste getal — weggelaten klassering (NTB art. 9.1d).
+  ruwe.sort((a, b) => a.sorteer - b.sorteer || a.tiebreak - b.tiebreak);
+
   const resultaten: TeamResultaat[] = ruwe.map((r, i) => ({
     rank: i + 1,
     club: r.club,
     isVzc: isVzcUitslag(r.club, w.wedstrijd.vzc_teams),
+    klasseringSom: r.klasseringSom,
     teamtijd: r.teamtijd,
+    isTtt,
     tellendeAtleten: r.tellendeAtleten,
     finishersInTeam: r.finishersInTeam,
-    punten: puntenVoorRank(i + 1, schema),
   }));
 
   ongeldig.sort((a, b) => a.club.localeCompare(b.club));
@@ -594,7 +636,11 @@ export function divisieKlassement(p: PouleSleutel): DivisieKlassement {
 
   const perClub = new Map<
     string,
-    { totaalPunten: number; aantal: number; resultaten: Record<string, { rank: number; punten: number } | null> }
+    {
+      totaalKlassering: number;
+      aantal: number;
+      resultaten: Record<string, { teamPlaats: number; klasseringSom: number | null } | null>;
+    }
   >();
 
   for (const w of oplopend) {
@@ -602,33 +648,42 @@ export function divisieKlassement(p: PouleSleutel): DivisieKlassement {
     if (!uitslag) continue;
     for (const r of uitslag.resultaten) {
       const huidige = perClub.get(r.club) ?? {
-        totaalPunten: 0,
+        totaalKlassering: 0,
         aantal: 0,
-        resultaten: {} as Record<string, { rank: number; punten: number } | null>,
+        resultaten: {} as Record<
+          string,
+          { teamPlaats: number; klasseringSom: number | null } | null
+        >,
       };
-      huidige.totaalPunten += r.punten;
+      // Seizoensstand telt de teamklassering (plaats) per wedstrijd op (art. 10.1a).
+      huidige.totaalKlassering += r.rank;
       huidige.aantal += 1;
-      huidige.resultaten[w.slug] = { rank: r.rank, punten: r.punten };
+      huidige.resultaten[w.slug] = { teamPlaats: r.rank, klasseringSom: r.klasseringSom };
       perClub.set(r.club, huidige);
     }
   }
 
   const teams: SeizoensTeamRij[] = Array.from(perClub.entries())
     .map(([club, agg]) => {
-      const perWedstrijd: Record<string, { rank: number; punten: number } | null> = {};
+      const perWedstrijd: Record<
+        string,
+        { teamPlaats: number; klasseringSom: number | null } | null
+      > = {};
       for (const w of oplopend) {
         perWedstrijd[w.slug] = agg.resultaten[w.slug] ?? null;
       }
       return {
         club,
         isVzc: isVzcUitslag(club, Array.from(vzcSet)),
-        totaalPunten: agg.totaalPunten,
+        totaalKlassering: agg.totaalKlassering,
         aantalWedstrijden: agg.aantal,
         perWedstrijd,
       };
     })
+    // Laagste totaal aan klasseringen wint (NTB art. 10.1a).
     .sort((a, b) => {
-      if (b.totaalPunten !== a.totaalPunten) return b.totaalPunten - a.totaalPunten;
+      if (a.totaalKlassering !== b.totaalKlassering)
+        return a.totaalKlassering - b.totaalKlassering;
       return a.club.localeCompare(b.club);
     });
 
@@ -664,15 +719,159 @@ export function teamSeizoensStand(team: VzcTeam): TeamSeizoensStand {
       wedstrijdSlug: w.slug,
       wedstrijdNaam: w.wedstrijd.naam,
       datum: w.wedstrijd.datum,
-      rank: eigen.rank,
-      punten: eigen.punten,
+      teamPlaats: eigen.rank,
+      klasseringSom: eigen.klasseringSom,
       teamtijd: eigen.teamtijd,
     });
   }
   races.sort((a, b) => a.datum.localeCompare(b.datum));
   return {
     teamSlug: team.slug,
-    totaalPunten: races.reduce((s, r) => s + r.punten, 0),
+    totaalKlassering: races.reduce((s, r) => s + r.teamPlaats, 0),
     perWedstrijd: races,
   };
+}
+
+// --- Officiele tussenstand (teamcompetities.nl) -----------------------------
+
+let _officieelCache: OfficieelKlassement | null | undefined;
+
+export function officieelKlassement(): OfficieelKlassement | null {
+  if (_officieelCache !== undefined) return _officieelCache;
+  const pad = path.join(process.cwd(), "data", "klassement.json");
+  if (!fs.existsSync(pad)) {
+    _officieelCache = null;
+    return null;
+  }
+  _officieelCache = JSON.parse(fs.readFileSync(pad, "utf-8")) as OfficieelKlassement;
+  return _officieelCache;
+}
+
+export function officielePouleVoorTeam(team: VzcTeam): OfficielePoule | null {
+  const k = officieelKlassement();
+  if (!k) return null;
+  return (
+    k.poules.find(
+      (p) =>
+        p.divisie === team.divisie &&
+        (p.poule ?? null) === (team.poule ?? null) &&
+        p.geslacht === team.geslacht,
+    ) ?? null
+  );
+}
+
+export function officieelTeamInPoule(
+  poule: OfficielePoule,
+  team: VzcTeam,
+): { team: OfficieelTeam; positie: number } | null {
+  const idx = poule.teams.findIndex(
+    (t) => slugify(t.club) === slugify(team.naam),
+  );
+  if (idx === -1) return null;
+  return { team: poule.teams[idx], positie: idx + 1 };
+}
+
+// Officiele teamuitslag van één wedstrijd (gebruikt voor TTT-races, waar de
+// plaats op tijd is bepaald en niet uit de individuele uitslag volgt).
+export function officieleTeamuitslagVoorWedstrijd(
+  slug: string,
+): { resultaten: OfficieelTeamRaceResultaat[]; isTtt: boolean } | null {
+  const k = officieelKlassement();
+  if (!k) return null;
+  for (const p of k.poules) {
+    const idx = p.races.findIndex((r) => r.wedstrijdSlug === slug);
+    if (idx === -1) continue;
+    const resultaten: OfficieelTeamRaceResultaat[] = [];
+    for (const t of p.teams) {
+      const res = t.perRace[idx];
+      if (!res) continue;
+      resultaten.push({ club: t.club, isVzc: t.isVzc, plaats: res.plaats, som: res.som });
+    }
+    resultaten.sort((a, b) => a.plaats - b.plaats);
+    return { resultaten, isTtt: p.races[idx].isTtt };
+  }
+  return null;
+}
+
+// --- Tempo (afstand-lookup) ------------------------------------------------
+
+export const AFSTAND_DISTANCES: Record<string, Afstanden> = {
+  "1/8e (Sprint)": { zwem_m: 500, fiets_km: 20, loop_km: 5 },
+  OD: { zwem_m: 1500, fiets_km: 40, loop_km: 10 },
+  "Super Sprint": { zwem_m: 400, fiets_km: 10, loop_km: 2.5 },
+};
+
+export function afstandenVoor(w: Wedstrijd): Afstanden | null {
+  return w.afstanden ?? AFSTAND_DISTANCES[w.afstand] ?? null;
+}
+
+function mmss(sec: number): string {
+  const m = Math.floor(sec / 60);
+  const s = Math.round(sec % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+export function tempoVoorSegment(
+  sec: number | null,
+  segment: SegmentSleutel,
+  dist: Afstanden | null,
+): TempoInfo | null {
+  if (sec === null || sec <= 0 || !dist) return null;
+  if (segment === "zwem") {
+    const per100 = sec / (dist.zwem_m / 100);
+    return { waarde: per100, eenheid: "/100m", tekst: mmss(per100), hogerIsBeter: false };
+  }
+  if (segment === "fiets") {
+    const kmh = dist.fiets_km / (sec / 3600);
+    return { waarde: kmh, eenheid: "km/u", tekst: kmh.toFixed(1), hogerIsBeter: true };
+  }
+  if (segment === "loop") {
+    const perKm = sec / dist.loop_km;
+    return { waarde: perKm, eenheid: "/km", tekst: mmss(perKm), hogerIsBeter: false };
+  }
+  return null; // T1/T2 hebben geen tempo
+}
+
+// --- Seizoens-trend per segment -------------------------------------------
+
+function mediaanVan(getallen: number[]): number | null {
+  if (getallen.length === 0) return null;
+  const s = [...getallen].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 === 0 ? (s[m - 1] + s[m]) / 2 : s[m];
+}
+
+export function seizoensSegmentTrend(atleet: AtleetProfiel): SegmentTrend[] {
+  const segmenten: SegmentSleutel[] = ["zwem", "fiets", "loop"];
+  const races = [...atleet.resultaten].sort((a, b) =>
+    wedstrijdSortKey(a.wedstrijd, a.wedstrijdSlug).localeCompare(
+      wedstrijdSortKey(b.wedstrijd, b.wedstrijdSlug),
+    ),
+  );
+  return segmenten.map((seg) => {
+    const punten: SegmentTrendPunt[] = races.map((r) => {
+      const dist = afstandenVoor(r.wedstrijd);
+      const tijd = r.splits[seg];
+      return {
+        wedstrijdSlug: r.wedstrijdSlug,
+        datum: r.wedstrijd.datum,
+        locatie: r.wedstrijd.locatie,
+        tijd,
+        tempo: tempoVoorSegment(tijd, seg, dist),
+      };
+    });
+    const tijden = punten
+      .map((p) => p.tijd)
+      .filter((t): t is number => t !== null && t > 0);
+    const tempos = punten
+      .map((p) => p.tempo?.waarde)
+      .filter((t): t is number => t != null);
+    return {
+      segment: seg,
+      punten,
+      besteTijd: tijden.length ? Math.min(...tijden) : null,
+      mediaanTempo: mediaanVan(tempos),
+      hogerIsBeter: seg === "fiets",
+    };
+  });
 }

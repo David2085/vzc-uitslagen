@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AtletenZoek from "@/components/AtletenZoek";
+import Reveal from "@/components/ui/Reveal";
 import { alleAtleten } from "@/lib/data";
 
 export default function AtletenPagina() {
@@ -19,21 +20,24 @@ export default function AtletenPagina() {
   });
 
   return (
-    <div className="space-y-8">
-      <div>
+    <div className="space-y-10">
+      <Reveal as="div">
         <Link
           href="/"
           className="text-xs font-medium text-[color:var(--color-vzc-blue)] hover:underline"
         >
           ← Terug naar overzicht
         </Link>
-        <h1 className="mt-3 text-2xl font-semibold tracking-tight">Atleten</h1>
-        <p className="mt-1 max-w-2xl text-sm text-[color:var(--color-vzc-muted)]">
+        <p className="eyebrow mt-5">Deelnemersregister · 2026</p>
+        <h1 className="font-display mt-2 text-3xl text-[color:var(--color-vzc-blue-dark)] sm:text-4xl">
+          Atleten
+        </h1>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[color:var(--color-vzc-ink-soft)]">
           Alle atleten die in 2026 een NTB teamcompetitie-wedstrijd voor VZC of een tegenstander
           hebben gereden. Standaard zie je alleen de VZC-atleten; vink de checkbox uit om het hele
           deelnemersveld te zien.
         </p>
-      </div>
+      </Reveal>
       <AtletenZoek items={items} />
     </div>
   );

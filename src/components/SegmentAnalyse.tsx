@@ -111,7 +111,7 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
     <section className="space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
+          <h2 className="font-display text-lg text-[color:var(--color-vzc-blue-dark)]">
             Segmentanalyse
           </h2>
           <p className="text-sm text-[color:var(--color-vzc-muted)]">
@@ -119,18 +119,15 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
             referentie.
           </p>
         </div>
-        <div className="flex flex-wrap gap-1.5 rounded-full bg-[color:var(--color-vzc-blue)]/8 p-1">
+        <div className="segmented flex-wrap" role="tablist" aria-label="Vergelijking">
           {BASELINE_OPTIES.map((opt) => (
             <button
               key={opt.id}
               type="button"
+              role="tab"
+              aria-selected={baseline === opt.id}
+              data-active={baseline === opt.id}
               onClick={() => setBaseline(opt.id)}
-              className={
-                "rounded-full px-3 py-1 text-xs font-medium transition " +
-                (baseline === opt.id
-                  ? "bg-[color:var(--color-vzc-blue)] text-white shadow"
-                  : "text-[color:var(--color-vzc-blue-dark)] hover:bg-white")
-              }
               title={opt.uitleg}
             >
               {opt.label}
@@ -139,7 +136,7 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
         </div>
       </div>
 
-      <div className="vzc-card divide-y divide-[color:var(--color-vzc-blue)]/10">
+      <div className="vzc-card divide-y divide-[color:var(--color-vzc-line)]">
         {rijen.map((r) => {
           const eigenPct = r.eigen !== null ? Math.min(100, (r.eigen / maxTijd) * 100) : 0;
           const basePct =
@@ -152,7 +149,14 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
                   {SEGMENT_LABELS[r.segment]}
                 </div>
                 <div className="text-xs text-[color:var(--color-vzc-muted)]">
-                  {r.rank ? `Positie ${r.rank} van ${r.totaalInVeld}` : "geen positie"}
+                  {r.rank ? (
+                    <>
+                      Positie <span className="num">{r.rank}</span> van{" "}
+                      <span className="num">{r.totaalInVeld}</span>
+                    </>
+                  ) : (
+                    "geen positie"
+                  )}
                 </div>
               </div>
               <div className="col-span-12 sm:col-span-6">
@@ -161,20 +165,25 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
                   <div className="fill-base" style={{ right: `${100 - basePct}%` }} />
                 </div>
                 <div className="mt-1 flex justify-between text-[11px] text-[color:var(--color-vzc-muted)]">
-                  <span>Eigen: {formatSec(r.eigen)}</span>
-                  <span>Referentie: {formatSec(r.baselineWaarde)}</span>
+                  <span>
+                    Eigen: <span className="num">{formatSec(r.eigen)}</span>
+                  </span>
+                  <span>
+                    Referentie: <span className="num">{formatSec(r.baselineWaarde)}</span>
+                  </span>
                 </div>
               </div>
               <div className="col-span-12 sm:col-span-4 text-right">
                 <div
-                  className={
-                    "text-lg font-semibold tabular-nums " +
-                    (r.verschil === null
-                      ? "text-[color:var(--color-vzc-muted)]"
-                      : sneller
-                        ? "text-emerald-600"
-                        : "text-[color:var(--color-vzc-red)]")
-                  }
+                  className="num text-lg font-semibold"
+                  style={{
+                    color:
+                      r.verschil === null
+                        ? "var(--color-vzc-muted)"
+                        : sneller
+                          ? "var(--color-pos)"
+                          : "var(--color-neg)",
+                  }}
                 >
                   {formatVerschil(r.verschil)}
                 </div>
@@ -195,12 +204,10 @@ export default function SegmentAnalyse({ atleet, alleInWedstrijd }: Props) {
               Totaal t.o.v. {BASELINE_OPTIES.find((o) => o.id === baseline)?.label.toLowerCase()}
             </span>
             <span
-              className={
-                "font-semibold tabular-nums " +
-                (totaalVerschil < 0
-                  ? "text-emerald-600"
-                  : "text-[color:var(--color-vzc-red)]")
-              }
+              className="num font-semibold"
+              style={{
+                color: totaalVerschil < 0 ? "var(--color-pos)" : "var(--color-neg)",
+              }}
             >
               {formatVerschil(totaalVerschil)}
             </span>

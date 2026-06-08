@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatSeconden, formatVerschil } from "@/lib/data";
+import Reveal from "@/components/ui/Reveal";
 import type { WedstrijdVolledig, AtleetUitslag } from "@/lib/types";
 
 export default function GapToWinner({ wedstrijd }: { wedstrijd: WedstrijdVolledig }) {
@@ -19,14 +20,15 @@ export default function GapToWinner({ wedstrijd }: { wedstrijd: WedstrijdVolledi
   const maxGap = finishers[finishers.length - 1].totaal - winnaarTijd;
 
   return (
-    <section className="space-y-3">
+    <Reveal as="section" className="space-y-4">
       <div>
-        <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
+        <span className="eyebrow">Eindtijd-verschil</span>
+        <h2 className="font-display mt-1 text-2xl text-[color:var(--color-vzc-blue-dark)]">
           Tijdverschil met de winnaar
         </h2>
-        <p className="text-xs text-[color:var(--color-vzc-muted)]">
-          Eindtijd-verschil per atleet ten opzichte van {finishers[0].atleet.naam} (
-          {formatSeconden(winnaarTijd)}). VZC-atleten in geel.
+        <p className="mt-1.5 max-w-xl text-xs text-[color:var(--color-vzc-muted)]">
+          Verschil in eindtijd per atleet ten opzichte van {finishers[0].atleet.naam} (
+          <span className="num">{formatSeconden(winnaarTijd)}</span>). VZC-atleten met gele spine.
         </p>
       </div>
 
@@ -35,14 +37,21 @@ export default function GapToWinner({ wedstrijd }: { wedstrijd: WedstrijdVolledi
           const gap = totaal - winnaarTijd;
           const pct = maxGap > 0 ? (gap / maxGap) * 100 : 0;
           const positie = idx + 1;
+          const leider = positie === 1;
           return (
             <div
               key={atleet.atleetSlug}
               className={"gap-row" + (atleet.isVzc ? " vzc" : "")}
             >
-              <span className="text-xs font-semibold tabular-nums text-[color:var(--color-vzc-ink-soft)]">
-                {positie}
-              </span>
+              {leider ? (
+                <span className="leader-ring num text-xs font-bold text-[color:var(--color-vzc-blue-dark)]">
+                  1
+                </span>
+              ) : (
+                <span className="num text-xs font-semibold text-[color:var(--color-vzc-ink-soft)]">
+                  {positie}
+                </span>
+              )}
               <Link
                 href={`/atleet/${atleet.atleetSlug}`}
                 className="truncate font-medium text-[color:var(--color-vzc-ink)] hover:text-[color:var(--color-vzc-blue)] hover:underline"
@@ -56,8 +65,14 @@ export default function GapToWinner({ wedstrijd }: { wedstrijd: WedstrijdVolledi
                   style={{ width: gap === 0 ? "100%" : `${Math.max(2, pct)}%` }}
                 />
               </span>
-              <span className="text-right tabular-nums text-[color:var(--color-vzc-ink-soft)]">
-                {gap === 0 ? formatSeconden(totaal) : formatVerschil(gap)}
+              <span className="num text-right">
+                {gap === 0 ? (
+                  <span className="text-[color:var(--color-vzc-blue-dark)]">
+                    {formatSeconden(totaal)}
+                  </span>
+                ) : (
+                  <span className="text-[color:var(--color-neg)]">{formatVerschil(gap)}</span>
+                )}
               </span>
             </div>
           );
@@ -66,13 +81,10 @@ export default function GapToWinner({ wedstrijd }: { wedstrijd: WedstrijdVolledi
 
       {dnf.length > 0 ? (
         <p className="text-xs text-[color:var(--color-vzc-muted)]">
-          Niet gefinisht ({dnf.length}):{" "}
-          {dnf
-            .map((u) => (u.isVzc ? `${u.naam} (VZC)` : u.naam))
-            .join(", ")}
-          .
+          Niet gefinisht (<span className="num">{dnf.length}</span>):{" "}
+          {dnf.map((u) => (u.isVzc ? `${u.naam} (VZC)` : u.naam)).join(", ")}.
         </p>
       ) : null}
-    </section>
+    </Reveal>
   );
 }

@@ -8,7 +8,7 @@
     "poule": "Noord",
     "geslacht": "mannen",
     "vzc_teams": [
-      "VZC 2"
+      "VZC 2 - Veenendaal"
     ],
     "teamformat": {
       "type": "som_top_n",
@@ -150,7 +150,7 @@
       "rank": 11,
       "bib": "228",
       "naam": "Rens van Beek",
-      "club": "VZC 2",
+      "club": "VZC 2 - Veenendaal",
       "splits": {
         "swim_split": "00:19:59",
         "t1_cumulatief": "00:21:33",
@@ -267,7 +267,7 @@
       "rank": 20,
       "bib": "225",
       "naam": "Martijn Kornet",
-      "club": "VZC 2",
+      "club": "VZC 2 - Veenendaal",
       "splits": {
         "swim_split": "00:20:02",
         "t1_cumulatief": "00:22:05",
@@ -280,7 +280,7 @@
       "rank": 21,
       "bib": "226",
       "naam": "Frank Janssen",
-      "club": "VZC 2",
+      "club": "VZC 2 - Veenendaal",
       "splits": {
         "swim_split": "00:22:25",
         "t1_cumulatief": "00:23:54",
@@ -345,7 +345,7 @@
       "rank": 26,
       "bib": "227",
       "naam": "Tom De Visser",
-      "club": "VZC 2",
+      "club": "VZC 2 - Veenendaal",
       "splits": {
         "swim_split": "00:22:52",
         "t1_cumulatief": "00:24:09",

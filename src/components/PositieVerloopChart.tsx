@@ -173,10 +173,11 @@ export default function PositieVerloopChart({
     <section className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-[color:var(--color-vzc-blue-dark)]">
-            Positie-verloop door de race
+          <span className="eyebrow">Door de race</span>
+          <h2 className="font-display mt-1 text-2xl text-[color:var(--color-vzc-blue-dark)]">
+            Positie-verloop
           </h2>
-          <p className="text-xs text-[color:var(--color-vzc-muted)]">
+          <p className="mt-1.5 text-xs text-[color:var(--color-vzc-muted)]">
             Selecteer wie je in de grafiek wilt zien. VZC-atleten staan altijd uitgelicht.
           </p>
         </div>
@@ -199,7 +200,7 @@ export default function PositieVerloopChart({
           </span>
         </summary>
 
-        <div className="space-y-3 border-t border-[color:var(--color-vzc-blue)]/10 px-4 py-3">
+        <div className="space-y-3 border-t border-[color:var(--color-vzc-line)] px-4 py-3">
           <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
@@ -227,7 +228,7 @@ export default function PositieVerloopChart({
               value={zoekTerm}
               onChange={(e) => setZoekTerm(e.target.value)}
               placeholder="Zoek atleet of club…"
-              className="ml-auto w-full max-w-xs rounded-full border border-[color:var(--color-vzc-blue)]/15 bg-white px-3 py-1 text-sm placeholder:text-[color:var(--color-vzc-muted)] focus:border-[color:var(--color-vzc-blue)] focus:outline-none"
+              className="ml-auto w-full max-w-xs rounded-full border border-[color:var(--color-vzc-line)] bg-[color:var(--color-vzc-paper)] px-3 py-1 text-sm placeholder:text-[color:var(--color-vzc-muted)] focus:border-[color:var(--color-vzc-blue)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-vzc-blue)]/50 focus-visible:ring-offset-1"
             />
           </div>
 
@@ -272,7 +273,7 @@ export default function PositieVerloopChart({
                         onChange={() => toggleExtra(a.atleetSlug)}
                         className="h-3.5 w-3.5 accent-[color:var(--color-vzc-blue-dark)]"
                       />
-                      <span className="w-10 shrink-0 text-xs font-semibold tabular-nums text-[color:var(--color-vzc-ink-soft)]">
+                      <span className="num w-10 shrink-0 text-xs font-semibold text-[color:var(--color-vzc-ink-soft)]">
                         {rangText}
                       </span>
                       <span className="truncate text-[color:var(--color-vzc-ink)]">
@@ -314,8 +315,7 @@ export default function PositieVerloopChart({
                 y1={yFor(pos)}
                 x2={width - padR + 16}
                 y2={yFor(pos)}
-                stroke="var(--color-vzc-blue)"
-                strokeOpacity={0.08}
+                stroke="var(--color-vzc-line)"
                 strokeWidth={1}
               />
               <text
@@ -325,6 +325,7 @@ export default function PositieVerloopChart({
                 dominantBaseline="middle"
                 fontSize={11}
                 fill="var(--color-vzc-muted)"
+                style={{ fontFamily: "var(--font-mono)", fontVariantNumeric: "tabular-nums" }}
               >
                 #{pos}
               </text>
@@ -338,8 +339,8 @@ export default function PositieVerloopChart({
                 y1={padT}
                 x2={xFor(i)}
                 y2={padT + innerH}
-                stroke="var(--color-vzc-blue)"
-                strokeOpacity={0.06}
+                stroke="var(--color-vzc-line)"
+                strokeOpacity={0.7}
                 strokeWidth={1}
               />
               <text
