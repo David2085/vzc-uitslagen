@@ -27,6 +27,7 @@ Voorbeeld: `2026-04-26_arnhem_2e-divisie_mannen.json`.
 | `vzc_teams` | string[] | ja | Lijst clubnamen die in deze uitslag als VZC-team gelden, bijvoorbeeld `["VZC 3"]` of `["VZC Veenendaal"]`. Hiermee weet de site welke namen op de teamcompetitie-rekening van VZC vallen.
 | `teamformat` | object \| afwezig | nee | Bepaalt hoe de teamtijd per ploeg wordt afgeleid uit de individuele uitslagen. Zonder dit veld toont de website geen teamuitslag-blok. Zie tabel hieronder. |
 | `puntenschema` | string | nee | Key naar een puntenschema in `src/lib/data.ts` (`PUNTEN_SCHEMAS`). Default `"ntb_standaard"`. Bepaalt hoeveel competitiepunten een teamrank krijgt. |
+| `afstanden` | object \| afwezig | nee | Werkelijke afstanden waarmee de tempo's worden berekend: `{ "zwem_m": 700, "fiets_km": 20, "loop_km": 5 }`. Zonder dit veld gebruikt de site de standaard-lookup op het `afstand`-label (`AFSTAND_DISTANCES` in `src/lib/data.ts`: 1/8e (Sprint) = 500/20/5, OD = 1500/40/10, Super Sprint = 400/10/2.5). Zet dit veld wanneer de organisatie afwijkt van de standaard (bv. Groningen 2026: 700 m zwemmen). Via het converter-script: `--zwem-m`, `--fiets-km`, `--loop-km` (alle drie samen). |
 
 ### Veld `teamformat`
 

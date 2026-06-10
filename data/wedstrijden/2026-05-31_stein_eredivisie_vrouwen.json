@@ -13,6 +13,11 @@
     "teamformat": {
       "type": "som_top_n",
       "n": 3
+    },
+    "afstanden": {
+      "zwem_m": 750,
+      "fiets_km": 20,
+      "loop_km": 5
     }
   },
   "uitslagen": [
