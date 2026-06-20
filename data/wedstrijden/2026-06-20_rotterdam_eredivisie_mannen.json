@@ -25,7 +25,7 @@
       "rank": 1,
       "bib": "166",
       "naam": "Jesse Cuijpers",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:18:23",
         "t1_cumulatief": "00:19:54",
@@ -51,7 +51,7 @@
       "rank": 3,
       "bib": "164",
       "naam": "Dorian Horsten",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:18:19",
         "t1_cumulatief": "00:19:53",
@@ -90,7 +90,7 @@
       "rank": 6,
       "bib": "162",
       "naam": "Dieter Boeye",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:18:41",
         "t1_cumulatief": "00:20:06",
@@ -155,7 +155,7 @@
       "rank": 11,
       "bib": "170",
       "naam": "Hartwig De Smedt",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:18:25",
         "t1_cumulatief": "00:20:01",
@@ -194,7 +194,7 @@
       "rank": 14,
       "bib": "165",
       "naam": "Pim Bakker",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:20:06",
         "t1_cumulatief": "00:21:35",
@@ -558,7 +558,7 @@
       "rank": 42,
       "bib": "169",
       "naam": "Niels van der Meer",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:21:46",
         "t1_cumulatief": "00:23:34",
@@ -584,7 +584,7 @@
       "rank": 44,
       "bib": "171",
       "naam": "Senne Dedapper",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:21:02",
         "t1_cumulatief": "00:22:40",
@@ -636,7 +636,7 @@
       "rank": 48,
       "bib": "160",
       "naam": "Ismar Klomp",
-      "club": null,
+      "club": "",
       "splits": {
         "swim_split": "00:24:03",
         "t1_cumulatief": "00:26:29",

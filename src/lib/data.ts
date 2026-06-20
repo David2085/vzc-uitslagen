@@ -180,7 +180,8 @@ function laadAlleBestanden(): { slug: string; data: WedstrijdBestand }[] {
 }
 
 function isVzcUitslag(club: string, vzcTeams: string[]): boolean {
-  const c = club.trim().toLowerCase();
+  const c = (club ?? "").trim().toLowerCase();
+  if (!c) return false;
   return vzcTeams.some((t) => t.trim().toLowerCase() === c);
 }
 
@@ -485,6 +486,9 @@ export function teamuitslagVoorWedstrijd(
 
   const perClub = new Map<string, AtleetUitslag[]>();
   for (const u of w.uitslagen) {
+    // Atleten zonder ploeg (bv. NK-individuelen) tellen niet mee in het
+    // team-klassement; ze blijven wel zichtbaar in de individuele uitslag.
+    if (!u.club || !u.club.trim()) continue;
     const lijst = perClub.get(u.club) ?? [];
     lijst.push(u);
     perClub.set(u.club, lijst);
