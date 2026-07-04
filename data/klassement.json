@@ -1,6 +1,6 @@
 {
   "bron": "https://teamcompetities.nl/tussenstand/",
-  "bijgewerkt": "07-06-2026 19:44",
+  "bijgewerkt": "04-07-2026 13:14",
   "poules": [
     {
       "divisie": "1e divisie",
@@ -22,9 +22,9 @@
         },
         {
           "label": "4/7 Holten",
-          "gereden": false,
+          "gereden": true,
           "isTtt": false,
-          "wedstrijdSlug": null
+          "wedstrijdSlug": "2026-07-04_holten_1e-divisie-noord_mannen"
         },
         {
           "label": "30/8 Klazienaveen",
@@ -43,8 +43,8 @@
         {
           "club": "Triteam Groningen 2",
           "isVzc": false,
-          "totaalPlaats": 3,
-          "totaalSom": 24,
+          "totaalPlaats": 4,
+          "totaalSom": 40,
           "perRace": [
             {
               "plaats": 1,
@@ -54,26 +54,10 @@
               "plaats": 2,
               "som": 24
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "AV Impala – Drachten",
-          "isVzc": false,
-          "totaalPlaats": 4,
-          "totaalSom": 16,
-          "perRace": [
-            {
-              "plaats": 3,
-              "som": null
-            },
             {
               "plaats": 1,
               "som": 16
             },
-            null,
             null,
             null
           ]
@@ -81,8 +65,8 @@
         {
           "club": "Hellas 3 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 5,
-          "totaalSom": 41,
+          "totaalPlaats": 7,
+          "totaalSom": 68,
           "perRace": [
             {
               "plaats": 2,
@@ -92,102 +76,32 @@
               "plaats": 3,
               "som": 41
             },
-            null,
+            {
+              "plaats": 2,
+              "som": 27
+            },
             null,
             null
           ]
         },
         {
-          "club": "Aquapoldro – Apeldoorn",
+          "club": "AV Impala – Drachten",
           "isVzc": false,
           "totaalPlaats": 11,
-          "totaalSom": 59,
+          "totaalSom": 94,
           "perRace": [
             {
-              "plaats": 5,
+              "plaats": 3,
               "som": null
             },
             {
-              "plaats": 6,
-              "som": 59
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Triteam Groningen 3",
-          "isVzc": false,
-          "totaalPlaats": 15,
-          "totaalSom": 96,
-          "perRace": [
-            {
-              "plaats": 6,
-              "som": null
+              "plaats": 1,
+              "som": 16
             },
             {
-              "plaats": 9,
-              "som": 96
+              "plaats": 7,
+              "som": 78
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Triathlon Team Twente – Enschede",
-          "isVzc": false,
-          "totaalPlaats": 16,
-          "totaalSom": 84,
-          "perRace": [
-            {
-              "plaats": 8,
-              "som": null
-            },
-            {
-              "plaats": 8,
-              "som": 84
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "VZC 2 – Veenendaal",
-          "isVzc": true,
-          "totaalPlaats": 17,
-          "totaalSom": 52,
-          "perRace": [
-            {
-              "plaats": 13,
-              "som": null
-            },
-            {
-              "plaats": 4,
-              "som": 52
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Argo – Wierden",
-          "isVzc": false,
-          "totaalPlaats": 17,
-          "totaalSom": 54,
-          "perRace": [
-            {
-              "plaats": 12,
-              "som": null
-            },
-            {
-              "plaats": 5,
-              "som": 54
-            },
-            null,
             null,
             null
           ]
@@ -195,8 +109,8 @@
         {
           "club": "Rogelli / TriMates 2 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 17,
-          "totaalSom": 97,
+          "totaalPlaats": 20,
+          "totaalSom": 156,
           "perRace": [
             {
               "plaats": 7,
@@ -206,64 +120,98 @@
               "plaats": 10,
               "som": 97
             },
-            null,
+            {
+              "plaats": 3,
+              "som": 59
+            },
             null,
             null
           ]
         },
         {
-          "club": "De Dolfijn 3 – Amsterdam",
-          "isVzc": false,
-          "totaalPlaats": 18,
-          "totaalSom": 82,
+          "club": "VZC 2 – Veenendaal",
+          "isVzc": true,
+          "totaalPlaats": 21,
+          "totaalSom": 115,
           "perRace": [
             {
-              "plaats": 11,
+              "plaats": 13,
               "som": null
             },
-            {
-              "plaats": 7,
-              "som": 82
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Woest Sport / TTvW Hof van Twente – Goor",
-          "isVzc": false,
-          "totaalPlaats": 18,
-          "totaalSom": 133,
-          "perRace": [
             {
               "plaats": 4,
-              "som": null
+              "som": 52
             },
             {
-              "plaats": 14,
-              "som": 133
+              "plaats": 4,
+              "som": 63
             },
-            null,
             null,
             null
           ]
         },
         {
-          "club": "Van der Voort Groep / Team Oude Veer – Breezand",
+          "club": "Triathlon Team Twente – Enschede",
           "isVzc": false,
-          "totaalPlaats": 21,
-          "totaalSom": 102,
+          "totaalPlaats": 22,
+          "totaalSom": 152,
           "perRace": [
             {
-              "plaats": 10,
+              "plaats": 8,
               "som": null
             },
             {
-              "plaats": 11,
-              "som": 102
+              "plaats": 8,
+              "som": 84
+            },
+            {
+              "plaats": 6,
+              "som": 68
             },
             null,
+            null
+          ]
+        },
+        {
+          "club": "Aquapoldro – Apeldoorn",
+          "isVzc": false,
+          "totaalPlaats": 22,
+          "totaalSom": 153,
+          "perRace": [
+            {
+              "plaats": 5,
+              "som": null
+            },
+            {
+              "plaats": 6,
+              "som": 59
+            },
+            {
+              "plaats": 11,
+              "som": 94
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Triteam Groningen 3",
+          "isVzc": false,
+          "totaalPlaats": 24,
+          "totaalSom": 179,
+          "perRace": [
+            {
+              "plaats": 6,
+              "som": null
+            },
+            {
+              "plaats": 9,
+              "som": 96
+            },
+            {
+              "plaats": 9,
+              "som": 83
+            },
             null,
             null
           ]
@@ -271,8 +219,8 @@
         {
           "club": "AV Impala 2 – Drachten",
           "isVzc": false,
-          "totaalPlaats": 26,
-          "totaalSom": 116,
+          "totaalPlaats": 31,
+          "totaalSom": 180,
           "perRace": [
             {
               "plaats": 14,
@@ -282,7 +230,76 @@
               "plaats": 12,
               "som": 116
             },
+            {
+              "plaats": 5,
+              "som": 64
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "De Dolfijn 3 – Amsterdam",
+          "isVzc": false,
+          "totaalPlaats": 31,
+          "totaalSom": 180,
+          "perRace": [
+            {
+              "plaats": 11,
+              "som": null
+            },
+            {
+              "plaats": 7,
+              "som": 82
+            },
+            {
+              "plaats": 13,
+              "som": 98
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Van der Voort Groep / Team Oude Veer – Breezand",
+          "isVzc": false,
+          "totaalPlaats": 33,
+          "totaalSom": 197,
+          "perRace": [
+            {
+              "plaats": 10,
+              "som": null
+            },
+            {
+              "plaats": 11,
+              "som": 102
+            },
+            {
+              "plaats": 12,
+              "som": 95
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Argo – Wierden",
+          "isVzc": false,
+          "totaalPlaats": 34,
+          "totaalSom": 204,
+          "perRace": [
+            {
+              "plaats": 12,
+              "som": null
+            },
+            {
+              "plaats": 5,
+              "som": 54
+            },
+            {
+              "plaats": 17,
+              "som": 150
+            },
             null,
             null
           ]
@@ -290,8 +307,8 @@
         {
           "club": "Hellas 4 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 26,
-          "totaalSom": 149,
+          "totaalPlaats": 34,
+          "totaalSom": 229,
           "perRace": [
             {
               "plaats": 9,
@@ -301,64 +318,32 @@
               "plaats": 17,
               "som": 149
             },
-            null,
+            {
+              "plaats": 8,
+              "som": 80
+            },
             null,
             null
           ]
         },
         {
-          "club": "Utrechtse Heuvelrug Triathlon Team – Doorn",
+          "club": "Woest Sport / TTvW Hof van Twente – Goor",
           "isVzc": false,
-          "totaalPlaats": 31,
-          "totaalSom": 141,
+          "totaalPlaats": 34,
+          "totaalSom": 280,
           "perRace": [
             {
-              "plaats": 16,
+              "plaats": 4,
               "som": null
             },
             {
-              "plaats": 15,
-              "som": 141
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "RZC – Renkum",
-          "isVzc": false,
-          "totaalPlaats": 32,
-          "totaalSom": 122,
-          "perRace": [
-            {
-              "plaats": 19,
-              "som": null
-            },
-            {
-              "plaats": 13,
-              "som": 122
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Triathlon Team Twente 2 – Enschede",
-          "isVzc": false,
-          "totaalPlaats": 33,
-          "totaalSom": 144,
-          "perRace": [
-            {
-              "plaats": 17,
-              "som": null
+              "plaats": 14,
+              "som": 133
             },
             {
               "plaats": 16,
-              "som": 144
+              "som": 147
             },
-            null,
             null,
             null
           ]
@@ -366,8 +351,8 @@
         {
           "club": "De Dolfijn 4 – Amsterdam",
           "isVzc": false,
-          "totaalPlaats": 33,
-          "totaalSom": 173,
+          "totaalPlaats": 43,
+          "totaalSom": 266,
           "perRace": [
             {
               "plaats": 15,
@@ -377,7 +362,76 @@
               "plaats": 18,
               "som": 173
             },
+            {
+              "plaats": 10,
+              "som": 93
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "RZC – Renkum",
+          "isVzc": false,
+          "totaalPlaats": 46,
+          "totaalSom": 235,
+          "perRace": [
+            {
+              "plaats": 19,
+              "som": null
+            },
+            {
+              "plaats": 13,
+              "som": 122
+            },
+            {
+              "plaats": 14,
+              "som": 113
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Triathlon Team Twente 2 – Enschede",
+          "isVzc": false,
+          "totaalPlaats": 48,
+          "totaalSom": 277,
+          "perRace": [
+            {
+              "plaats": 17,
+              "som": null
+            },
+            {
+              "plaats": 16,
+              "som": 144
+            },
+            {
+              "plaats": 15,
+              "som": 133
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Utrechtse Heuvelrug Triathlon Team – Doorn",
+          "isVzc": false,
+          "totaalPlaats": 50,
+          "totaalSom": 307,
+          "perRace": [
+            {
+              "plaats": 16,
+              "som": null
+            },
+            {
+              "plaats": 15,
+              "som": 141
+            },
+            {
+              "plaats": 19,
+              "som": 166
+            },
             null,
             null
           ]
@@ -385,8 +439,8 @@
         {
           "club": "Triathlonteam De Boks – Klazienaveen",
           "isVzc": false,
-          "totaalPlaats": 37,
-          "totaalSom": 184,
+          "totaalPlaats": 55,
+          "totaalSom": 335,
           "perRace": [
             {
               "plaats": 18,
@@ -396,7 +450,10 @@
               "plaats": 19,
               "som": 184
             },
-            null,
+            {
+              "plaats": 18,
+              "som": 151
+            },
             null,
             null
           ]
@@ -423,9 +480,9 @@
         },
         {
           "label": "4/7 Holten",
-          "gereden": false,
+          "gereden": true,
           "isTtt": false,
-          "wedstrijdSlug": null
+          "wedstrijdSlug": "2026-07-04_holten_1e-divisie-noord_vrouwen"
         },
         {
           "label": "30/8 Klazienaveen",
@@ -444,8 +501,8 @@
         {
           "club": "Hellas 3 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 2,
-          "totaalSom": 23,
+          "totaalPlaats": 3,
+          "totaalSom": 44,
           "perRace": [
             {
               "plaats": 1,
@@ -455,7 +512,10 @@
               "plaats": 1,
               "som": 23
             },
-            null,
+            {
+              "plaats": 1,
+              "som": 21
+            },
             null,
             null
           ]
@@ -463,8 +523,8 @@
         {
           "club": "Hellas 4 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 4,
-          "totaalSom": 36,
+          "totaalPlaats": 7,
+          "totaalSom": 84,
           "perRace": [
             {
               "plaats": 2,
@@ -474,7 +534,10 @@
               "plaats": 2,
               "som": 36
             },
-            null,
+            {
+              "plaats": 3,
+              "som": 48
+            },
             null,
             null
           ]
@@ -482,8 +545,8 @@
         {
           "club": "Triteam Groningen 2",
           "isVzc": false,
-          "totaalPlaats": 6,
-          "totaalSom": 53,
+          "totaalPlaats": 8,
+          "totaalSom": 101,
           "perRace": [
             {
               "plaats": 3,
@@ -493,45 +556,10 @@
               "plaats": 3,
               "som": 53
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "VZC 2 – Veenendaal",
-          "isVzc": true,
-          "totaalPlaats": 9,
-          "totaalSom": 53,
-          "perRace": [
             {
-              "plaats": 5,
-              "som": null
+              "plaats": 2,
+              "som": 48
             },
-            {
-              "plaats": 4,
-              "som": 53
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "De Dolfijn 2 – Amsterdam",
-          "isVzc": false,
-          "totaalPlaats": 12,
-          "totaalSom": 82,
-          "perRace": [
-            {
-              "plaats": 4,
-              "som": null
-            },
-            {
-              "plaats": 8,
-              "som": 82
-            },
-            null,
             null,
             null
           ]
@@ -539,8 +567,8 @@
         {
           "club": "TV Almere 2",
           "isVzc": false,
-          "totaalPlaats": 13,
-          "totaalSom": 73,
+          "totaalPlaats": 18,
+          "totaalSom": 129,
           "perRace": [
             {
               "plaats": 7,
@@ -550,7 +578,54 @@
               "plaats": 6,
               "som": 73
             },
+            {
+              "plaats": 5,
+              "som": 56
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "De Dolfijn 2 – Amsterdam",
+          "isVzc": false,
+          "totaalPlaats": 19,
+          "totaalSom": 142,
+          "perRace": [
+            {
+              "plaats": 4,
+              "som": null
+            },
+            {
+              "plaats": 8,
+              "som": 82
+            },
+            {
+              "plaats": 7,
+              "som": 60
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "VZC 2 – Veenendaal",
+          "isVzc": true,
+          "totaalPlaats": 19,
+          "totaalSom": 142,
+          "perRace": [
+            {
+              "plaats": 5,
+              "som": null
+            },
+            {
+              "plaats": 4,
+              "som": 53
+            },
+            {
+              "plaats": 10,
+              "som": 89
+            },
             null,
             null
           ]
@@ -558,8 +633,8 @@
         {
           "club": "AV Impala – Drachten",
           "isVzc": false,
-          "totaalPlaats": 15,
-          "totaalSom": 88,
+          "totaalPlaats": 19,
+          "totaalSom": 144,
           "perRace": [
             {
               "plaats": 6,
@@ -569,7 +644,10 @@
               "plaats": 9,
               "som": 88
             },
-            null,
+            {
+              "plaats": 4,
+              "som": 56
+            },
             null,
             null
           ]
@@ -577,8 +655,8 @@
         {
           "club": "RZC – Renkum",
           "isVzc": false,
-          "totaalPlaats": 18,
-          "totaalSom": 64,
+          "totaalPlaats": 24,
+          "totaalSom": 122,
           "perRace": [
             {
               "plaats": 13,
@@ -588,7 +666,10 @@
               "plaats": 5,
               "som": 64
             },
-            null,
+            {
+              "plaats": 6,
+              "som": 58
+            },
             null,
             null
           ]
@@ -596,8 +677,8 @@
         {
           "club": "Triathlon Team Twente 2 – Enschede",
           "isVzc": false,
-          "totaalPlaats": 19,
-          "totaalSom": 94,
+          "totaalPlaats": 28,
+          "totaalSom": 176,
           "perRace": [
             {
               "plaats": 8,
@@ -607,45 +688,10 @@
               "plaats": 11,
               "som": 94
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "De Dolfijn 3 – Amsterdam",
-          "isVzc": false,
-          "totaalPlaats": 21,
-          "totaalSom": 99,
-          "perRace": [
             {
               "plaats": 9,
-              "som": null
+              "som": 82
             },
-            {
-              "plaats": 12,
-              "som": 99
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Argo – Wierden",
-          "isVzc": false,
-          "totaalPlaats": 22,
-          "totaalSom": 90,
-          "perRace": [
-            {
-              "plaats": 12,
-              "som": null
-            },
-            {
-              "plaats": 10,
-              "som": 90
-            },
-            null,
             null,
             null
           ]
@@ -653,8 +699,8 @@
         {
           "club": "Triathlonteam De Boks – Klazienaveen",
           "isVzc": false,
-          "totaalPlaats": 23,
-          "totaalSom": 77,
+          "totaalPlaats": 31,
+          "totaalSom": 158,
           "perRace": [
             {
               "plaats": 16,
@@ -664,7 +710,54 @@
               "plaats": 7,
               "som": 77
             },
+            {
+              "plaats": 8,
+              "som": 81
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "Argo – Wierden",
+          "isVzc": false,
+          "totaalPlaats": 34,
+          "totaalSom": 186,
+          "perRace": [
+            {
+              "plaats": 12,
+              "som": null
+            },
+            {
+              "plaats": 10,
+              "som": 90
+            },
+            {
+              "plaats": 12,
+              "som": 96
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "De Dolfijn 3 – Amsterdam",
+          "isVzc": false,
+          "totaalPlaats": 34,
+          "totaalSom": 195,
+          "perRace": [
+            {
+              "plaats": 9,
+              "som": null
+            },
+            {
+              "plaats": 12,
+              "som": 99
+            },
+            {
+              "plaats": 13,
+              "som": 96
+            },
             null,
             null
           ]
@@ -672,8 +765,8 @@
         {
           "club": "Ter Steege / Triathlon Team Holten",
           "isVzc": false,
-          "totaalPlaats": 24,
-          "totaalSom": 103,
+          "totaalPlaats": 35,
+          "totaalSom": 193,
           "perRace": [
             {
               "plaats": 11,
@@ -683,7 +776,10 @@
               "plaats": 13,
               "som": 103
             },
-            null,
+            {
+              "plaats": 11,
+              "som": 90
+            },
             null,
             null
           ]
@@ -691,8 +787,8 @@
         {
           "club": "Triteam Groningen 3",
           "isVzc": false,
-          "totaalPlaats": 24,
-          "totaalSom": 106,
+          "totaalPlaats": 38,
+          "totaalSom": 224,
           "perRace": [
             {
               "plaats": 10,
@@ -702,7 +798,10 @@
               "plaats": 14,
               "som": 106
             },
-            null,
+            {
+              "plaats": 14,
+              "som": 118
+            },
             null,
             null
           ]
@@ -710,8 +809,8 @@
         {
           "club": "Triade – Zwolle",
           "isVzc": false,
-          "totaalPlaats": 30,
-          "totaalSom": 121,
+          "totaalPlaats": 45,
+          "totaalSom": 253,
           "perRace": [
             {
               "plaats": 15,
@@ -721,7 +820,10 @@
               "plaats": 15,
               "som": 121
             },
-            null,
+            {
+              "plaats": 15,
+              "som": 132
+            },
             null,
             null
           ]
@@ -729,8 +831,8 @@
         {
           "club": "Woest Sport / TTvW Hof van Twente – Goor",
           "isVzc": false,
-          "totaalPlaats": 30,
-          "totaalSom": 132,
+          "totaalPlaats": 46,
+          "totaalSom": 283,
           "perRace": [
             {
               "plaats": 14,
@@ -740,7 +842,10 @@
               "plaats": 16,
               "som": 132
             },
-            null,
+            {
+              "plaats": 16,
+              "som": 151
+            },
             null,
             null
           ]
@@ -760,7 +865,7 @@
           "wedstrijdSlug": "2026-04-26_arnhem_2e-divisie-noord_mannen"
         },
         {
-          "label": "27/6 Zeewolde",
+          "label": "27/6 Zeewolde (afgelast)",
           "gereden": false,
           "isTtt": false,
           "wedstrijdSlug": null
@@ -1088,7 +1193,7 @@
           "wedstrijdSlug": "2026-04-26_arnhem_2e-divisie-noord_vrouwen"
         },
         {
-          "label": "27/6 Zeewolde",
+          "label": "27/6 Zeewolde (afgelast)",
           "gereden": false,
           "isTtt": false,
           "wedstrijdSlug": null
@@ -1502,7 +1607,7 @@
           "wedstrijdSlug": "2026-06-07_groningen_3e-divisie-noord_mannen"
         },
         {
-          "label": "27/6 Zeewolde",
+          "label": "27/6 Zeewolde (afgelast)",
           "gereden": false,
           "isTtt": false,
           "wedstrijdSlug": null
@@ -2018,12 +2123,12 @@
         },
         {
           "label": "20/6 Rotterdam",
-          "gereden": false,
+          "gereden": true,
           "isTtt": false,
-          "wedstrijdSlug": null
+          "wedstrijdSlug": "2026-06-20_rotterdam_eredivisie_mannen"
         },
         {
-          "label": "28/6 Wijchen",
+          "label": "28/6 Wijchen (afgelast)",
           "gereden": false,
           "isTtt": false,
           "wedstrijdSlug": null
@@ -2039,8 +2144,8 @@
         {
           "club": "VZC – Veenendaal",
           "isVzc": true,
-          "totaalPlaats": 2,
-          "totaalSom": 26,
+          "totaalPlaats": 3,
+          "totaalSom": 43,
           "perRace": [
             {
               "plaats": 1,
@@ -2050,26 +2155,10 @@
               "plaats": 1,
               "som": 13
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Hellas – Utrecht",
-          "isVzc": false,
-          "totaalPlaats": 6,
-          "totaalSom": 62,
-          "perRace": [
             {
-              "plaats": 3,
-              "som": 36
+              "plaats": 1,
+              "som": 17
             },
-            {
-              "plaats": 3,
-              "som": 26
-            },
-            null,
             null,
             null
           ]
@@ -2077,8 +2166,8 @@
         {
           "club": "Rogelli / TriMates – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 6,
-          "totaalSom": 73,
+          "totaalPlaats": 9,
+          "totaalSom": 107,
           "perRace": [
             {
               "plaats": 2,
@@ -2088,7 +2177,10 @@
               "plaats": 4,
               "som": 55
             },
-            null,
+            {
+              "plaats": 3,
+              "som": 34
+            },
             null,
             null
           ]
@@ -2096,8 +2188,8 @@
         {
           "club": "Triteam Groningen",
           "isVzc": false,
-          "totaalPlaats": 7,
-          "totaalSom": 87,
+          "totaalPlaats": 11,
+          "totaalSom": 132,
           "perRace": [
             {
               "plaats": 5,
@@ -2107,7 +2199,32 @@
               "plaats": 2,
               "som": 23
             },
+            {
+              "plaats": 4,
+              "som": 45
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "Hellas – Utrecht",
+          "isVzc": false,
+          "totaalPlaats": 13,
+          "totaalSom": 111,
+          "perRace": [
+            {
+              "plaats": 3,
+              "som": 36
+            },
+            {
+              "plaats": 3,
+              "som": 26
+            },
+            {
+              "plaats": 7,
+              "som": 49
+            },
             null,
             null
           ]
@@ -2115,8 +2232,8 @@
         {
           "club": "Hellas 2 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 9,
-          "totaalSom": 97,
+          "totaalPlaats": 18,
+          "totaalSom": 172,
           "perRace": [
             {
               "plaats": 4,
@@ -2126,64 +2243,10 @@
               "plaats": 5,
               "som": 59
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "TV Almere / TAA",
-          "isVzc": false,
-          "totaalPlaats": 14,
-          "totaalSom": 142,
-          "perRace": [
-            {
-              "plaats": 6,
-              "som": 67
-            },
-            {
-              "plaats": 8,
-              "som": 75
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Perform / Triathlon Team Tilburg",
-          "isVzc": false,
-          "totaalPlaats": 15,
-          "totaalSom": 140,
-          "perRace": [
-            {
-              "plaats": 8,
-              "som": 68
-            },
-            {
-              "plaats": 7,
-              "som": 72
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "Metaglas / Trihalis – Tiel",
-          "isVzc": false,
-          "totaalPlaats": 15,
-          "totaalSom": 141,
-          "perRace": [
             {
               "plaats": 9,
               "som": 75
             },
-            {
-              "plaats": 6,
-              "som": 66
-            },
-            null,
             null,
             null
           ]
@@ -2191,8 +2254,8 @@
         {
           "club": "De Dolfijn – Amsterdam",
           "isVzc": false,
-          "totaalPlaats": 16,
-          "totaalSom": 147,
+          "totaalPlaats": 18,
+          "totaalSom": 176,
           "perRace": [
             {
               "plaats": 7,
@@ -2202,7 +2265,76 @@
               "plaats": 9,
               "som": 76
             },
+            {
+              "plaats": 2,
+              "som": 29
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "Metaglas / Trihalis – Tiel",
+          "isVzc": false,
+          "totaalPlaats": 20,
+          "totaalSom": 186,
+          "perRace": [
+            {
+              "plaats": 9,
+              "som": 75
+            },
+            {
+              "plaats": 6,
+              "som": 66
+            },
+            {
+              "plaats": 5,
+              "som": 45
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "TV Almere / TAA",
+          "isVzc": false,
+          "totaalPlaats": 20,
+          "totaalSom": 189,
+          "perRace": [
+            {
+              "plaats": 6,
+              "som": 67
+            },
+            {
+              "plaats": 8,
+              "som": 75
+            },
+            {
+              "plaats": 6,
+              "som": 47
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "club": "Perform / Triathlon Team Tilburg",
+          "isVzc": false,
+          "totaalPlaats": 23,
+          "totaalSom": 206,
+          "perRace": [
+            {
+              "plaats": 8,
+              "som": 68
+            },
+            {
+              "plaats": 7,
+              "som": 72
+            },
+            {
+              "plaats": 8,
+              "som": 66
+            },
             null,
             null
           ]
@@ -2210,8 +2342,8 @@
         {
           "club": "De Dolfijn 2 – Amsterdam",
           "isVzc": false,
-          "totaalPlaats": 21,
-          "totaalSom": 205,
+          "totaalPlaats": 31,
+          "totaalSom": 303,
           "perRace": [
             {
               "plaats": 10,
@@ -2221,7 +2353,10 @@
               "plaats": 11,
               "som": 96
             },
-            null,
+            {
+              "plaats": 10,
+              "som": 98
+            },
             null,
             null
           ]
@@ -2229,8 +2364,8 @@
         {
           "club": "AV Triathlon – Amersfoort",
           "isVzc": false,
-          "totaalPlaats": 22,
-          "totaalSom": 199,
+          "totaalPlaats": 34,
+          "totaalSom": 321,
           "perRace": [
             {
               "plaats": 12,
@@ -2240,7 +2375,10 @@
               "plaats": 10,
               "som": 83
             },
-            null,
+            {
+              "plaats": 12,
+              "som": 122
+            },
             null,
             null
           ]
@@ -2248,8 +2386,8 @@
         {
           "club": "TV Energie – Barendrecht",
           "isVzc": false,
-          "totaalPlaats": 24,
-          "totaalSom": 236,
+          "totaalPlaats": 35,
+          "totaalSom": 353,
           "perRace": [
             {
               "plaats": 11,
@@ -2259,7 +2397,10 @@
               "plaats": 13,
               "som": 115
             },
-            null,
+            {
+              "plaats": 11,
+              "som": 117
+            },
             null,
             null
           ]
@@ -2267,8 +2408,8 @@
         {
           "club": "TV Breda",
           "isVzc": false,
-          "totaalPlaats": 25,
-          "totaalSom": 208,
+          "totaalPlaats": 38,
+          "totaalSom": 332,
           "perRace": [
             {
               "plaats": 13,
@@ -2278,7 +2419,10 @@
               "plaats": 12,
               "som": 97
             },
-            null,
+            {
+              "plaats": 13,
+              "som": 124
+            },
             null,
             null
           ]
@@ -2305,12 +2449,12 @@
         },
         {
           "label": "20/6 Rotterdam",
-          "gereden": false,
+          "gereden": true,
           "isTtt": false,
-          "wedstrijdSlug": null
+          "wedstrijdSlug": "2026-06-20_rotterdam_eredivisie_vrouwen"
         },
         {
-          "label": "28/6 Wijchen",
+          "label": "28/6 Wijchen (afgelast)",
           "gereden": false,
           "isTtt": false,
           "wedstrijdSlug": null
@@ -2324,29 +2468,10 @@
       ],
       "teams": [
         {
-          "club": "TV Almere / TAA",
-          "isVzc": false,
-          "totaalPlaats": 3,
-          "totaalSom": 39,
-          "perRace": [
-            {
-              "plaats": 2,
-              "som": 18
-            },
-            {
-              "plaats": 1,
-              "som": 21
-            },
-            null,
-            null,
-            null
-          ]
-        },
-        {
           "club": "Kijani – Beesd",
           "isVzc": false,
-          "totaalPlaats": 3,
-          "totaalSom": 53,
+          "totaalPlaats": 4,
+          "totaalSom": 66,
           "perRace": [
             {
               "plaats": 1,
@@ -2356,7 +2481,32 @@
               "plaats": 2,
               "som": 34
             },
+            {
+              "plaats": 1,
+              "som": 13
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "TV Almere / TAA",
+          "isVzc": false,
+          "totaalPlaats": 8,
+          "totaalSom": 91,
+          "perRace": [
+            {
+              "plaats": 2,
+              "som": 18
+            },
+            {
+              "plaats": 1,
+              "som": 21
+            },
+            {
+              "plaats": 5,
+              "som": 52
+            },
             null,
             null
           ]
@@ -2364,8 +2514,8 @@
         {
           "club": "Hellas – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 7,
-          "totaalSom": 74,
+          "totaalPlaats": 9,
+          "totaalSom": 116,
           "perRace": [
             {
               "plaats": 3,
@@ -2375,7 +2525,10 @@
               "plaats": 4,
               "som": 38
             },
-            null,
+            {
+              "plaats": 2,
+              "som": 42
+            },
             null,
             null
           ]
@@ -2383,8 +2536,8 @@
         {
           "club": "TVS 90 – Spijkenisse",
           "isVzc": false,
-          "totaalPlaats": 9,
-          "totaalSom": 82,
+          "totaalPlaats": 12,
+          "totaalSom": 125,
           "perRace": [
             {
               "plaats": 6,
@@ -2394,7 +2547,10 @@
               "plaats": 3,
               "som": 37
             },
-            null,
+            {
+              "plaats": 3,
+              "som": 43
+            },
             null,
             null
           ]
@@ -2402,8 +2558,8 @@
         {
           "club": "Triathlon Team Twente – Enschede",
           "isVzc": false,
-          "totaalPlaats": 9,
-          "totaalSom": 88,
+          "totaalPlaats": 15,
+          "totaalSom": 141,
           "perRace": [
             {
               "plaats": 4,
@@ -2413,26 +2569,10 @@
               "plaats": 5,
               "som": 38
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "club": "AV Triathlon – Amersfoort",
-          "isVzc": false,
-          "totaalPlaats": 12,
-          "totaalSom": 113,
-          "perRace": [
             {
-              "plaats": 5,
-              "som": 54
+              "plaats": 6,
+              "som": 53
             },
-            {
-              "plaats": 7,
-              "som": 59
-            },
-            null,
             null,
             null
           ]
@@ -2440,8 +2580,8 @@
         {
           "club": "Watersley / TC Maastricht",
           "isVzc": false,
-          "totaalPlaats": 16,
-          "totaalSom": 121,
+          "totaalPlaats": 20,
+          "totaalSom": 165,
           "perRace": [
             {
               "plaats": 10,
@@ -2451,26 +2591,32 @@
               "plaats": 6,
               "som": 38
             },
-            null,
+            {
+              "plaats": 4,
+              "som": 44
+            },
             null,
             null
           ]
         },
         {
-          "club": "De Dolfijn – Amsterdam",
+          "club": "AV Triathlon – Amersfoort",
           "isVzc": false,
-          "totaalPlaats": 16,
-          "totaalSom": 159,
+          "totaalPlaats": 21,
+          "totaalSom": 189,
           "perRace": [
             {
-              "plaats": 8,
-              "som": 98
+              "plaats": 5,
+              "som": 54
             },
             {
-              "plaats": 8,
-              "som": 61
+              "plaats": 7,
+              "som": 59
             },
-            null,
+            {
+              "plaats": 9,
+              "som": 76
+            },
             null,
             null
           ]
@@ -2478,8 +2624,8 @@
         {
           "club": "Hellas 2 – Utrecht",
           "isVzc": false,
-          "totaalPlaats": 17,
-          "totaalSom": 175,
+          "totaalPlaats": 24,
+          "totaalSom": 231,
           "perRace": [
             {
               "plaats": 7,
@@ -2489,26 +2635,32 @@
               "plaats": 10,
               "som": 94
             },
-            null,
+            {
+              "plaats": 7,
+              "som": 56
+            },
             null,
             null
           ]
         },
         {
-          "club": "VZC – Veenendaal",
-          "isVzc": true,
-          "totaalPlaats": 20,
-          "totaalSom": 197,
+          "club": "De Dolfijn – Amsterdam",
+          "isVzc": false,
+          "totaalPlaats": 24,
+          "totaalSom": 233,
           "perRace": [
             {
-              "plaats": 9,
-              "som": 93
+              "plaats": 8,
+              "som": 98
             },
             {
-              "plaats": 11,
-              "som": 104
+              "plaats": 8,
+              "som": 61
             },
-            null,
+            {
+              "plaats": 8,
+              "som": 74
+            },
             null,
             null
           ]
@@ -2516,8 +2668,8 @@
         {
           "club": "Aquapoldro – Apeldoorn",
           "isVzc": false,
-          "totaalPlaats": 21,
-          "totaalSom": 177,
+          "totaalPlaats": 31,
+          "totaalSom": 260,
           "perRace": [
             {
               "plaats": 12,
@@ -2527,7 +2679,32 @@
               "plaats": 9,
               "som": 90
             },
+            {
+              "plaats": 10,
+              "som": 83
+            },
             null,
+            null
+          ]
+        },
+        {
+          "club": "VZC – Veenendaal",
+          "isVzc": true,
+          "totaalPlaats": 31,
+          "totaalSom": 291,
+          "perRace": [
+            {
+              "plaats": 9,
+              "som": 93
+            },
+            {
+              "plaats": 11,
+              "som": 104
+            },
+            {
+              "plaats": 11,
+              "som": 94
+            },
             null,
             null
           ]
@@ -2535,8 +2712,8 @@
         {
           "club": "Triteam Groningen",
           "isVzc": false,
-          "totaalPlaats": 23,
-          "totaalSom": 196,
+          "totaalPlaats": 35,
+          "totaalSom": 292,
           "perRace": [
             {
               "plaats": 11,
@@ -2546,7 +2723,10 @@
               "plaats": 12,
               "som": 108
             },
-            null,
+            {
+              "plaats": 12,
+              "som": 96
+            },
             null,
             null
           ]
@@ -2554,8 +2734,8 @@
         {
           "club": "M-View+ / Trihalis – Tiel",
           "isVzc": false,
-          "totaalPlaats": 26,
-          "totaalSom": 278,
+          "totaalPlaats": 39,
+          "totaalSom": 406,
           "perRace": [
             {
               "plaats": 13,
@@ -2565,7 +2745,10 @@
               "plaats": 13,
               "som": 137
             },
-            null,
+            {
+              "plaats": 13,
+              "som": 128
+            },
             null,
             null
           ]

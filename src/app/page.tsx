@@ -12,7 +12,8 @@ import {
 // Nog te rijden wedstrijden komen uit de officiële tussenstand (race-kolommen
 // zonder uitslag). Geen runtime-datum nodig: een geüploade wedstrijd is per
 // definitie gereden, de rest is toekomst — volledig deterministisch.
-type ToekomstRace = { datum: string; locatie: string; label: string };
+// Afgelaste races herkent de tussenstand zelf via "(afgelast)" in het label.
+type ToekomstRace = { datum: string; locatie: string; label: string; afgelast: boolean };
 
 function toekomstigeRaces(): ToekomstRace[] {
   const k = officieelKlassement();
@@ -27,8 +28,9 @@ function toekomstigeRaces(): ToekomstRace[] {
       const maand = m[2].padStart(2, "0");
       const locatie = m[3].trim();
       const datum = `2026-${maand}-${dag}`;
+      const afgelast = /afgelast/i.test(r.label);
       const sleutel = `${datum}|${locatie.toLowerCase()}`;
-      if (!map.has(sleutel)) map.set(sleutel, { datum, locatie, label: r.label });
+      if (!map.has(sleutel)) map.set(sleutel, { datum, locatie, label: r.label, afgelast });
     }
   }
   return Array.from(map.values()).sort((a, b) => a.datum.localeCompare(b.datum));
@@ -40,22 +42,33 @@ export default function Home() {
   const aantalVzcAtleten = alleAtleten().filter((a) => a.isVzc).length;
 
   const aantalGereden = wedstrijden.length;
-  const toekomst = toekomstigeRaces();
-  const totaalGepland = aantalGereden + toekomst.length;
+  // Dubbel-guard: een net geüploade wedstrijd kan in de officiële tussenstand
+  // nog als niet-gereden staan; match op datum + locatie voorkomt een dubbele
+  // vermelding in de tijdlijn.
+  const geredenSleutels = new Set(
+    wedstrijden.map((w) => `${w.wedstrijd.datum}|${w.wedstrijd.locatie.toLowerCase()}`),
+  );
+  const toekomst = toekomstigeRaces().filter(
+    (t) => !geredenSleutels.has(`${t.datum}|${t.locatie.toLowerCase()}`),
+  );
+  const afgelast = toekomst.filter((t) => t.afgelast);
+  const nogTeRijden = toekomst.filter((t) => !t.afgelast);
+  const totaalGepland = aantalGereden + nogTeRijden.length;
 
-  const eerstvolgende = toekomst[0] ?? null;
+  const eerstvolgende = nogTeRijden[0] ?? null;
   const laatste = wedstrijden[0] ?? null;
 
-  // Gecombineerde tijdlijn (gereden + nog te rijden), chronologisch.
+  // Tijdlijn: gereden + afgelast bovenaan (nieuwste eerst), daarna de nog te
+  // rijden races (eerstvolgende eerst).
   type TijdlijnItem = {
-    type: "gereden" | "toekomst";
+    type: "gereden" | "toekomst" | "afgelast";
     datum: string;
     slug: string | null;
     locatie: string;
     naam: string;
     vzcAantal: number;
   };
-  const tijdlijn: TijdlijnItem[] = [
+  const verleden: TijdlijnItem[] = [
     ...wedstrijden.map((w) => ({
       type: "gereden" as const,
       datum: w.wedstrijd.datum,
@@ -64,7 +77,18 @@ export default function Home() {
       naam: w.wedstrijd.naam,
       vzcAantal: w.uitslagen.filter((u) => u.isVzc).length,
     })),
-    ...toekomst.map((t) => ({
+    ...afgelast.map((t) => ({
+      type: "afgelast" as const,
+      datum: t.datum,
+      slug: null,
+      locatie: t.locatie,
+      naam: "Deze wedstrijd is niet doorgegaan",
+      vzcAantal: 0,
+    })),
+  ].sort((a, b) => b.datum.localeCompare(a.datum));
+  const tijdlijn: TijdlijnItem[] = [
+    ...verleden,
+    ...nogTeRijden.map((t) => ({
       type: "toekomst" as const,
       datum: t.datum,
       slug: null,
@@ -72,7 +96,7 @@ export default function Home() {
       naam: t.label,
       vzcAantal: 0,
     })),
-  ].sort((a, b) => a.datum.localeCompare(b.datum));
+  ];
 
   return (
     <div className="space-y-16">
@@ -262,12 +286,16 @@ export default function Home() {
           <ol className="relative ml-[7px] border-l border-[color:var(--color-vzc-line)]">
             {tijdlijn.map((w, i) => {
               const gereden = w.type === "gereden";
+              const isAfgelast = w.type === "afgelast";
               return (
                 <li key={`${w.datum}-${w.slug ?? i}`} className="relative pl-7">
                   <span
                     aria-hidden
-                    className="absolute -left-[7px] top-5 h-3.5 w-3.5 rounded-full border-2 border-[color:var(--color-vzc-blue)]"
+                    className="absolute -left-[7px] top-5 h-3.5 w-3.5 rounded-full border-2"
                     style={{
+                      borderColor: isAfgelast
+                        ? "var(--color-vzc-ink-faint)"
+                        : "var(--color-vzc-blue)",
                       backgroundColor: gereden
                         ? "var(--color-vzc-blue)"
                         : "var(--color-vzc-cream)",
@@ -299,6 +327,19 @@ export default function Home() {
                         </span>
                       </span>
                     </Link>
+                  ) : isAfgelast ? (
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-[color:var(--color-vzc-line)] py-4">
+                      <span className="num w-24 shrink-0 text-sm text-[color:var(--color-vzc-ink-faint)]">
+                        {dagMaand(w.datum)}
+                      </span>
+                      <span className="font-display text-lg text-[color:var(--color-vzc-ink-faint)] line-through decoration-1">
+                        {w.locatie}
+                      </span>
+                      <span className="text-sm text-[color:var(--color-vzc-muted)]">
+                        {w.naam}
+                      </span>
+                      <span className="vzc-pill-warn vzc-pill ml-auto">Afgelast</span>
+                    </div>
                   ) : (
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-[color:var(--color-vzc-line)] py-4">
                       <span className="num w-24 shrink-0 text-sm text-[color:var(--color-vzc-ink-faint)]">
