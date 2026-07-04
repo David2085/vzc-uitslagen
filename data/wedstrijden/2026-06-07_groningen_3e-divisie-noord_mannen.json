@@ -16,8 +16,8 @@
     },
     "afstanden": {
       "zwem_m": 700,
-      "fiets_km": 20,
-      "loop_km": 5
+      "fiets_km": 22.4,
+      "loop_km": 5.0
     }
   },
   "uitslagen": [
